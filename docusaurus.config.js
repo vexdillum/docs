@@ -6,7 +6,7 @@ const darkCodeTheme = require('prism-react-renderer').themes.dracula;
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Lost Last Docs',
-  tagline: 'Единая документация frontend и backend',
+  tagline: 'Руководство по работе с проектом Lost Last',
   url: 'https://vexdillum.github.io',
   baseUrl: '/docs/',
   onBrokenLinks: 'throw',
@@ -46,10 +46,10 @@ const config = {
       navbar: {
         title: 'Lost Last Docs',
         items: [
-          {to: '/intro', label: 'Документация', position: 'left'},
-          {to: '/frontend/', label: 'Frontend', position: 'left'},
-          {to: '/backend/', label: 'Backend', position: 'left'},
-          {to: '/api/swagger', label: 'Swagger', position: 'left'}
+          {to: '/guide/', label: 'Руководство', position: 'left'},
+          {to: '/contribution/', label: 'Contribution', position: 'left'},
+          {to: '/architecture/', label: 'Архитектура', position: 'left'},
+          {to: '/api/swagger', label: 'API', position: 'left'}
         ]
       },
       footer: {
@@ -58,9 +58,10 @@ const config = {
           {
             title: 'Разделы',
             items: [
-              {label: 'Frontend', to: '/frontend/'},
-              {label: 'Backend', to: '/backend/'},
-              {label: 'Swagger', to: '/api/swagger'}
+              {label: 'Руководство', to: '/guide/'},
+              {label: 'Contribution', to: '/contribution/'},
+              {label: 'Архитектура', to: '/architecture/'},
+              {label: 'API', to: '/api/swagger'}
             ]
           }
         ],

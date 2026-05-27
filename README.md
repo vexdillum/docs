@@ -1,14 +1,13 @@
 # Lost Last Docs Site
 
-Единый Docusaurus-портал для документации frontend и backend.
+Единый Docusaurus-портал для руководства по работе с проектом Lost Last.
 
 ## Что входит
 
-- README frontend и backend.
-- CONTRIBUTING frontend и backend.
-- Compodoc frontend.
-- Backend reference, сгенерированный из `.go` файлов без `go list`.
-- Swagger UI и OpenAPI JSON.
+- руководство по запуску, проверкам, сборке и публикации;
+- единый contribution guide;
+- архитектурный раздел с frontend и backend автодокументацией;
+- Swagger UI и OpenAPI JSON в разделе API.
 
 ## Обновление исходной автодокументации
 

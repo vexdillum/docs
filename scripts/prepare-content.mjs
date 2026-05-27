@@ -32,17 +32,6 @@ async function copyTree(from, to) {
   return true;
 }
 
-async function copyMarkdown(from, to, title) {
-  if (!(await exists(from))) {
-    return false;
-  }
-
-  const raw = await fs.readFile(from, 'utf8');
-  await fs.mkdir(path.dirname(to), {recursive: true});
-  await fs.writeFile(to, `---\ntitle: ${title}\n---\n\n${raw}`);
-  return true;
-}
-
 function escapeTableCell(value) {
   return String(value || '')
     .replace(/\r?\n/g, ' ')
@@ -341,7 +330,7 @@ function renderDeclarationGroup(title, declarations) {
     return '';
   }
 
-  let body = `\n### ${title}\n\n| Name | Signature | Описание | Файл |\n| --- | --- | --- | --- |\n`;
+  let body = `\n### ${title}\n\n| Имя | Сигнатура | Описание | Файл |\n| --- | --- | --- | --- |\n`;
   for (const declaration of declarations) {
     body += `| \`${escapeTableCell(declaration.name)}\` | \`${escapeTableCell(declaration.signature)}\` | ${escapeTableCell(declaration.doc) || '-'} | \`${escapeTableCell(declaration.file)}\` |\n`;
   }
@@ -349,13 +338,14 @@ function renderDeclarationGroup(title, declarations) {
 }
 
 async function writeBackendReference() {
-  const target = path.join(docsOut, 'backend', 'reference.md');
+  const target = path.join(docsOut, 'architecture', 'backend-reference.md');
+  await fs.mkdir(path.dirname(target), {recursive: true});
   const packages = await collectGoPackages(backendRoot);
 
-  let body = `---\ntitle: Backend Reference\n---\n\n# Backend Reference\n\n`;
+  let body = `---\ntitle: Backend автодокументация\n---\n\n# Backend автодокументация\n\n`;
   body += 'Этот раздел генерируется напрямую из `.go` файлов backend-проекта и не использует `go list`, `go doc` или установленный Go toolchain.\n\n';
   body += `Найдено пакетов: **${packages.length}**.\n\n`;
-  body += '## Packages\n\n| Package | Exported API |\n| --- | --- |\n';
+  body += '## Пакеты\n\n| Пакет | Экспортируемый API |\n| --- | --- |\n';
 
   for (const pkg of packages) {
     body += `| \`${escapeTableCell(pkg.relativeDir)}\` | ${pkg.declarations.length} |\n`;
@@ -368,11 +358,11 @@ async function writeBackendReference() {
     }
 
     const byKind = (kind) => pkg.declarations.filter((declaration) => declaration.kind === kind);
-    body += renderDeclarationGroup('Types', byKind('type'));
-    body += renderDeclarationGroup('Functions', byKind('function'));
-    body += renderDeclarationGroup('Methods', byKind('method'));
-    body += renderDeclarationGroup('Constants', byKind('const'));
-    body += renderDeclarationGroup('Variables', byKind('var'));
+    body += renderDeclarationGroup('Типы', byKind('type'));
+    body += renderDeclarationGroup('Функции', byKind('function'));
+    body += renderDeclarationGroup('Методы', byKind('method'));
+    body += renderDeclarationGroup('Константы', byKind('const'));
+    body += renderDeclarationGroup('Переменные', byKind('var'));
 
     if (pkg.declarations.length === 0) {
       body += 'Экспортируемый API не найден.\n';
@@ -389,37 +379,6 @@ async function main() {
   await fs.mkdir(staticGeneratedOut, {recursive: true});
 
   await copyTree(contentRoot, docsOut);
-  await fs.rm(path.join(docsOut, 'backend', 'contributing-fallback.md'), {
-    force: true
-  });
-
-  await copyMarkdown(
-    path.join(frontendRoot, 'README.md'),
-    path.join(docsOut, 'frontend', 'readme.md'),
-    'Frontend README'
-  );
-  await copyMarkdown(
-    path.join(frontendRoot, 'CONTRIBUTING.md'),
-    path.join(docsOut, 'frontend', 'contributing.md'),
-    'Frontend Contribution'
-  );
-  await copyMarkdown(
-    path.join(backendRoot, 'README.md'),
-    path.join(docsOut, 'backend', 'readme.md'),
-    'Backend README'
-  );
-
-  const backendContributingCopied = await copyMarkdown(
-    path.join(backendRoot, 'CONTRIBUTING.md'),
-    path.join(docsOut, 'backend', 'contributing.md'),
-    'Backend Contribution'
-  );
-  if (!backendContributingCopied) {
-    await fs.copyFile(
-      path.join(contentRoot, 'backend', 'contributing-fallback.md'),
-      path.join(docsOut, 'backend', 'contributing.md')
-    );
-  }
 
   await copyTree(
     path.join(backendRoot, 'docs', 'images'),

@@ -2,9 +2,11 @@
 title: Swagger
 ---
 
-# Swagger / OpenAPI
+# API
 
-Backend генерирует OpenAPI JSON и Swagger UI командой:
+Раздел содержит Swagger UI и OpenAPI JSON для backend API.
+
+Backend генерирует эти файлы командой:
 
 ```bash
 go run ./cmd/docs
@@ -16,12 +18,12 @@ go run ./cmd/docs
 - `generated/swagger/swagger.html`
 
 <p>
-  <a className="button button--primary" href="/generated/swagger/" target="_blank">
+  <a className="button button--primary" href="/docs/generated/swagger/" target="_blank">
     Открыть Swagger UI в новой вкладке
   </a>
-  <a className="button button--secondary margin-left--sm" href="/generated/swagger/openapi.json" target="_blank">
+  <a className="button button--secondary margin-left--sm" href="/docs/generated/swagger/openapi.json" target="_blank">
     Открыть OpenAPI JSON
   </a>
 </p>
 
-<iframe className="embeddedDocsFrame" src="/generated/swagger/" title="Swagger UI"></iframe>
+<iframe className="embeddedDocsFrame" src="/docs/generated/swagger/" title="Swagger UI"></iframe>
