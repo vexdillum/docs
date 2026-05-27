@@ -30,9 +30,9 @@ export default function Home() {
             <h2>Contribution</h2>
             <p>Правила веток, issues, коммитов, merge requests, проверок и секретов.</p>
           </Link>
-          <Link className="homepageTile" to="/architecture/">
+          <Link className="homepageTile" to="/architecture/backend">
             <h2>Архитектура</h2>
-            <p>Бэкенд, фронтенд, TG bot и автогенерации для основных частей проекта.</p>
+            <p>Три архитектурные страницы: Backend, Frontend и TG bot.</p>
           </Link>
           <Link className="homepageTile" to="/api/swagger">
             <h2>API</h2>

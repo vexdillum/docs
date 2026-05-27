@@ -48,7 +48,7 @@ const config = {
         items: [
           {to: '/guide/', label: 'Руководство', position: 'left'},
           {to: '/contribution/', label: 'Contribution', position: 'left'},
-          {to: '/architecture/', label: 'Архитектура', position: 'left'},
+          {to: '/architecture/backend', label: 'Архитектура', position: 'left'},
           {to: '/api/swagger', label: 'API', position: 'left'}
         ]
       },
@@ -60,7 +60,7 @@ const config = {
             items: [
               {label: 'Руководство', to: '/guide/'},
               {label: 'Contribution', to: '/contribution/'},
-              {label: 'Архитектура', to: '/architecture/'},
+              {label: 'Архитектура', to: '/architecture/backend'},
               {label: 'API', to: '/api/swagger'}
             ]
           }

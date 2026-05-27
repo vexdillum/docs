@@ -32,6 +32,50 @@ async function copyTree(from, to) {
   return true;
 }
 
+function rewriteBackendDocLinks(raw) {
+  return raw
+    .replace(/\]\(\.\.\/CONTRIBUTING\.md\)/g, '](/contribution/)')
+    .replace(/\]\(\.\.\/README\.md\)/g, '](/guide/backend)')
+    .replace(/\[swagger\.html\]\(swagger\.html\)/g, '<a href="/docs/generated/swagger/" target="_blank">swagger.html</a>')
+    .replace(/\[openapi\.json\]\(openapi\.json\)/g, '<a href="/docs/generated/swagger/openapi.json" target="_blank">openapi.json</a>')
+    .replace(/\]\(backend\.md\)/g, '](overview.md)')
+    .replace(/\]\(architecture\.md\)/g, '](/architecture/backend)')
+    .replace(/\[compose\.yaml\]\(\.\.\/compose\.yaml\)/g, '`compose.yaml`')
+    .replace(/\[\.env\.example\]\(\.\.\/\.env\.example\)/g, '`.env.example`')
+    .replace(/\[\.gitlab-ci\.yml\]\(\.\.\/\.gitlab-ci\.yml\)/g, '`.gitlab-ci.yml`')
+    .replace(/\[\.golangci\.yml\]\(\.\.\/\.golangci\.yml\)/g, '`.golangci.yml`')
+    .replace(/\[patterns\.txt\]\(\.\.\/patterns\.txt\)/g, '`patterns.txt`');
+}
+
+async function copyBackendMarkdownDocs() {
+  const sourceDir = path.join(backendRoot, 'docs');
+  const targetDir = path.join(docsOut, 'backend');
+  const entries = await fs.readdir(sourceDir, {withFileTypes: true});
+  await fs.mkdir(targetDir, {recursive: true});
+
+  for (const entry of entries) {
+    if (!entry.isFile() || !entry.name.endsWith('.md')) {
+      continue;
+    }
+
+    const source = path.join(sourceDir, entry.name);
+    const raw = await fs.readFile(source, 'utf8');
+
+    if (entry.name === 'architecture.md') {
+      await fs.mkdir(path.join(docsOut, 'architecture'), {recursive: true});
+      await fs.writeFile(
+        path.join(docsOut, 'architecture', 'backend.md'),
+        rewriteBackendDocLinks(raw).replace(/^title:\s*.+$/m, 'title: Архитектура backend')
+      );
+      continue;
+    }
+
+    const targetName = entry.name === 'backend.md' ? 'overview.md' : entry.name;
+    const target = path.join(targetDir, targetName);
+    await fs.writeFile(target, rewriteBackendDocLinks(raw));
+  }
+}
+
 function escapeTableCell(value) {
   return String(value || '')
     .replace(/\r?\n/g, ' ')
@@ -338,7 +382,7 @@ function renderDeclarationGroup(title, declarations) {
 }
 
 async function writeBackendReference() {
-  const target = path.join(docsOut, 'architecture', 'backend-reference.md');
+  const target = path.join(docsOut, 'backend', 'reference.md');
   await fs.mkdir(path.dirname(target), {recursive: true});
   const packages = await collectGoPackages(backendRoot);
 
@@ -379,6 +423,7 @@ async function main() {
   await fs.mkdir(staticGeneratedOut, {recursive: true});
 
   await copyTree(contentRoot, docsOut);
+  await copyBackendMarkdownDocs();
 
   await copyTree(
     path.join(backendRoot, 'docs', 'images'),
