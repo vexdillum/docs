@@ -1,0 +1,328 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>ctfast documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+	   <link rel="stylesheet" href="./styles/style.css">
+        <link rel="stylesheet" href="./styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="./" class="navbar-brand">ctfast documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content contributing">
+                   <div class="content-data">
+
+
+
+
+<h1>En</h1>
+<h2>Contributing</h2>
+<p>This project uses GitLab Flow.</p>
+<h2>Branches</h2>
+<ul>
+<li><code>main</code>: stable release branch.</li>
+<li><code>dev</code>: integration branch for tested features.</li>
+<li><code>feature/&lt;issue-number&gt;-&lt;short-name&gt;</code>: new user-facing feature.</li>
+<li><code>fix/&lt;issue-number&gt;-&lt;short-name&gt;</code>: bug fix.</li>
+<li><code>test/&lt;issue-number&gt;-&lt;short-name&gt;</code>: test-only work.</li>
+<li><code>docs/&lt;issue-number&gt;-&lt;short-name&gt;</code>: documentation-only work.</li>
+<li><code>chore/&lt;issue-number&gt;-&lt;short-name&gt;</code>: tooling, config or cleanup.</li>
+</ul>
+<p>Examples:</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-text">feature/24-rating-page
+fix/31-auth-token-refresh
+test/42-team-page-coverage
+docs/45-deploy-guide</code></pre></div><p>Each active participant should have at least one assigned GitLab Issue and at
+least one working branch during the project.</p>
+<h2>Issues</h2>
+<p>Every GitLab Issue should contain:</p>
+<ul>
+<li>a clear title;</li>
+<li>a short description of the expected result;</li>
+<li>acceptance criteria;</li>
+<li>assignee;</li>
+<li>labels;</li>
+<li>due date;</li>
+<li>links to related merge requests.</li>
+</ul>
+<p>Close an issue only after the related merge request is merged.</p>
+<h2>Commits</h2>
+<p>Use small commits. One commit should describe one logical task.</p>
+<p>Commit message format:</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-text">#&lt;issue-number&gt; &lt;imperative action&gt;</code></pre></div><p>Examples:</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-text">#24 add rating page tests
+#31 fix auth token header
+#45 document GitLab Pages deployment</code></pre></div><p>Avoid messages such as <code>upd</code>, <code>fix</code>, <code>changes</code>, <code>final</code> or <code>hotfix</code> without
+context.</p>
+<h2>Merge Requests</h2>
+<p>Merge requests go into <code>dev</code> first. After integration testing, <code>dev</code> is merged
+into <code>main</code> for release.</p>
+<p>Before requesting review:</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">npm run lint
+npm run test:coverage
+npm run build</code></pre></div><p>The merge request description should include:</p>
+<ul>
+<li>linked issue;</li>
+<li>summary of changes;</li>
+<li>testing results;</li>
+<li>screenshots for visible UI changes;</li>
+<li>deployment notes if the change affects build or runtime configuration.</li>
+</ul>
+<h2>Review Rules</h2>
+<p>Reviewers check:</p>
+<ul>
+<li>whether the implementation matches the issue;</li>
+<li>whether tests cover the changed behavior;</li>
+<li>whether the UI still works in the browser;</li>
+<li>whether the branch has a clear name;</li>
+<li>whether commit messages reference issues.</li>
+</ul>
+<p>Do not merge if linting, tests or production build fail.</p>
+<h2>Release</h2>
+<p>Release flow:</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-text">feature/fix branch -&gt; merge request -&gt; dev -&gt; CI checks -&gt; main -&gt; GitLab Pages</code></pre></div><p>After a release, keep the GitLab Pages deployment available for at least 48
+hours and keep CI logs for technical defense evidence.</p>
+<h1>Ru</h1>
+<h2>Участие в разработке</h2>
+<p>Проект использует GitLab Flow.</p>
+<h2>Ветки</h2>
+<ul>
+<li><code>main</code>: стабильная release-ветка.</li>
+<li><code>dev</code>: интеграционная ветка для проверенных фич.</li>
+<li><code>feature/&lt;issue-number&gt;-&lt;short-name&gt;</code>: новая пользовательская функциональность.</li>
+<li><code>fix/&lt;issue-number&gt;-&lt;short-name&gt;</code>: исправление ошибки.</li>
+<li><code>test/&lt;issue-number&gt;-&lt;short-name&gt;</code>: изменения только в тестах.</li>
+<li><code>docs/&lt;issue-number&gt;-&lt;short-name&gt;</code>: изменения только в документации.</li>
+<li><code>chore/&lt;issue-number&gt;-&lt;short-name&gt;</code>: инструменты, конфигурация или cleanup.</li>
+</ul>
+<p>Примеры:</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-text">feature/24-rating-page
+fix/31-auth-token-refresh
+test/42-team-page-coverage
+docs/45-deploy-guide</code></pre></div><p>У каждого активного участника должна быть минимум одна назначенная GitLab Issue
+и минимум одна рабочая ветка за время проекта.</p>
+<h2>Issues</h2>
+<p>Каждая GitLab Issue должна содержать:</p>
+<ul>
+<li>понятный заголовок;</li>
+<li>краткое описание ожидаемого результата;</li>
+<li>критерии приёмки;</li>
+<li>исполнителя;</li>
+<li>labels;</li>
+<li>due date;</li>
+<li>ссылки на связанные merge requests.</li>
+</ul>
+<p>Закрывайте issue только после merge связанного merge request.</p>
+<h2>Коммиты</h2>
+<p>Делайте небольшие коммиты. Один коммит должен описывать одну логическую задачу.</p>
+<p>Формат сообщения коммита:</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-text">#&lt;issue-number&gt; &lt;imperative action&gt;</code></pre></div><p>Примеры:</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-text">#24 add rating page tests
+#31 fix auth token header
+#45 document GitLab Pages deployment</code></pre></div><p>Избегайте сообщений вроде <code>upd</code>, <code>fix</code>, <code>changes</code>, <code>final</code> или <code>hotfix</code> без
+контекста.</p>
+<h2>Merge Requests</h2>
+<p>Merge requests сначала вливаются в <code>dev</code>. После интеграционного тестирования
+<code>dev</code> вливается в <code>main</code> для релиза.</p>
+<p>Перед запросом review выполните:</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">npm run lint
+npm run test:coverage
+npm run build</code></pre></div><p>Описание merge request должно включать:</p>
+<ul>
+<li>связанную issue;</li>
+<li>краткое описание изменений;</li>
+<li>результаты тестирования;</li>
+<li>скриншоты для видимых UI-изменений;</li>
+<li>заметки по деплою, если изменение влияет на сборку или runtime-конфигурацию.</li>
+</ul>
+<h2>Правила review</h2>
+<p>Проверяющие смотрят:</p>
+<ul>
+<li>соответствует ли реализация issue;</li>
+<li>покрывают ли тесты изменённое поведение;</li>
+<li>работает ли UI в браузере;</li>
+<li>понятно ли названа ветка;</li>
+<li>ссылаются ли сообщения коммитов на issues.</li>
+</ul>
+<p>Не вливайте merge request, если linting, тесты или production-сборка падают.</p>
+<h2>Релиз</h2>
+<p>Порядок релиза:</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-text">feature/fix branch -&gt; merge request -&gt; dev -&gt; CI checks -&gt; main -&gt; GitLab Pages</code></pre></div><p>После релиза держите GitLab Pages deployment доступным минимум 48 часов и
+сохраните CI-логи как доказательство для технической защиты.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 0;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'contributing';
+            var COMPODOC_CURRENT_PAGE_URL = 'contributing.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="./js/libs/custom-elements.min.js"></script>
+       <script src="./js/libs/lit-html.js"></script>
+
+       <script src="./js/menu-wc.js" defer></script>
+       <script nomodule src="./js/menu-wc_es5.js" defer></script>
+
+       <script src="./js/libs/bootstrap-native.js"></script>
+
+       <script src="./js/libs/es6-shim.min.js"></script>
+       <script src="./js/libs/EventDispatcher.js"></script>
+       <script src="./js/libs/promise.min.js"></script>
+
+       <script src="./js/compodoc.js"></script>
+
+       <script src="./js/tabs.js"></script>
+       <script src="./js/menu.js"></script>
+       <script src="./js/libs/clipboard.min.js"></script>
+       <script src="./js/libs/prism.js"></script>
+       <script src="./js/sourceCode.js"></script>
+          <script src="./js/search/search.js"></script>
+          <script src="./js/search/lunr.min.js"></script>
+          <script src="./js/search/search-lunr.js"></script>
+          <script src="./js/search/search_index.js"></script>
+       <script src="./js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

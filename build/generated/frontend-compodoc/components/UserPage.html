@@ -1,0 +1,2841 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>ctfast documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">ctfast documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  UserPage</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/pages/user-page/user-page.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>AfterViewInit</code>
+                <code>OnChanges</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">providers</td>
+                <td class="col-md-9">
+                            <code>DatePipe</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-user-page</code></td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>ButtonModule</code>
+                            <code>RouterLink</code>
+                            <code>TranslocoDirective</code>
+                            <code>TagModule</code>
+                            <code>TableModule</code>
+                                <code><a href="../components/EditMeModal.html" target="_self" >EditMeModal</a></code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./user-page.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>../team-page/team-page.scss</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#datePipe" >datePipe</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#editMeModalOpen" >editMeModalOpen</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#isMyUser" >isMyUser</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#loading" >loading</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#location" >location</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#meApi" >meApi</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Protected</span>
+                                <a href="#memberCellTemplate" >memberCellTemplate</a>
+                            </li>
+                            <li>
+                                <a href="#members" >members</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#membersList" >membersList</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#myUser" >myUser</a>
+                            </li>
+                            <li>
+                                <a href="#solves" >solves</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#solvesList" >solvesList</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#team" >team</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#teamApi" >teamApi</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#transloco" >transloco</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#user" >user</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#usersApi" >usersApi</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#applyPageData" >applyPageData</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#buildMembersModel" >buildMembersModel</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#buildSolvesModel" >buildSolvesModel</a>
+                            </li>
+                            <li>
+                                <a href="#closeEditMeModal" >closeEditMeModal</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#fetchUserPageData" >fetchUserPageData</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#getTeamFromUser" >getTeamFromUser</a>
+                            </li>
+                            <li>
+                                <a href="#getUserBadges" >getUserBadges</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#getUserSeed" >getUserSeed</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#getUserSolves" >getUserSolves</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#getUserTeam" >getUserTeam</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#loadPage" >loadPage</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#mergeUserFromMembers" >mergeUserFromMembers</a>
+                            </li>
+                            <li>
+                                <a href="#ngAfterViewInit" >ngAfterViewInit</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnChanges" >ngOnChanges</a>
+                            </li>
+                            <li>
+                                <a href="#onMeUpdated" >onMeUpdated</a>
+                            </li>
+                            <li>
+                                <a href="#openEditMeModal" >openEditMeModal</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#rebuildTableModels" >rebuildTableModels</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#resetPageState" >resetPageState</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#resolveUserSeed" >resolveUserSeed</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#resolveUserTeamPageData" >resolveUserTeamPageData</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#user_id" >user_id</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+    <section data-compodoc="block-inputs">
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="user_id"></a>
+                        <b>user_id</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="72" class="link-to-prism">src/pages/user-page/user-page.ts:72</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="applyPageData"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>applyPageData</b></span>
+                        <a href="#applyPageData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>applyPageData(res: <a href="../interfaces/UserPageData.html" target="_self">UserPageData | null</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="186"
+                                    class="link-to-prism">src/pages/user-page/user-page.ts:186</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>res</td>
+                                            <td>
+                                                            <code><a href="../interfaces/UserPageData.html" target="_self" >UserPageData | null</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="buildMembersModel"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>buildMembersModel</b></span>
+                        <a href="#buildMembersModel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>buildMembersModel(members: <a href="../interfaces/UserInterface.html" target="_self">UserInterface[]</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="346"
+                                    class="link-to-prism">src/pages/user-page/user-page.ts:346</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>members</td>
+                                            <td>
+                                                            <code><a href="../interfaces/UserInterface.html" target="_self" >UserInterface[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="buildSolvesModel"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>buildSolvesModel</b></span>
+                        <a href="#buildSolvesModel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>buildSolvesModel(solves: <a href="../interfaces/TeamSolveInterface.html" target="_self">TeamSolveInterface[]</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="342"
+                                    class="link-to-prism">src/pages/user-page/user-page.ts:342</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>solves</td>
+                                            <td>
+                                                            <code><a href="../interfaces/TeamSolveInterface.html" target="_self" >TeamSolveInterface[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="closeEditMeModal"></a>
+                    <span class="name">
+                        <span ><b>closeEditMeModal</b></span>
+                        <a href="#closeEditMeModal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>closeEditMeModal()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="209"
+                                    class="link-to-prism">src/pages/user-page/user-page.ts:209</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fetchUserPageData"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>fetchUserPageData</b></span>
+                        <a href="#fetchUserPageData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>fetchUserPageData(userId: string | null)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="133"
+                                    class="link-to-prism">src/pages/user-page/user-page.ts:133</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>userId</td>
+                                            <td>
+                                                        <code>string | null</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/UserPageData.html" target="_self" >Observable&lt;UserPageData&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getTeamFromUser"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>getTeamFromUser</b></span>
+                        <a href="#getTeamFromUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getTeamFromUser(user: <a href="../interfaces/UserInterface.html" target="_self">UserInterface | null</a>, currentUser: <a href="../interfaces/UserInterface.html" target="_self">UserInterface | null</a>, currentTeam: <a href="../interfaces/TeamInterface.html" target="_self">TeamInterface | null</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="302"
+                                    class="link-to-prism">src/pages/user-page/user-page.ts:302</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>user</td>
+                                            <td>
+                                                            <code><a href="../interfaces/UserInterface.html" target="_self" >UserInterface | null</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>currentUser</td>
+                                            <td>
+                                                            <code><a href="../interfaces/UserInterface.html" target="_self" >UserInterface | null</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>currentTeam</td>
+                                            <td>
+                                                            <code><a href="../interfaces/TeamInterface.html" target="_self" >TeamInterface | null</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getUserBadges"></a>
+                    <span class="name">
+                        <span ><b>getUserBadges</b></span>
+                        <a href="#getUserBadges"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getUserBadges(user: <a href="../interfaces/UserInterface.html" target="_self">UserInterface</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="355"
+                                    class="link-to-prism">src/pages/user-page/user-page.ts:355</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>user</td>
+                                            <td>
+                                                            <code><a href="../interfaces/UserInterface.html" target="_self" >UserInterface</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/MemberBadge.html" target="_self" >MemberBadge[]</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getUserSeed"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>getUserSeed</b></span>
+                        <a href="#getUserSeed"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getUserSeed(userId: string | null)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="220"
+                                    class="link-to-prism">src/pages/user-page/user-page.ts:220</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>userId</td>
+                                            <td>
+                                                        <code>string | null</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/UserSeed.html" target="_self" >Observable&lt;UserSeed&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getUserSolves"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>getUserSolves</b></span>
+                        <a href="#getUserSolves"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getUserSolves(user: <a href="../interfaces/UserInterface.html" target="_self">UserInterface</a>, solves: <a href="../interfaces/TeamSolveInterface.html" target="_self">TeamSolveInterface[]</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="333"
+                                    class="link-to-prism">src/pages/user-page/user-page.ts:333</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>user</td>
+                                            <td>
+                                                            <code><a href="../interfaces/UserInterface.html" target="_self" >UserInterface</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>solves</td>
+                                            <td>
+                                                            <code><a href="../interfaces/TeamSolveInterface.html" target="_self" >TeamSolveInterface[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getUserTeam"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>getUserTeam</b></span>
+                        <a href="#getUserTeam"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getUserTeam(user: <a href="../interfaces/UserInterface.html" target="_self">UserInterface</a>, team: <a href="../interfaces/TeamInterface.html" target="_self">TeamInterface | null</a>, currentTeam: <a href="../interfaces/TeamInterface.html" target="_self">TeamInterface | null</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="262"
+                                    class="link-to-prism">src/pages/user-page/user-page.ts:262</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>user</td>
+                                            <td>
+                                                            <code><a href="../interfaces/UserInterface.html" target="_self" >UserInterface</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>team</td>
+                                            <td>
+                                                            <code><a href="../interfaces/TeamInterface.html" target="_self" >TeamInterface | null</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>currentTeam</td>
+                                            <td>
+                                                            <code><a href="../interfaces/TeamInterface.html" target="_self" >TeamInterface | null</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/UserTeam.html" target="_self" >Observable&lt;UserTeam&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadPage"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>loadPage</b></span>
+                        <a href="#loadPage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>loadPage()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="105"
+                                    class="link-to-prism">src/pages/user-page/user-page.ts:105</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mergeUserFromMembers"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>mergeUserFromMembers</b></span>
+                        <a href="#mergeUserFromMembers"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>mergeUserFromMembers(user: <a href="../interfaces/UserInterface.html" target="_self">UserInterface</a>, members: <a href="../interfaces/UserInterface.html" target="_self">UserInterface[]</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="322"
+                                    class="link-to-prism">src/pages/user-page/user-page.ts:322</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>user</td>
+                                            <td>
+                                                            <code><a href="../interfaces/UserInterface.html" target="_self" >UserInterface</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>members</td>
+                                            <td>
+                                                            <code><a href="../interfaces/UserInterface.html" target="_self" >UserInterface[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngAfterViewInit"></a>
+                    <span class="name">
+                        <span ><b>ngAfterViewInit</b></span>
+                        <a href="#ngAfterViewInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngAfterViewInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="95"
+                                    class="link-to-prism">src/pages/user-page/user-page.ts:95</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnChanges"></a>
+                    <span class="name">
+                        <span ><b>ngOnChanges</b></span>
+                        <a href="#ngOnChanges"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnChanges(changes: SimpleChanges)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="99"
+                                    class="link-to-prism">src/pages/user-page/user-page.ts:99</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>changes</td>
+                                            <td>
+                                                        <code>SimpleChanges</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onMeUpdated"></a>
+                    <span class="name">
+                        <span ><b>onMeUpdated</b></span>
+                        <a href="#onMeUpdated"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onMeUpdated(me: <a href="../interfaces/MeInterface.html" target="_self">MeInterface</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="213"
+                                    class="link-to-prism">src/pages/user-page/user-page.ts:213</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>me</td>
+                                            <td>
+                                                            <code><a href="../interfaces/MeInterface.html" target="_self" >MeInterface</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openEditMeModal"></a>
+                    <span class="name">
+                        <span ><b>openEditMeModal</b></span>
+                        <a href="#openEditMeModal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>openEditMeModal()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="201"
+                                    class="link-to-prism">src/pages/user-page/user-page.ts:201</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="rebuildTableModels"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>rebuildTableModels</b></span>
+                        <a href="#rebuildTableModels"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>rebuildTableModels()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="337"
+                                    class="link-to-prism">src/pages/user-page/user-page.ts:337</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resetPageState"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>resetPageState</b></span>
+                        <a href="#resetPageState"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>resetPageState()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="120"
+                                    class="link-to-prism">src/pages/user-page/user-page.ts:120</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resolveUserSeed"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>resolveUserSeed</b></span>
+                        <a href="#resolveUserSeed"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>resolveUserSeed(seed: <a href="../interfaces/UserSeed.html" target="_self">UserSeed</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="139"
+                                    class="link-to-prism">src/pages/user-page/user-page.ts:139</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>seed</td>
+                                            <td>
+                                                            <code><a href="../interfaces/UserSeed.html" target="_self" >UserSeed</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/UserPageData.html" target="_self" >Observable&lt;UserPageData&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resolveUserTeamPageData"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>resolveUserTeamPageData</b></span>
+                        <a href="#resolveUserTeamPageData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>resolveUserTeamPageData(selectedUser: <a href="../interfaces/UserInterface.html" target="_self">UserInterface</a>, userTeam: <a href="../interfaces/UserTeam.html" target="_self">UserTeam</a>, me: <a href="../interfaces/UserInterface.html" target="_self">UserInterface | null</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="157"
+                                    class="link-to-prism">src/pages/user-page/user-page.ts:157</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>selectedUser</td>
+                                            <td>
+                                                            <code><a href="../interfaces/UserInterface.html" target="_self" >UserInterface</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>userTeam</td>
+                                            <td>
+                                                            <code><a href="../interfaces/UserTeam.html" target="_self" >UserTeam</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>me</td>
+                                            <td>
+                                                            <code><a href="../interfaces/UserInterface.html" target="_self" >UserInterface | null</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/UserPageData.html" target="_self" >Observable&lt;UserPageData&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="datePipe"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>datePipe</b></span>
+                        <a href="#datePipe"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(DatePipe)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="79" class="link-to-prism">src/pages/user-page/user-page.ts:79</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="editMeModalOpen"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>editMeModalOpen</b></span>
+                        <a href="#editMeModalOpen"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;boolean&gt;(false)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="90" class="link-to-prism">src/pages/user-page/user-page.ts:90</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isMyUser"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>isMyUser</b></span>
+                        <a href="#isMyUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;boolean&gt;(false)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="89" class="link-to-prism">src/pages/user-page/user-page.ts:89</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loading"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>loading</b></span>
+                        <a href="#loading"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;boolean&gt;(true)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="88" class="link-to-prism">src/pages/user-page/user-page.ts:88</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="location"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>location</b></span>
+                        <a href="#location"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(Location)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="80" class="link-to-prism">src/pages/user-page/user-page.ts:80</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="meApi"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>meApi</b></span>
+                        <a href="#meApi"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(MeApi)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="78" class="link-to-prism">src/pages/user-page/user-page.ts:78</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="memberCellTemplate"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Protected</span>
+                        <span ><b>memberCellTemplate</b></span>
+                        <a href="#memberCellTemplate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>TemplateRef&lt;literal type&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;memberCellTemplate&#x27;)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="74" class="link-to-prism">src/pages/user-page/user-page.ts:74</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="members"></a>
+                    <span class="name">
+                        <span ><b>members</b></span>
+                        <a href="#members"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new TableModel()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="92" class="link-to-prism">src/pages/user-page/user-page.ts:92</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="membersList"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>membersList</b></span>
+                        <a href="#membersList"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;UserInterface[] | null&gt;(null)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="85" class="link-to-prism">src/pages/user-page/user-page.ts:85</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="myUser"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>myUser</b></span>
+                        <a href="#myUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;UserInterface | null&gt;(null)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="87" class="link-to-prism">src/pages/user-page/user-page.ts:87</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="solves"></a>
+                    <span class="name">
+                        <span ><b>solves</b></span>
+                        <a href="#solves"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new TableModel()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="93" class="link-to-prism">src/pages/user-page/user-page.ts:93</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="solvesList"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>solvesList</b></span>
+                        <a href="#solvesList"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;TeamSolveInterface[] | null&gt;(null)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="86" class="link-to-prism">src/pages/user-page/user-page.ts:86</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="team"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>team</b></span>
+                        <a href="#team"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;TeamInterface | null&gt;(null)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="84" class="link-to-prism">src/pages/user-page/user-page.ts:84</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="teamApi"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>teamApi</b></span>
+                        <a href="#teamApi"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(TeamApi)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="77" class="link-to-prism">src/pages/user-page/user-page.ts:77</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="transloco"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>transloco</b></span>
+                        <a href="#transloco"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(TranslocoService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="81" class="link-to-prism">src/pages/user-page/user-page.ts:81</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="user"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>user</b></span>
+                        <a href="#user"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;UserInterface | null&gt;(null)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="83" class="link-to-prism">src/pages/user-page/user-page.ts:83</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="usersApi"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>usersApi</b></span>
+                        <a href="#usersApi"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(UsersApi)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="76" class="link-to-prism">src/pages/user-page/user-page.ts:76</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  AfterViewInit,
+  Component,
+  inject,
+  Input,
+  OnChanges,
+  signal,
+  SimpleChanges,
+  TemplateRef,
+  ViewChild
+} from &#x27;@angular/core&#x27;;
+import {DatePipe, Location} from &#x27;@angular/common&#x27;;
+import {RouterLink} from &#x27;@angular/router&#x27;;
+import {TranslocoDirective, TranslocoService} from &#x27;@ngneat/transloco&#x27;;
+import {
+  ButtonModule,
+  TagModule,
+  TableModel,
+  TableModule
+} from &#x27;carbon-components-angular&#x27;;
+import {catchError, finalize, forkJoin, map, Observable, of, switchMap} from &#x27;rxjs&#x27;;
+import {TeamInterface, TeamSolveInterface} from &#x27;../../entities/team.interface&#x27;;
+import {UserInterface} from &#x27;../../entities/user.interface&#x27;;
+import {UsersApi} from &#x27;../../utils/api/users&#x27;;
+import {TeamApi} from &#x27;../../utils/team/team-api&#x27;;
+import {MeApi} from &#x27;../../utils/auth/me-api&#x27;;
+import {EditMeModal} from &#x27;../../widgets/edit-me-modal/edit-me-modal&#x27;;
+import {MeInterface} from &#x27;../../entities/auth/me.interface&#x27;;
+import {
+  createMembersModel,
+  createSolvesModel,
+  getUserBadges,
+  MemberBadge,
+  MemberTableItem
+} from &#x27;../../utils/team/team-table-models&#x27;;
+
+interface UserSeed {
+  user: UserInterface | null;
+  team: TeamInterface | null;
+  currentTeam: TeamInterface | null;
+  me: UserInterface | null;
+}
+
+interface UserTeam {
+  team: TeamInterface | null;
+  members: UserInterface[];
+}
+
+interface UserPageData {
+  user: UserInterface | null;
+  team: TeamInterface | null;
+  members: UserInterface[];
+  solves: TeamSolveInterface[];
+  me: UserInterface | null;
+}
+
+@Component({
+  selector: &#x27;app-user-page&#x27;,
+  imports: [
+    ButtonModule,
+    RouterLink,
+    TranslocoDirective,
+    TagModule,
+    TableModule,
+    EditMeModal
+  ],
+  templateUrl: &#x27;./user-page.html&#x27;,
+  styleUrl: &#x27;../team-page/team-page.scss&#x27;,
+  providers: [DatePipe],
+})
+export class UserPage implements AfterViewInit, OnChanges {
+  @Input() user_id?: string;
+  @ViewChild(&#x27;memberCellTemplate&#x27;)
+  protected memberCellTemplate!: TemplateRef&lt;{ data: MemberTableItem }&gt;;
+
+  private readonly usersApi &#x3D; inject(UsersApi);
+  private readonly teamApi &#x3D; inject(TeamApi);
+  private readonly meApi &#x3D; inject(MeApi);
+  private readonly datePipe &#x3D; inject(DatePipe);
+  private readonly location &#x3D; inject(Location);
+  private readonly transloco &#x3D; inject(TranslocoService);
+
+  readonly user &#x3D; signal&lt;UserInterface | null&gt;(null);
+  readonly team &#x3D; signal&lt;TeamInterface | null&gt;(null);
+  readonly membersList &#x3D; signal&lt;UserInterface[] | null&gt;(null);
+  readonly solvesList &#x3D; signal&lt;TeamSolveInterface[] | null&gt;(null);
+  readonly myUser &#x3D; signal&lt;UserInterface | null&gt;(null);
+  readonly loading &#x3D; signal&lt;boolean&gt;(true);
+  readonly isMyUser &#x3D; signal&lt;boolean&gt;(false);
+  readonly editMeModalOpen &#x3D; signal&lt;boolean&gt;(false);
+
+  members &#x3D; new TableModel();
+  solves &#x3D; new TableModel();
+
+  ngAfterViewInit(): void {
+    this.loadPage();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes[&#x27;user_id&#x27;] &amp;&amp; !changes[&#x27;user_id&#x27;].firstChange) {
+      this.loadPage();
+    }
+  }
+
+  private loadPage() {
+    const userId &#x3D; this.user_id ?? null;
+
+    this.resetPageState();
+    this.fetchUserPageData(userId)
+      .pipe(
+        catchError(() &#x3D;&gt; {
+          this.location.back();
+          return of&lt;UserPageData | null&gt;(null);
+        }),
+        finalize(() &#x3D;&gt; this.loading.set(false))
+      )
+      .subscribe((res) &#x3D;&gt; this.applyPageData(res));
+  }
+
+  private resetPageState(): void {
+    this.loading.set(true);
+    this.user.set(null);
+    this.team.set(null);
+    this.membersList.set(null);
+    this.solvesList.set(null);
+    this.myUser.set(null);
+    this.isMyUser.set(false);
+    this.editMeModalOpen.set(false);
+    this.members &#x3D; this.buildMembersModel([]);
+    this.solves &#x3D; this.buildSolvesModel([]);
+  }
+
+  private fetchUserPageData(userId: string | null): Observable&lt;UserPageData&gt; {
+    return this.getUserSeed(userId).pipe(
+      switchMap((seed) &#x3D;&gt; this.resolveUserSeed(seed))
+    );
+  }
+
+  private resolveUserSeed(seed: UserSeed): Observable&lt;UserPageData&gt; {
+    if (!seed.user) {
+      return of({
+        user: null,
+        team: null,
+        members: [],
+        solves: [],
+        me: seed.me,
+      });
+    }
+
+    const selectedUser &#x3D; seed.user;
+
+    return this.getUserTeam(selectedUser, seed.team, seed.currentTeam).pipe(
+      switchMap((userTeam) &#x3D;&gt; this.resolveUserTeamPageData(selectedUser, userTeam, seed.me))
+    );
+  }
+
+  private resolveUserTeamPageData(
+    selectedUser: UserInterface,
+    userTeam: UserTeam,
+    me: UserInterface | null
+  ): Observable&lt;UserPageData&gt; {
+    const user &#x3D; this.mergeUserFromMembers(selectedUser, userTeam.members);
+
+    if (!userTeam.team) {
+      return of({
+        user,
+        team: null,
+        members: [],
+        solves: [],
+        me,
+      });
+    }
+
+    return this.teamApi.getTeamSolves(userTeam.team.id).pipe(
+      catchError(() &#x3D;&gt; of(null)),
+      map((solvesResponse) &#x3D;&gt; ({
+        user,
+        team: userTeam.team,
+        members: userTeam.members,
+        solves: this.getUserSolves(user, solvesResponse?.solves ?? []),
+        me,
+      }))
+    );
+  }
+
+  private applyPageData(res: UserPageData | null): void {
+    if (!res?.user) {
+      this.location.back();
+      return;
+    }
+
+    this.user.set(res.user);
+    this.team.set(res.team);
+    this.membersList.set(res.members);
+    this.solvesList.set(res.solves);
+    this.myUser.set(res.me);
+    this.isMyUser.set(res.user.id &#x3D;&#x3D;&#x3D; res.me?.id);
+    this.rebuildTableModels();
+  }
+
+  openEditMeModal() {
+    if (!this.isMyUser()) {
+      return;
+    }
+
+    this.editMeModalOpen.set(true);
+  }
+
+  closeEditMeModal() {
+    this.editMeModalOpen.set(false);
+  }
+
+  onMeUpdated(me: MeInterface) {
+    this.user.set(me.user);
+    this.myUser.set(me.user);
+    this.team.set(me.team);
+    this.loadPage();
+  }
+
+  private getUserSeed(userId: string | null): Observable&lt;UserSeed&gt; {
+    if (!userId) {
+      return this.meApi.me().pipe(
+        map((res) &#x3D;&gt; ({
+          user: res.user ?? null,
+          team: res.team ?? null,
+          currentTeam: res.team ?? null,
+          me: res.user ?? null,
+        }))
+      );
+    }
+
+    return forkJoin({
+      user: this.usersApi.getUser(userId).pipe(catchError(() &#x3D;&gt; of(null))),
+      me: this.meApi.me().pipe(catchError(() &#x3D;&gt; of(null))),
+    }).pipe(
+      switchMap(({user: userResponse, me}) &#x3D;&gt; {
+        const user &#x3D; userResponse?.user ?? null;
+        const currentUser &#x3D; me?.user ?? null;
+        const currentTeam &#x3D; me?.team ?? null;
+        const seed &#x3D; {
+          user,
+          team: this.getTeamFromUser(user, currentUser, currentTeam),
+          currentTeam,
+          me: currentUser,
+        };
+
+        if (seed.team || !user?.team_id) {
+          return of(seed);
+        }
+
+        return this.teamApi.getTeam(user.team_id).pipe(
+          catchError(() &#x3D;&gt; of(null)),
+          map((teamResponse) &#x3D;&gt; ({
+            ...seed,
+            team: teamResponse?.team ?? null,
+          }))
+        );
+      })
+    );
+  }
+
+  private getUserTeam(
+    user: UserInterface,
+    team: TeamInterface | null,
+    currentTeam: TeamInterface | null
+  ): Observable&lt;UserTeam&gt; {
+    if (team) {
+      return this.teamApi.getTeamMembers(currentTeam?.id &#x3D;&#x3D;&#x3D; team.id ? null : team.id).pipe(
+        catchError(() &#x3D;&gt; of(null)),
+        map((membersResponse) &#x3D;&gt; ({
+          team,
+          members: membersResponse?.members ?? [],
+        }))
+      );
+    }
+
+    if (!currentTeam) {
+      return of&lt;UserTeam&gt;({
+        team: null,
+        members: [],
+      });
+    }
+
+    return this.teamApi.getTeamMembers().pipe(
+      catchError(() &#x3D;&gt; of(null)),
+      map((membersResponse) &#x3D;&gt; {
+        const members &#x3D; membersResponse?.members ?? [];
+
+        return members.some((member) &#x3D;&gt; member.id &#x3D;&#x3D;&#x3D; user.id)
+          ? {
+            team: currentTeam,
+            members,
+          }
+          : {
+            team: null,
+            members: [],
+          };
+      })
+    );
+  }
+
+  private getTeamFromUser(
+    user: UserInterface | null,
+    currentUser: UserInterface | null,
+    currentTeam: TeamInterface | null
+  ) {
+    if (!user) {
+      return null;
+    }
+
+    if (user.team) {
+      return user.team;
+    }
+
+    if (currentUser?.id &#x3D;&#x3D;&#x3D; user.id) {
+      return currentTeam;
+    }
+
+    return null;
+  }
+
+  private mergeUserFromMembers(user: UserInterface, members: UserInterface[]) {
+    const member &#x3D; members.find((item) &#x3D;&gt; item.id &#x3D;&#x3D;&#x3D; user.id);
+
+    return member
+      ? {
+        ...user,
+        ...member,
+      }
+      : user;
+  }
+
+  private getUserSolves(user: UserInterface, solves: TeamSolveInterface[]) {
+    return solves.filter((solve) &#x3D;&gt; solve.user_id &#x3D;&#x3D;&#x3D; user.id || solve.username &#x3D;&#x3D;&#x3D; user.username);
+  }
+
+  private rebuildTableModels() {
+    this.members &#x3D; this.buildMembersModel(this.membersList() ?? []);
+    this.solves &#x3D; this.buildSolvesModel(this.solvesList() ?? []);
+  }
+
+  private buildSolvesModel(solves: TeamSolveInterface[]) {
+    return createSolvesModel(solves, this.transloco, this.datePipe);
+  }
+
+  private buildMembersModel(members: UserInterface[]) {
+    return createMembersModel(
+      members,
+      this.transloco,
+      this.memberCellTemplate,
+      (member) &#x3D;&gt; this.getUserBadges(member)
+    );
+  }
+
+  getUserBadges(user: UserInterface): MemberBadge[] {
+    return getUserBadges(user, this.transloco);
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;ng-container *transloco&#x3D;&quot;let t&quot;&gt;
+  &lt;ng-template #memberCellTemplate let-data&#x3D;&quot;data&quot;&gt;
+    &lt;span class&#x3D;&quot;member-cell&quot;&gt;
+      &lt;a [routerLink]&#x3D;&quot;data.link&quot; class&#x3D;&quot;member-link&quot;&gt;
+        {{ data.username }}
+      &lt;/a&gt;
+
+      @for (badge of data.badges; track badge.label) {
+        &lt;cds-tag [type]&#x3D;&quot;badge.type&quot; size&#x3D;&quot;sm&quot;&gt;
+          {{ badge.label }}
+        &lt;/cds-tag&gt;
+      }
+    &lt;/span&gt;
+  &lt;/ng-template&gt;
+
+  &lt;div class&#x3D;&quot;container flex flex-col gap-[1.5rem]&quot;&gt;
+    &lt;div class&#x3D;&quot;flex flex-row justify-between items-center page-header&quot;&gt;
+      &lt;span class&#x3D;&quot;cds--type-heading-07&quot;&gt;
+        @if (isMyUser()) {
+          {{ t(&#x27;user-page.your-profile&#x27;) }}
+        } @else {
+          {{ t(&#x27;user-page.label&#x27;) }}
+        }
+      &lt;/span&gt;
+
+      @if (isMyUser()) {
+        &lt;button
+          cdsButton&#x3D;&quot;primary&quot;
+          size&#x3D;&quot;md&quot;
+          type&#x3D;&quot;button&quot;
+          class&#x3D;&quot;!px-[1.5rem]&quot;
+          (click)&#x3D;&quot;openEditMeModal()&quot;&gt;
+          {{ t(&#x27;user-page.edit-profile&#x27;) }}
+        &lt;/button&gt;
+      }
+    &lt;/div&gt;
+
+    @if (loading()) {
+      &lt;section class&#x3D;&quot;&quot;&gt;
+        &lt;p class&#x3D;&quot;cds--type-body-02&quot;&gt;{{ t(&#x27;user-page.loading&#x27;) }}&lt;/p&gt;
+      &lt;/section&gt;
+    } @else {
+      &lt;section class&#x3D;&quot;flex flex-col gap-[3rem]&quot;&gt;
+        @if (user(); as activeUser) {
+          &lt;div class&#x3D;&quot;block team-summary&quot;&gt;
+            &lt;div class&#x3D;&quot;flex flex-col gap-[0.5rem] !p-[1rem]&quot;&gt;
+              &lt;h2 class&#x3D;&quot;cds--type-heading-04&quot;&gt;
+                {{ activeUser.username }}
+              &lt;/h2&gt;
+
+              @if (activeUser.email) {
+                &lt;a class&#x3D;&quot;cds--type-body-01 text-secondary&quot;&gt;
+                  {{ activeUser.email }}
+                &lt;/a&gt;
+              }
+
+              &lt;span class&#x3D;&quot;member-cell&quot;&gt;
+                @for (badge of getUserBadges(activeUser); track badge.label) {
+                  &lt;cds-tag [type]&#x3D;&quot;badge.type&quot; size&#x3D;&quot;sm&quot;&gt;
+                    {{ badge.label }}
+                  &lt;/cds-tag&gt;
+                }
+              &lt;/span&gt;
+            &lt;/div&gt;
+
+            &lt;div class&#x3D;&quot;score-block flex flex-row gap-[0.5rem]&quot;&gt;
+              &lt;span class&#x3D;&quot;cds--type-helper-text-01&quot;&gt;
+                {{ t(&#x27;team-page.score&#x27;) }}:
+              &lt;/span&gt;
+
+              &lt;strong class&#x3D;&quot;cds--type-heading-04 !my-[-0.2rem]&quot;&gt;
+                {{ activeUser.score || 0}}
+              &lt;/strong&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        }
+
+        @if (team(); as activeTeam) {
+          &lt;div class&#x3D;&quot;block team-summary&quot;&gt;
+            &lt;div class&#x3D;&quot;flex flex-col gap-[0.5rem] !p-[1rem]&quot;&gt;
+              &lt;h2 class&#x3D;&quot;cds--type-heading-04&quot;&gt;
+                {{ activeTeam.name }}
+              &lt;/h2&gt;
+
+              &lt;a [routerLink]&#x3D;&quot;[&#x27;/team&#x27;, activeTeam.id]&quot; class&#x3D;&quot;cds--type-body-01 text-secondary&quot;&gt;
+                /{{ activeTeam.slug }}
+              &lt;/a&gt;
+            &lt;/div&gt;
+
+            &lt;div class&#x3D;&quot;score-block flex flex-row gap-[0.5rem]&quot;&gt;
+              &lt;span class&#x3D;&quot;cds--type-helper-text-01&quot;&gt;
+                {{ t(&#x27;team-page.score&#x27;) }}:
+              &lt;/span&gt;
+
+              &lt;strong class&#x3D;&quot;cds--type-heading-04 !my-[-0.2rem]&quot;&gt;
+                {{ activeTeam.score || 0}}
+              &lt;/strong&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        } @else {
+          &lt;div class&#x3D;&quot;flex flex-col gap-[0.5rem]&quot;&gt;
+            &lt;h2 class&#x3D;&quot;cds--type-heading-04&quot;&gt;
+              {{ t(&#x27;user-page.team.no-team-title&#x27;) }}
+            &lt;/h2&gt;
+
+            &lt;a class&#x3D;&quot;cds--type-body-01 text-secondary&quot;&gt;
+              {{ t(&#x27;user-page.team.no-team-text&#x27;) }}
+            &lt;/a&gt;
+          &lt;/div&gt;
+        }
+      &lt;/section&gt;
+
+      &lt;cds-table-container&gt;
+        &lt;cds-table-header&gt;
+          &lt;h4 cdsTableHeaderTitle&gt;
+            {{ t(&#x27;team-page.members.title&#x27;) }}
+          &lt;/h4&gt;
+          &lt;p cdsTableHeaderDescription&gt;
+            {{ t(&#x27;team-page.members.lead&#x27;) }}
+          &lt;/p&gt;
+        &lt;/cds-table-header&gt;
+
+        &lt;cds-table
+          [model]&#x3D;&quot;members&quot;
+          size&#x3D;&quot;md&quot;
+          [showSelectionColumn]&#x3D;&quot;false&quot;
+          [striped]&#x3D;&quot;true&quot;
+          [sortable]&#x3D;&quot;false&quot;&gt;
+        &lt;/cds-table&gt;
+      &lt;/cds-table-container&gt;
+
+      &lt;cds-table-container&gt;
+        &lt;cds-table-header&gt;
+          &lt;h4 cdsTableHeaderTitle&gt;
+            {{ t(&#x27;user-page.solves.title&#x27;) }}
+          &lt;/h4&gt;
+          &lt;p cdsTableHeaderDescription&gt;
+            {{ t(&#x27;user-page.solves.lead&#x27;) }}
+          &lt;/p&gt;
+        &lt;/cds-table-header&gt;
+
+        &lt;cds-table
+          [model]&#x3D;&quot;solves&quot;
+          size&#x3D;&quot;md&quot;
+          [showSelectionColumn]&#x3D;&quot;false&quot;
+          [striped]&#x3D;&quot;true&quot;
+          [sortable]&#x3D;&quot;false&quot;&gt;
+        &lt;/cds-table&gt;
+      &lt;/cds-table-container&gt;
+    }
+
+    &lt;app-edit-me-modal
+      [open]&#x3D;&quot;editMeModalOpen()&quot;
+      [activeUser]&#x3D;&quot;user()&quot;
+      (isCloseModal)&#x3D;&quot;closeEditMeModal()&quot;
+      (meUpdated)&#x3D;&quot;onMeUpdated($event)&quot;&gt;
+    &lt;/app-edit-me-modal&gt;
+  &lt;/div&gt;
+&lt;/ng-container&gt;
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><ng-container *transloco="let t">  <ng-template #memberCellTemplate let-data="data">    <span class="member-cell">      <a [routerLink]="data.link" class="member-link">        {{ data.username }}      </a>      @for (badge of data.badges; track badge.label) {        <cds-tag [type]="badge.type" size="sm">          {{ badge.label }}        </cds-tag>      }    </span>  </ng-template>  <div class="container flex flex-col gap-[1.5rem]">    <div class="flex flex-row justify-between items-center page-header">      <span class="cds--type-heading-07">        @if (isMyUser()) {          {{ t(\'user-page.your-profile\') }}        } @else {          {{ t(\'user-page.label\') }}        }      </span>      @if (isMyUser()) {        <button          cdsButton="primary"          size="md"          type="button"          class="!px-[1.5rem]"          (click)="openEditMeModal()">          {{ t(\'user-page.edit-profile\') }}        </button>      }    </div>    @if (loading()) {      <section class="">        <p class="cds--type-body-02">{{ t(\'user-page.loading\') }}</p>      </section>    } @else {      <section class="flex flex-col gap-[3rem]">        @if (user(); as activeUser) {          <div class="block team-summary">            <div class="flex flex-col gap-[0.5rem] !p-[1rem]">              <h2 class="cds--type-heading-04">                {{ activeUser.username }}              </h2>              @if (activeUser.email) {                <a class="cds--type-body-01 text-secondary">                  {{ activeUser.email }}                </a>              }              <span class="member-cell">                @for (badge of getUserBadges(activeUser); track badge.label) {                  <cds-tag [type]="badge.type" size="sm">                    {{ badge.label }}                  </cds-tag>                }              </span>            </div>            <div class="score-block flex flex-row gap-[0.5rem]">              <span class="cds--type-helper-text-01">                {{ t(\'team-page.score\') }}:              </span>              <strong class="cds--type-heading-04 !my-[-0.2rem]">                {{ activeUser.score || 0}}              </strong>            </div>          </div>        }        @if (team(); as activeTeam) {          <div class="block team-summary">            <div class="flex flex-col gap-[0.5rem] !p-[1rem]">              <h2 class="cds--type-heading-04">                {{ activeTeam.name }}              </h2>              <a [routerLink]="[\'/team\', activeTeam.id]" class="cds--type-body-01 text-secondary">                /{{ activeTeam.slug }}              </a>            </div>            <div class="score-block flex flex-row gap-[0.5rem]">              <span class="cds--type-helper-text-01">                {{ t(\'team-page.score\') }}:              </span>              <strong class="cds--type-heading-04 !my-[-0.2rem]">                {{ activeTeam.score || 0}}              </strong>            </div>          </div>        } @else {          <div class="flex flex-col gap-[0.5rem]">            <h2 class="cds--type-heading-04">              {{ t(\'user-page.team.no-team-title\') }}            </h2>            <a class="cds--type-body-01 text-secondary">              {{ t(\'user-page.team.no-team-text\') }}            </a>          </div>        }      </section>      <cds-table-container>        <cds-table-header>          <h4 cdsTableHeaderTitle>            {{ t(\'team-page.members.title\') }}          </h4>          <p cdsTableHeaderDescription>            {{ t(\'team-page.members.lead\') }}          </p>        </cds-table-header>        <cds-table          [model]="members"          size="md"          [showSelectionColumn]="false"          [striped]="true"          [sortable]="false">        </cds-table>      </cds-table-container>      <cds-table-container>        <cds-table-header>          <h4 cdsTableHeaderTitle>            {{ t(\'user-page.solves.title\') }}          </h4>          <p cdsTableHeaderDescription>            {{ t(\'user-page.solves.lead\') }}          </p>        </cds-table-header>        <cds-table          [model]="solves"          size="md"          [showSelectionColumn]="false"          [striped]="true"          [sortable]="false">        </cds-table>      </cds-table-container>    }    <app-edit-me-modal      [open]="editMeModalOpen()"      [activeUser]="user()"      (isCloseModal)="closeEditMeModal()"      (meUpdated)="onMeUpdated($event)">    </app-edit-me-modal>  </div></ng-container></div>'
+    var COMPONENTS = [{'name': 'AdminAudit', 'selector': 'app-admin-audit'},{'name': 'AdminChallenges', 'selector': 'app-admin-challenges'},{'name': 'AdminContestPage', 'selector': 'app-admin-contest'},{'name': 'AdminInstances', 'selector': 'app-admin-instances'},{'name': 'AdminLayout', 'selector': 'app-admin-layout'},{'name': 'AdminOverview', 'selector': 'app-admin-overview'},{'name': 'AdminSolves', 'selector': 'app-admin-solves'},{'name': 'AdminTeams', 'selector': 'app-admin-teams'},{'name': 'AdminUsers', 'selector': 'app-admin-users'},{'name': 'App', 'selector': 'app-root'},{'name': 'ChallengeInstancePanel', 'selector': 'app-challenge-instance-panel'},{'name': 'ChallengeModal', 'selector': 'app-challenge-modal'},{'name': 'ChallengePreview', 'selector': 'app-challenge-preview'},{'name': 'Challenges', 'selector': 'app-challenges'},{'name': 'EditMeModal', 'selector': 'app-edit-me-modal'},{'name': 'EditTeamModal', 'selector': 'app-edit-team-modal'},{'name': 'Footer', 'selector': 'app-footer'},{'name': 'Header', 'selector': 'app-header'},{'name': 'Layout', 'selector': 'app-layout'},{'name': 'Login', 'selector': 'app-login'},{'name': 'MainPage', 'selector': 'app-main-page'},{'name': 'Me', 'selector': 'app-me'},{'name': 'NewTeamPage', 'selector': 'app-new-team-page'},{'name': 'RatingPage', 'selector': 'app-rating-page'},{'name': 'Register', 'selector': 'app-register'},{'name': 'ScoreboardChart', 'selector': 'app-scoreboard'},{'name': 'TeamPage', 'selector': 'app-team-page'},{'name': 'TeamsListPage', 'selector': 'app-teams-list-page'},{'name': 'UserPage', 'selector': 'app-user-page'},{'name': 'UsersListPage', 'selector': 'app-users-list-page'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'UserPage'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'UserPage.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

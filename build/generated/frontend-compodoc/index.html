@@ -1,0 +1,376 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>ctfast documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+	   <link rel="stylesheet" href="./styles/style.css">
+        <link rel="stylesheet" href="./styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="./" class="navbar-brand">ctfast documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content readme">
+                   <div class="content-data">
+
+
+<h1>En</h1>
+<h2>Lost Last Frontend</h2>
+<p>Frontend for a CTF platform. The application shows challenges, teams, users,
+team pages, user profiles, rating tables and authentication pages.</p>
+<h2>Stack</h2>
+<ul>
+<li>Angular 21</li>
+<li>TypeScript 5.9</li>
+<li>Carbon Design System</li>
+<li>Tailwind CSS</li>
+<li>Transloco for localization</li>
+<li>ECharts for charts</li>
+<li>Vitest and Angular test runner</li>
+<li>ESLint and angular-eslint</li>
+</ul>
+<h2>Requirements</h2>
+<p>Use Node.js 24 or newer and npm 10 or newer. The recommended runtime is fixed in
+<code>.nvmrc</code>, <code>.node-version</code>, <code>package.json</code> and GitLab CI.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">nvm use
+npm ci</code></pre></div><p>If <code>nvm</code> is not installed, install Node.js 24+ manually and then run <code>npm ci</code>.</p>
+<h2>Development</h2>
+<p>Start the local frontend:</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">npm start</code></pre></div><p>By default Angular starts the app at <code>http://localhost:4200</code>.</p>
+<p>The frontend API base URL is configured in <code>src/shared/config/api.config.ts</code>.
+For local backend proxying, use <code>proxy.conf.json</code> if the backend is started on a
+separate port.</p>
+<h2>Scripts</h2>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">npm run lint
+npm test
+npm run test:coverage
+npm run docs
+npm run build
+npm run build:development</code></pre></div><ul>
+<li><code>lint</code> checks TypeScript and Angular templates.</li>
+<li><code>test</code> runs unit tests.</li>
+<li><code>test:coverage</code> runs unit tests with coverage.</li>
+<li><code>docs</code> generates Compodoc HTML documentation in <code>documentation/</code> from Angular
+component metadata, including inputs and outputs.</li>
+<li><code>build</code> creates a production build in <code>dist/CTFast/browser</code>.</li>
+<li><code>build:development</code> creates a development build.</li>
+</ul>
+<h2>Quality Gates</h2>
+<p>The project is expected to pass these checks before merge:</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">npm run lint
+npm run test:coverage
+npm run build</code></pre></div><p>Current local verification on 2026-05-17:</p>
+<ul>
+<li>lint: passed</li>
+<li>unit tests: 123 passed</li>
+<li>coverage: 92.8% statements, 86.28% branches, 91.35% functions, 92.13% lines</li>
+<li>production build: passed</li>
+<li>Compodoc docs: generated in <code>documentation/</code></li>
+<li>npm audit: 0 vulnerabilities</li>
+</ul>
+<p>Angular persistent build cache is disabled in <code>angular.json</code>. This keeps the
+build reproducible in CI and avoids native cache crashes observed on macOS with
+the current Angular builder.</p>
+<h2>Project Structure</h2>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-text">src/app/              Angular app bootstrap, routes and providers
+src/pages/            Route-level pages
+src/widgets/          Reusable UI widgets
+src/entities/         Shared TypeScript interfaces
+src/utils/            API clients, guards and interceptors
+src/shared/config/    Runtime configuration
+src/assets/i18n/      Localization dictionaries
+src/test-*.ts         Shared test setup
+public/               Static assets copied to the build</code></pre></div><h2>CI/CD</h2>
+<p>GitLab CI is configured in <code>.gitlab-ci.yml</code>.</p>
+<p>Pipeline stages:</p>
+<ol>
+<li><code>quality</code>: runs ESLint.</li>
+<li><code>test</code>: runs <code>ng test --coverage --watch=false</code> and publishes <code>coverage/</code>
+artifacts.</li>
+<li><code>build</code>: creates the production frontend bundle.</li>
+<li><code>docs</code>: generates Compodoc HTML documentation in <code>documentation/</code>.</li>
+</ol>
+<p>Pipeline artifacts:</p>
+<ul>
+<li><code>coverage/</code></li>
+<li><code>dist/CTFast/browser/</code></li>
+<li><code>documentation/</code></li>
+</ul>
+<h2>Pipeline Scheme</h2>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-text">GitLab commit -&gt; GitLab CI -&gt; npm ci -&gt; lint -&gt; тесты с покрытием -&gt; production build -&gt; Compodoc docs</code></pre></div><p>The pipeline is reproducible because all dependencies are installed from
+<code>package-lock.json</code>, Node.js is fixed in CI, and both the static build output
+and generated documentation are produced directly by CI.</p>
+<h2>Git Workflow</h2>
+<p>The team uses GitLab Flow with <code>dev</code> as the integration branch and <code>main</code> as the
+release branch. Detailed branch, commit and merge request rules are described in
+<code>CONTRIBUTING.md</code>.</p>
+<h1>Ru</h1>
+<h2>Lost Last Frontend</h2>
+<p>Фронтенд для CTF-платформы. Приложение показывает задания, команды,
+пользователей, страницы команд, профили пользователей, рейтинговые таблицы и
+страницы авторизации.</p>
+<h2>Стек</h2>
+<ul>
+<li>Angular 21</li>
+<li>TypeScript 5.9</li>
+<li>Carbon Design System</li>
+<li>Tailwind CSS</li>
+<li>Transloco для локализации</li>
+<li>ECharts для графиков</li>
+<li>Vitest и Angular test runner</li>
+<li>ESLint и angular-eslint</li>
+</ul>
+<h2>Требования</h2>
+<p>Используйте Node.js 24 или новее и npm 10 или новее. Рекомендуемая версия
+окружения зафиксирована в <code>.nvmrc</code>, <code>.node-version</code>, <code>package.json</code> и GitLab CI.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">nvm use
+npm ci</code></pre></div><p>Если <code>nvm</code> не установлен, установите Node.js 24+ вручную и затем выполните
+<code>npm ci</code>.</p>
+<h2>Разработка</h2>
+<p>Запуск локального фронтенда:</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">npm start</code></pre></div><p>По умолчанию Angular запускает приложение на <code>http://localhost:4200</code>.</p>
+<p>Базовый URL API настраивается в <code>src/shared/config/api.config.ts</code>. Для локального
+проксирования backend используйте <code>proxy.conf.json</code>, если backend запущен на
+отдельном порту.</p>
+<h2>Скрипты</h2>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">npm run lint
+npm test
+npm run test:coverage
+npm run docs
+npm run build
+npm run build:development</code></pre></div><ul>
+<li><code>lint</code> проверяет TypeScript и Angular-шаблоны.</li>
+<li><code>test</code> запускает unit-тесты.</li>
+<li><code>test:coverage</code> запускает unit-тесты с покрытием.</li>
+<li><code>docs</code> генерирует Compodoc HTML-документацию в <code>documentation/</code> из метаданных
+Angular-компонентов, включая inputs и outputs.</li>
+<li><code>build</code> создаёт production-сборку в <code>dist/CTFast/browser</code>.</li>
+<li><code>build:development</code> создаёт development-сборку.</li>
+</ul>
+<h2>Проверки качества</h2>
+<p>Перед слиянием проект должен проходить:</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">npm run lint
+npm run test:coverage
+npm run build</code></pre></div><p>Текущая локальная проверка от 2026-05-17:</p>
+<ul>
+<li>lint: пройден</li>
+<li>unit-тесты: 123 пройдено</li>
+<li>покрытие: 92.8% statements, 86.28% branches, 91.35% functions, 92.13% lines</li>
+<li>production-сборка: пройдена</li>
+<li>Compodoc docs: сгенерированы в <code>documentation/</code></li>
+<li>npm audit: 0 уязвимостей</li>
+</ul>
+<p>Постоянный build cache Angular отключён в <code>angular.json</code>. Это делает сборку
+воспроизводимой в CI и убирает падения native cache, которые наблюдались на macOS
+с текущим Angular builder.</p>
+<h2>Структура проекта</h2>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-text">src/app/              Bootstrap Angular-приложения, маршруты и providers
+src/pages/            Страницы верхнего уровня для маршрутов
+src/widgets/          Переиспользуемые UI-виджеты
+src/entities/         Общие TypeScript-интерфейсы
+src/utils/            API-клиенты, guards и interceptors
+src/shared/config/    Runtime-конфигурация
+src/assets/i18n/      Словари локализации
+src/test-*.ts         Общая настройка тестов
+public/               Статические файлы, копируемые в сборку</code></pre></div><h2>CI/CD</h2>
+<p>GitLab CI настроен в <code>.gitlab-ci.yml</code>.</p>
+<p>Этапы pipeline:</p>
+<ol>
+<li><code>quality</code>: запуск ESLint.</li>
+<li><code>test</code>: запуск <code>ng test --coverage --watch=false</code> и публикация artifacts из
+<code>coverage/</code>.</li>
+<li><code>build</code>: production-сборка фронтенда.</li>
+<li><code>docs</code>: генерация Compodoc HTML-документации в <code>documentation/</code>.</li>
+</ol>
+<p>Артефакты pipeline:</p>
+<ul>
+<li><code>coverage/</code></li>
+<li><code>dist/CTFast/browser/</code></li>
+<li><code>documentation/</code></li>
+</ul>
+<h2>Схема pipeline</h2>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-text">GitLab commit -&gt; GitLab CI -&gt; npm ci -&gt; lint -&gt; tests with coverage -&gt; production build -&gt; Compodoc docs</code></pre></div><p>Pipeline воспроизводим: зависимости устанавливаются из <code>package-lock.json</code>,
+версия Node.js зафиксирована в CI, а статическая сборка и документация
+генерируются самим pipeline.</p>
+<h2>Git Workflow</h2>
+<p>Команда использует GitLab Flow: <code>dev</code> как интеграционная ветка и <code>main</code> как
+release-ветка. Подробные правила веток, коммитов и merge requests описаны в
+<code>CONTRIBUTING.md</code>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 0;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'readme';
+            var COMPODOC_CURRENT_PAGE_URL = 'index.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="./js/libs/custom-elements.min.js"></script>
+       <script src="./js/libs/lit-html.js"></script>
+
+       <script src="./js/menu-wc.js" defer></script>
+       <script nomodule src="./js/menu-wc_es5.js" defer></script>
+
+       <script src="./js/libs/bootstrap-native.js"></script>
+
+       <script src="./js/libs/es6-shim.min.js"></script>
+       <script src="./js/libs/EventDispatcher.js"></script>
+       <script src="./js/libs/promise.min.js"></script>
+
+       <script src="./js/compodoc.js"></script>
+
+       <script src="./js/tabs.js"></script>
+       <script src="./js/menu.js"></script>
+       <script src="./js/libs/clipboard.min.js"></script>
+       <script src="./js/libs/prism.js"></script>
+       <script src="./js/sourceCode.js"></script>
+          <script src="./js/search/search.js"></script>
+          <script src="./js/search/lunr.min.js"></script>
+          <script src="./js/search/search-lunr.js"></script>
+          <script src="./js/search/search_index.js"></script>
+       <script src="./js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

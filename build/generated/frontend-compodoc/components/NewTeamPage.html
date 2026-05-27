@@ -1,0 +1,1645 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>ctfast documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">ctfast documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  NewTeamPage</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/pages/new-team-page/new-team-page.ts</code>
+</p>
+
+
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-new-team-page</code></td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>ButtonModule</code>
+                                <code><a href="../components/Me.html" target="_self" >ContextMenuModule</a></code>
+                            <code>InputModule</code>
+                            <code>NotificationModule</code>
+                            <code>ReactiveFormsModule</code>
+                            <code>SelectModule</code>
+                            <code>TranslocoDirective</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./new-team-page.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./new-team-page.scss</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#categories" >categories</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#createForm" >createForm</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#joinForm" >joinForm</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#loading" >loading</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#mode" >mode</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#notification" >notification</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#router" >router</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#teamApi" >teamApi</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#transloco" >transloco</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#getCreateErrorMessage" >getCreateErrorMessage</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#getErrorMessage" >getErrorMessage</a>
+                            </li>
+                            <li>
+                                <a href="#getJoinErrorMessage" >getJoinErrorMessage</a>
+                            </li>
+                            <li>
+                                <a href="#isCreateInvalid" >isCreateInvalid</a>
+                            </li>
+                            <li>
+                                <a href="#isJoinInvalid" >isJoinInvalid</a>
+                            </li>
+                            <li>
+                                <a href="#onCreateSubmit" >onCreateSubmit</a>
+                            </li>
+                            <li>
+                                <a href="#onJoinSubmit" >onJoinSubmit</a>
+                            </li>
+                            <li>
+                                <a href="#setMode" >setMode</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#showRequestError" >showRequestError</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getCreateErrorMessage"></a>
+                    <span class="name">
+                        <span ><b>getCreateErrorMessage</b></span>
+                        <a href="#getCreateErrorMessage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getCreateErrorMessage(controlName: <a href="../undefineds/CreateControlName.html" target="_self">CreateControlName</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="85"
+                                    class="link-to-prism">src/pages/new-team-page/new-team-page.ts:85</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>controlName</td>
+                                            <td>
+                                                            <code><a href="../miscellaneous/typealiases.html#CreateControlName" target="_self" >CreateControlName</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getErrorMessage"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>getErrorMessage</b></span>
+                        <a href="#getErrorMessage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getErrorMessage(formName: "create" | "join", controlName: CreateControlName | JoinControlName, form: FormGroup)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="141"
+                                    class="link-to-prism">src/pages/new-team-page/new-team-page.ts:141</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>formName</td>
+                                            <td>
+                                                        <code>&quot;create&quot; | &quot;join&quot;</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>controlName</td>
+                                            <td>
+                                                        <code>CreateControlName | JoinControlName</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>form</td>
+                                            <td>
+                                                        <code>FormGroup</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getJoinErrorMessage"></a>
+                    <span class="name">
+                        <span ><b>getJoinErrorMessage</b></span>
+                        <a href="#getJoinErrorMessage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getJoinErrorMessage(controlName: <a href="../undefineds/JoinControlName.html" target="_self">JoinControlName</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="89"
+                                    class="link-to-prism">src/pages/new-team-page/new-team-page.ts:89</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>controlName</td>
+                                            <td>
+                                                            <code><a href="../miscellaneous/typealiases.html#JoinControlName" target="_self" >JoinControlName</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isCreateInvalid"></a>
+                    <span class="name">
+                        <span ><b>isCreateInvalid</b></span>
+                        <a href="#isCreateInvalid"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>isCreateInvalid(controlName: <a href="../undefineds/CreateControlName.html" target="_self">CreateControlName</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="77"
+                                    class="link-to-prism">src/pages/new-team-page/new-team-page.ts:77</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>controlName</td>
+                                            <td>
+                                                            <code><a href="../miscellaneous/typealiases.html#CreateControlName" target="_self" >CreateControlName</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isJoinInvalid"></a>
+                    <span class="name">
+                        <span ><b>isJoinInvalid</b></span>
+                        <a href="#isJoinInvalid"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>isJoinInvalid(controlName: <a href="../undefineds/JoinControlName.html" target="_self">JoinControlName</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="81"
+                                    class="link-to-prism">src/pages/new-team-page/new-team-page.ts:81</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>controlName</td>
+                                            <td>
+                                                            <code><a href="../miscellaneous/typealiases.html#JoinControlName" target="_self" >JoinControlName</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onCreateSubmit"></a>
+                    <span class="name">
+                        <span ><b>onCreateSubmit</b></span>
+                        <a href="#onCreateSubmit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onCreateSubmit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="93"
+                                    class="link-to-prism">src/pages/new-team-page/new-team-page.ts:93</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onJoinSubmit"></a>
+                    <span class="name">
+                        <span ><b>onJoinSubmit</b></span>
+                        <a href="#onJoinSubmit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onJoinSubmit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="117"
+                                    class="link-to-prism">src/pages/new-team-page/new-team-page.ts:117</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setMode"></a>
+                    <span class="name">
+                        <span ><b>setMode</b></span>
+                        <a href="#setMode"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setMode(mode: "create" | "join")</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="72"
+                                    class="link-to-prism">src/pages/new-team-page/new-team-page.ts:72</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>mode</td>
+                                            <td>
+                                                        <code>&quot;create&quot; | &quot;join&quot;</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showRequestError"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>showRequestError</b></span>
+                        <a href="#showRequestError"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>showRequestError(status: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, formName: "create" | "join")</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="151"
+                                    class="link-to-prism">src/pages/new-team-page/new-team-page.ts:151</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>status</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>formName</td>
+                                            <td>
+                                                        <code>&quot;create&quot; | &quot;join&quot;</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="categories"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>categories</b></span>
+                        <a href="#categories"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[&#x27;school&#x27;, &#x27;university&#x27;, &#x27;company&#x27;, &#x27;open&#x27;]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/pages/new-team-page/new-team-page.ts:48</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createForm"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>createForm</b></span>
+                        <a href="#createForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new FormGroup({
+    name: new FormControl(&#x27;&#x27;, [
+      Validators.required,
+      Validators.maxLength(TEAM_NAME_MAX_LENGTH),
+    ]),
+    password: new FormControl(&#x27;&#x27;, [
+      Validators.required,
+      Validators.minLength(TEAM_PASSWORD_MIN_LENGTH),
+    ])
+  })</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/pages/new-team-page/new-team-page.ts:50</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="joinForm"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>joinForm</b></span>
+                        <a href="#joinForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new FormGroup({
+    team_slug: new FormControl(&#x27;&#x27;, [
+      Validators.required,
+      Validators.pattern(TEAM_SLUG_PATTERN),
+    ]),
+    password: new FormControl(&#x27;&#x27;, [
+      Validators.required,
+      Validators.minLength(TEAM_PASSWORD_MIN_LENGTH),
+    ]),
+  })</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">src/pages/new-team-page/new-team-page.ts:61</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loading"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>loading</b></span>
+                        <a href="#loading"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;boolean&gt;(false)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/pages/new-team-page/new-team-page.ts:45</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mode"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>mode</b></span>
+                        <a href="#mode"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;&#x27;create&#x27; | &#x27;join&#x27;&gt;(&#x27;create&#x27;)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/pages/new-team-page/new-team-page.ts:44</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="notification"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>notification</b></span>
+                        <a href="#notification"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;{ title: string, message: string } | null&gt;(null)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/pages/new-team-page/new-team-page.ts:46</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="router"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>router</b></span>
+                        <a href="#router"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(Router)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/pages/new-team-page/new-team-page.ts:40</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="teamApi"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>teamApi</b></span>
+                        <a href="#teamApi"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(TeamApi)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/pages/new-team-page/new-team-page.ts:41</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="transloco"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>transloco</b></span>
+                        <a href="#transloco"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(TranslocoService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/pages/new-team-page/new-team-page.ts:42</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Component, inject, signal} from &#x27;@angular/core&#x27;;
+import {HttpErrorResponse} from &#x27;@angular/common/http&#x27;;
+import {FormControl, FormGroup, ReactiveFormsModule, Validators} from &#x27;@angular/forms&#x27;;
+import {Router} from &#x27;@angular/router&#x27;;
+import {TranslocoDirective, TranslocoService} from &#x27;@ngneat/transloco&#x27;;
+import {
+  ButtonModule,
+  ContextMenuModule,
+  InputModule,
+  NotificationModule,
+  SelectModule
+} from &#x27;carbon-components-angular&#x27;;
+import {catchError, finalize, of} from &#x27;rxjs&#x27;;
+import {CreateTeamInterface, JoinTeamInterface} from &#x27;../../entities/team.interface&#x27;;
+import {TeamApi} from &#x27;../../utils/team/team-api&#x27;;
+import {controlInvalid, getControlErrorKey} from &#x27;../../utils/auth/auth-form-validators&#x27;;
+
+type CreateControlName &#x3D; &#x27;name&#x27; | &#x27;password&#x27; | &#x27;category&#x27; | &#x27;affiliation&#x27;;
+type JoinControlName &#x3D; &#x27;team_slug&#x27; | &#x27;password&#x27;;
+
+const TEAM_NAME_MAX_LENGTH &#x3D; 64;
+const TEAM_SLUG_PATTERN &#x3D; /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
+const TEAM_PASSWORD_MIN_LENGTH &#x3D; 8;
+
+@Component({
+  selector: &#x27;app-new-team-page&#x27;,
+  imports: [
+    ButtonModule,
+    ContextMenuModule,
+    InputModule,
+    NotificationModule,
+    ReactiveFormsModule,
+    SelectModule,
+    TranslocoDirective
+  ],
+  templateUrl: &#x27;./new-team-page.html&#x27;,
+  styleUrl: &#x27;./new-team-page.scss&#x27;,
+})
+export class NewTeamPage {
+  private readonly router &#x3D; inject(Router);
+  private readonly teamApi &#x3D; inject(TeamApi);
+  private readonly transloco &#x3D; inject(TranslocoService);
+
+  readonly mode &#x3D; signal&lt;&#x27;create&#x27; | &#x27;join&#x27;&gt;(&#x27;create&#x27;);
+  readonly loading &#x3D; signal&lt;boolean&gt;(false);
+  readonly notification &#x3D; signal&lt;{ title: string, message: string } | null&gt;(null);
+
+  readonly categories &#x3D; [&#x27;school&#x27;, &#x27;university&#x27;, &#x27;company&#x27;, &#x27;open&#x27;];
+
+  readonly createForm &#x3D; new FormGroup({
+    name: new FormControl(&#x27;&#x27;, [
+      Validators.required,
+      Validators.maxLength(TEAM_NAME_MAX_LENGTH),
+    ]),
+    password: new FormControl(&#x27;&#x27;, [
+      Validators.required,
+      Validators.minLength(TEAM_PASSWORD_MIN_LENGTH),
+    ])
+  });
+
+  readonly joinForm &#x3D; new FormGroup({
+    team_slug: new FormControl(&#x27;&#x27;, [
+      Validators.required,
+      Validators.pattern(TEAM_SLUG_PATTERN),
+    ]),
+    password: new FormControl(&#x27;&#x27;, [
+      Validators.required,
+      Validators.minLength(TEAM_PASSWORD_MIN_LENGTH),
+    ]),
+  });
+
+  setMode(mode: &#x27;create&#x27; | &#x27;join&#x27;) {
+    this.mode.set(mode);
+    this.notification.set(null);
+  }
+
+  isCreateInvalid(controlName: CreateControlName) {
+    return controlInvalid(this.createForm.get(controlName));
+  }
+
+  isJoinInvalid(controlName: JoinControlName) {
+    return controlInvalid(this.joinForm.get(controlName));
+  }
+
+  getCreateErrorMessage(controlName: CreateControlName) {
+    return this.getErrorMessage(&#x27;create&#x27;, controlName, this.createForm);
+  }
+
+  getJoinErrorMessage(controlName: JoinControlName) {
+    return this.getErrorMessage(&#x27;join&#x27;, controlName, this.joinForm);
+  }
+
+  onCreateSubmit() {
+    if (this.createForm.invalid) {
+      this.createForm.markAllAsTouched();
+      return;
+    }
+
+    this.loading.set(true);
+    this.notification.set(null);
+
+    this.teamApi.createTeam(this.createForm.getRawValue() as CreateTeamInterface)
+      .pipe(
+        catchError((error: HttpErrorResponse) &#x3D;&gt; {
+          this.showRequestError(error.status, &#x27;create&#x27;);
+          return of(null);
+        }),
+        finalize(() &#x3D;&gt; this.loading.set(false))
+      )
+      .subscribe((res) &#x3D;&gt; {
+        if (res?.team) {
+          void this.router.navigate([&#x27;/team&#x27;, res.team.id]);
+        }
+      });
+  }
+
+  onJoinSubmit() {
+    if (this.joinForm.invalid) {
+      this.joinForm.markAllAsTouched();
+      return;
+    }
+
+    this.loading.set(true);
+    this.notification.set(null);
+
+    this.teamApi.joinTeam(this.joinForm.getRawValue() as JoinTeamInterface)
+      .pipe(
+        catchError((error: HttpErrorResponse) &#x3D;&gt; {
+          this.showRequestError(error.status, &#x27;join&#x27;);
+          return of(null);
+        }),
+        finalize(() &#x3D;&gt; this.loading.set(false))
+      )
+      .subscribe((res) &#x3D;&gt; {
+        if (res?.team) {
+          void this.router.navigate([&#x27;/team&#x27;, res.team.id]);
+        }
+      });
+  }
+
+  private getErrorMessage(
+    formName: &#x27;create&#x27; | &#x27;join&#x27;,
+    controlName: CreateControlName | JoinControlName,
+    form: FormGroup
+  ) {
+    const errorKey &#x3D; getControlErrorKey(form.get(controlName));
+
+    return errorKey ? this.transloco.translate(&#x60;new-team-page.validation.${formName}.${controlName}.${errorKey}&#x60;) : &#x27;&#x27;;
+  }
+
+  private showRequestError(status: number, formName: &#x27;create&#x27; | &#x27;join&#x27;) {
+    const messageKey &#x3D; status &#x3D;&#x3D;&#x3D; 0
+      ? &#x27;no-connection&#x27;
+      : status &#x3D;&#x3D;&#x3D; 400 || status &#x3D;&#x3D;&#x3D; 401 || status &#x3D;&#x3D;&#x3D; 403 || status &#x3D;&#x3D;&#x3D; 404 || status &#x3D;&#x3D;&#x3D; 409
+        ? &#x60;${formName}-invalid&#x60;
+        : &#x27;universal&#x27;;
+
+    this.notification.set({
+      title: this.transloco.translate(&#x27;new-team-page.error.title&#x27;),
+      message: this.transloco.translate(&#x60;new-team-page.error.${messageKey}&#x60;),
+    });
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;ng-container *transloco&#x3D;&quot;let t&quot;&gt;
+  &lt;div class&#x3D;&quot;auth-container&quot;&gt;
+    @if (mode() &#x3D;&#x3D;&#x3D; &#x27;create&#x27;) {
+      &lt;form
+        class&#x3D;&quot;auth-form&quot;
+        [formGroup]&#x3D;&quot;createForm&quot;
+        (ngSubmit)&#x3D;&quot;onCreateSubmit()&quot;&gt;
+
+        &lt;div class&#x3D;&quot;form-item flex flex-col gap-[0.5rem]&quot;&gt;
+          &lt;div class&#x3D;&quot;cds--type-heading-05&quot;&gt;
+            {{ t(&#x27;new-team-page.create-title&#x27;) }}
+          &lt;/div&gt;
+          &lt;div class&#x3D;&quot;cds--type-body-01&quot;&gt;
+            &lt;span&gt;
+              {{ t(&#x27;new-team-page.have-team&#x27;) }}
+            &lt;/span&gt;
+            &lt;button
+              type&#x3D;&quot;button&quot;
+              class&#x3D;&quot;mode-link&quot;
+              (click)&#x3D;&quot;setMode(&#x27;join&#x27;)&quot;&gt;
+              {{ t(&#x27;new-team-page.join-title&#x27;) }}
+            &lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;cds-menu-divider&gt;&lt;/cds-menu-divider&gt;
+
+        &lt;div class&#x3D;&quot;form-item flex flex-col gap-[1rem]&quot;&gt;
+          &lt;div class&#x3D;&quot;flex flex-col gap-[5px]&quot;&gt;
+            &lt;cds-text-label&gt;
+              &lt;span class&#x3D;&quot;cds--type-body-01&quot;&gt;
+                {{ t(&#x27;new-team-page.fields.name&#x27;) }}
+              &lt;/span&gt;
+              &lt;input
+                formControlName&#x3D;&quot;name&quot;
+                type&#x3D;&quot;text&quot;
+                cdsText
+                size&#x3D;&quot;md&quot;
+                [invalid]&#x3D;&quot;isCreateInvalid(&#x27;name&#x27;)&quot;
+                [placeholder]&#x3D;&quot;t(&#x27;new-team-page.placeholder.name&#x27;)&quot;&gt;
+            &lt;/cds-text-label&gt;
+            @if (isCreateInvalid(&#x27;name&#x27;)) {
+              &lt;div class&#x3D;&quot;field-error cds--type-helper-text-01&quot;&gt;
+                {{ getCreateErrorMessage(&#x27;name&#x27;) }}
+              &lt;/div&gt;
+            }
+          &lt;/div&gt;
+
+          &lt;div class&#x3D;&quot;flex flex-col gap-[5px]&quot;&gt;
+            &lt;cds-text-label&gt;
+              &lt;span class&#x3D;&quot;cds--type-body-01&quot;&gt;
+                {{ t(&#x27;new-team-page.fields.password&#x27;) }}
+              &lt;/span&gt;
+              &lt;input
+                formControlName&#x3D;&quot;password&quot;
+                type&#x3D;&quot;password&quot;
+                cdsText
+                size&#x3D;&quot;md&quot;
+                [invalid]&#x3D;&quot;isCreateInvalid(&#x27;password&#x27;)&quot;
+                [placeholder]&#x3D;&quot;t(&#x27;new-team-page.placeholder.password&#x27;)&quot;&gt;
+            &lt;/cds-text-label&gt;
+            @if (isCreateInvalid(&#x27;password&#x27;)) {
+              &lt;div class&#x3D;&quot;field-error cds--type-helper-text-01&quot;&gt;
+                {{ getCreateErrorMessage(&#x27;password&#x27;) }}
+              &lt;/div&gt;
+            }
+          &lt;/div&gt;
+
+          &lt;button
+            cdsButton&#x3D;&quot;primary&quot;
+            size&#x3D;&quot;md&quot;
+            class&#x3D;&quot;!w-full !max-inline-full !mt-[1rem]&quot;
+            type&#x3D;&quot;submit&quot;
+            [disabled]&#x3D;&quot;loading()&quot;&gt;
+            {{ loading() ? t(&#x27;new-team-page.create.loading&#x27;) : t(&#x27;new-team-page.create.submit&#x27;) }}
+          &lt;/button&gt;
+
+          @if (notification()) {
+            &lt;cds-notification
+              [notificationObj]&#x3D;&quot;{
+                type: &#x27;error&#x27;,
+                title: notification()!.title,
+                message: notification()!.message
+              }&quot;&gt;
+            &lt;/cds-notification&gt;
+          }
+        &lt;/div&gt;
+      &lt;/form&gt;
+    } @else {
+      &lt;form
+        class&#x3D;&quot;auth-form&quot;
+        [formGroup]&#x3D;&quot;joinForm&quot;
+        (ngSubmit)&#x3D;&quot;onJoinSubmit()&quot;&gt;
+
+        &lt;div class&#x3D;&quot;form-item flex flex-col gap-[0.5rem]&quot;&gt;
+          &lt;div class&#x3D;&quot;cds--type-heading-05&quot;&gt;
+            {{ t(&#x27;new-team-page.join-title&#x27;) }}
+          &lt;/div&gt;
+          &lt;div class&#x3D;&quot;cds--type-body-01&quot;&gt;
+            &lt;span&gt;
+              {{ t(&#x27;new-team-page.have-not-team&#x27;) }}
+            &lt;/span&gt;
+            &lt;button
+              type&#x3D;&quot;button&quot;
+              class&#x3D;&quot;mode-link&quot;
+              (click)&#x3D;&quot;setMode(&#x27;create&#x27;)&quot;&gt;
+              {{ t(&#x27;new-team-page.create-title&#x27;) }}
+            &lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;cds-menu-divider&gt;&lt;/cds-menu-divider&gt;
+
+        &lt;div class&#x3D;&quot;form-item flex flex-col gap-[1rem]&quot;&gt;
+
+          &lt;div class&#x3D;&quot;flex flex-col gap-[5px]&quot;&gt;
+            &lt;cds-text-label&gt;
+              &lt;span class&#x3D;&quot;cds--type-body-01&quot;&gt;
+                {{ t(&#x27;new-team-page.fields.slug&#x27;) }}
+              &lt;/span&gt;
+              &lt;input
+                formControlName&#x3D;&quot;team_slug&quot;
+                type&#x3D;&quot;text&quot;
+                cdsText
+                size&#x3D;&quot;md&quot;
+                [invalid]&#x3D;&quot;isJoinInvalid(&#x27;team_slug&#x27;)&quot;
+                [placeholder]&#x3D;&quot;t(&#x27;new-team-page.placeholder.slug&#x27;)&quot;&gt;
+            &lt;/cds-text-label&gt;
+            @if (isJoinInvalid(&#x27;team_slug&#x27;)) {
+              &lt;div class&#x3D;&quot;field-error cds--type-helper-text-01&quot;&gt;
+                {{ getJoinErrorMessage(&#x27;team_slug&#x27;) }}
+              &lt;/div&gt;
+            }
+          &lt;/div&gt;
+
+          &lt;div class&#x3D;&quot;flex flex-col gap-[5px]&quot;&gt;
+            &lt;cds-text-label&gt;
+              &lt;span class&#x3D;&quot;cds--type-body-01&quot;&gt;
+                {{ t(&#x27;new-team-page.fields.password&#x27;) }}
+              &lt;/span&gt;
+              &lt;input
+                formControlName&#x3D;&quot;password&quot;
+                type&#x3D;&quot;password&quot;
+                cdsText
+                size&#x3D;&quot;md&quot;
+                [invalid]&#x3D;&quot;isJoinInvalid(&#x27;password&#x27;)&quot;
+                [placeholder]&#x3D;&quot;t(&#x27;new-team-page.placeholder.password&#x27;)&quot;&gt;
+            &lt;/cds-text-label&gt;
+            @if (isJoinInvalid(&#x27;password&#x27;)) {
+              &lt;div class&#x3D;&quot;field-error cds--type-helper-text-01&quot;&gt;
+                {{ getJoinErrorMessage(&#x27;password&#x27;) }}
+              &lt;/div&gt;
+            }
+          &lt;/div&gt;
+
+          &lt;button
+            cdsButton&#x3D;&quot;primary&quot;
+            size&#x3D;&quot;md&quot;
+            class&#x3D;&quot;!w-full !max-inline-full !mt-[1rem]&quot;
+            type&#x3D;&quot;submit&quot;
+            [disabled]&#x3D;&quot;loading()&quot;&gt;
+            {{ loading() ? t(&#x27;new-team-page.join.loading&#x27;) : t(&#x27;new-team-page.join.submit&#x27;) }}
+          &lt;/button&gt;
+
+          @if (notification()) {
+            &lt;cds-notification
+              [notificationObj]&#x3D;&quot;{
+                type: &#x27;error&#x27;,
+                title: notification()!.title,
+                message: notification()!.message
+              }&quot;&gt;
+            &lt;/cds-notification&gt;
+          }
+        &lt;/div&gt;
+      &lt;/form&gt;
+    }
+
+    &lt;div class&#x3D;&quot;right-panel&quot;&gt;
+      &lt;div class&#x3D;&quot;auth-canvas&quot;&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/ng-container&gt;
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><ng-container *transloco="let t">  <div class="auth-container">    @if (mode() === \'create\') {      <form        class="auth-form"        [formGroup]="createForm"        (ngSubmit)="onCreateSubmit()">        <div class="form-item flex flex-col gap-[0.5rem]">          <div class="cds--type-heading-05">            {{ t(\'new-team-page.create-title\') }}          </div>          <div class="cds--type-body-01">            <span>              {{ t(\'new-team-page.have-team\') }}            </span>            <button              type="button"              class="mode-link"              (click)="setMode(\'join\')">              {{ t(\'new-team-page.join-title\') }}            </button>          </div>        </div>        <cds-menu-divider></cds-menu-divider>        <div class="form-item flex flex-col gap-[1rem]">          <div class="flex flex-col gap-[5px]">            <cds-text-label>              <span class="cds--type-body-01">                {{ t(\'new-team-page.fields.name\') }}              </span>              <input                formControlName="name"                type="text"                cdsText                size="md"                [invalid]="isCreateInvalid(\'name\')"                [placeholder]="t(\'new-team-page.placeholder.name\')">            </cds-text-label>            @if (isCreateInvalid(\'name\')) {              <div class="field-error cds--type-helper-text-01">                {{ getCreateErrorMessage(\'name\') }}              </div>            }          </div>          <div class="flex flex-col gap-[5px]">            <cds-text-label>              <span class="cds--type-body-01">                {{ t(\'new-team-page.fields.password\') }}              </span>              <input                formControlName="password"                type="password"                cdsText                size="md"                [invalid]="isCreateInvalid(\'password\')"                [placeholder]="t(\'new-team-page.placeholder.password\')">            </cds-text-label>            @if (isCreateInvalid(\'password\')) {              <div class="field-error cds--type-helper-text-01">                {{ getCreateErrorMessage(\'password\') }}              </div>            }          </div>          <button            cdsButton="primary"            size="md"            class="!w-full !max-inline-full !mt-[1rem]"            type="submit"            [disabled]="loading()">            {{ loading() ? t(\'new-team-page.create.loading\') : t(\'new-team-page.create.submit\') }}          </button>          @if (notification()) {            <cds-notification              [notificationObj]="{                type: \'error\',                title: notification()!.title,                message: notification()!.message              }">            </cds-notification>          }        </div>      </form>    } @else {      <form        class="auth-form"        [formGroup]="joinForm"        (ngSubmit)="onJoinSubmit()">        <div class="form-item flex flex-col gap-[0.5rem]">          <div class="cds--type-heading-05">            {{ t(\'new-team-page.join-title\') }}          </div>          <div class="cds--type-body-01">            <span>              {{ t(\'new-team-page.have-not-team\') }}            </span>            <button              type="button"              class="mode-link"              (click)="setMode(\'create\')">              {{ t(\'new-team-page.create-title\') }}            </button>          </div>        </div>        <cds-menu-divider></cds-menu-divider>        <div class="form-item flex flex-col gap-[1rem]">          <div class="flex flex-col gap-[5px]">            <cds-text-label>              <span class="cds--type-body-01">                {{ t(\'new-team-page.fields.slug\') }}              </span>              <input                formControlName="team_slug"                type="text"                cdsText                size="md"                [invalid]="isJoinInvalid(\'team_slug\')"                [placeholder]="t(\'new-team-page.placeholder.slug\')">            </cds-text-label>            @if (isJoinInvalid(\'team_slug\')) {              <div class="field-error cds--type-helper-text-01">                {{ getJoinErrorMessage(\'team_slug\') }}              </div>            }          </div>          <div class="flex flex-col gap-[5px]">            <cds-text-label>              <span class="cds--type-body-01">                {{ t(\'new-team-page.fields.password\') }}              </span>              <input                formControlName="password"                type="password"                cdsText                size="md"                [invalid]="isJoinInvalid(\'password\')"                [placeholder]="t(\'new-team-page.placeholder.password\')">            </cds-text-label>            @if (isJoinInvalid(\'password\')) {              <div class="field-error cds--type-helper-text-01">                {{ getJoinErrorMessage(\'password\') }}              </div>            }          </div>          <button            cdsButton="primary"            size="md"            class="!w-full !max-inline-full !mt-[1rem]"            type="submit"            [disabled]="loading()">            {{ loading() ? t(\'new-team-page.join.loading\') : t(\'new-team-page.join.submit\') }}          </button>          @if (notification()) {            <cds-notification              [notificationObj]="{                type: \'error\',                title: notification()!.title,                message: notification()!.message              }">            </cds-notification>          }        </div>      </form>    }    <div class="right-panel">      <div class="auth-canvas">      </div>    </div>  </div></ng-container></div>'
+    var COMPONENTS = [{'name': 'AdminAudit', 'selector': 'app-admin-audit'},{'name': 'AdminChallenges', 'selector': 'app-admin-challenges'},{'name': 'AdminContestPage', 'selector': 'app-admin-contest'},{'name': 'AdminInstances', 'selector': 'app-admin-instances'},{'name': 'AdminLayout', 'selector': 'app-admin-layout'},{'name': 'AdminOverview', 'selector': 'app-admin-overview'},{'name': 'AdminSolves', 'selector': 'app-admin-solves'},{'name': 'AdminTeams', 'selector': 'app-admin-teams'},{'name': 'AdminUsers', 'selector': 'app-admin-users'},{'name': 'App', 'selector': 'app-root'},{'name': 'ChallengeInstancePanel', 'selector': 'app-challenge-instance-panel'},{'name': 'ChallengeModal', 'selector': 'app-challenge-modal'},{'name': 'ChallengePreview', 'selector': 'app-challenge-preview'},{'name': 'Challenges', 'selector': 'app-challenges'},{'name': 'EditMeModal', 'selector': 'app-edit-me-modal'},{'name': 'EditTeamModal', 'selector': 'app-edit-team-modal'},{'name': 'Footer', 'selector': 'app-footer'},{'name': 'Header', 'selector': 'app-header'},{'name': 'Layout', 'selector': 'app-layout'},{'name': 'Login', 'selector': 'app-login'},{'name': 'MainPage', 'selector': 'app-main-page'},{'name': 'Me', 'selector': 'app-me'},{'name': 'NewTeamPage', 'selector': 'app-new-team-page'},{'name': 'RatingPage', 'selector': 'app-rating-page'},{'name': 'Register', 'selector': 'app-register'},{'name': 'ScoreboardChart', 'selector': 'app-scoreboard'},{'name': 'TeamPage', 'selector': 'app-team-page'},{'name': 'TeamsListPage', 'selector': 'app-teams-list-page'},{'name': 'UserPage', 'selector': 'app-user-page'},{'name': 'UsersListPage', 'selector': 'app-users-list-page'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'NewTeamPage'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'NewTeamPage.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

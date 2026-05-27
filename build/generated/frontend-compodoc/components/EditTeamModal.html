@@ -1,0 +1,1858 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>ctfast documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">ctfast documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  EditTeamModal</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/widgets/edit-team-modal/edit-team-modal.ts</code>
+</p>
+
+
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-edit-team-modal</code></td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>ButtonModule</code>
+                            <code>InputModule</code>
+                            <code>ModalModule</code>
+                            <code>NotificationModule</code>
+                            <code>ReactiveFormsModule</code>
+                            <code>TranslocoDirective</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./edit-team-modal.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./edit-team-modal.scss</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#canEdit" >canEdit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#deleting" >deleting</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#form" >form</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#isOpen" >isOpen</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#loading" >loading</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#notification" >notification</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#team" >team</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#teamApi" >teamApi</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#transloco" >transloco</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#closeModal" >closeModal</a>
+                            </li>
+                            <li>
+                                <a href="#deleteTeam" >deleteTeam</a>
+                            </li>
+                            <li>
+                                <a href="#getErrorMessage" >getErrorMessage</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#getPayload" >getPayload</a>
+                            </li>
+                            <li>
+                                <a href="#isInvalid" >isInvalid</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#patchForm" >patchForm</a>
+                            </li>
+                            <li>
+                                <a href="#saveTeam" >saveTeam</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#showRequestError" >showRequestError</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#activeTeam" >activeTeam</a>
+                            </li>
+                            <li>
+                                <a href="#captain" >captain</a>
+                            </li>
+                            <li>
+                                <a href="#open" >open</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Outputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#isCloseModal" >isCloseModal</a>
+                            </li>
+                            <li>
+                                <a href="#teamDeleted" >teamDeleted</a>
+                            </li>
+                            <li>
+                                <a href="#teamUpdated" >teamUpdated</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#open" >open</a>
+                                </li>
+                                <li>
+                                    <a href="#activeTeam" >activeTeam</a>
+                                </li>
+                                <li>
+                                    <a href="#captain" >captain</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+
+    <section data-compodoc="block-inputs">
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="activeTeam"></a>
+                        <b>activeTeam</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/TeamInterface.html" target="_self" >TeamInterface | null</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="69" class="link-to-prism">src/widgets/edit-team-modal/edit-team-modal.ts:69</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="captain"></a>
+                        <b>captain</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="77" class="link-to-prism">src/widgets/edit-team-modal/edit-team-modal.ts:77</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="open"></a>
+                        <b>open</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">src/widgets/edit-team-modal/edit-team-modal.ts:60</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+    <section data-compodoc="block-outputs">
+    <h3 id="outputs">Outputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isCloseModal"></a>
+                        <b>isCloseModal</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EventEmitter</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="81" class="link-to-prism">src/widgets/edit-team-modal/edit-team-modal.ts:81</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="teamDeleted"></a>
+                        <b>teamDeleted</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EventEmitter</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="83" class="link-to-prism">src/widgets/edit-team-modal/edit-team-modal.ts:83</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="teamUpdated"></a>
+                        <b>teamUpdated</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EventEmitter</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="82" class="link-to-prism">src/widgets/edit-team-modal/edit-team-modal.ts:82</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="closeModal"></a>
+                    <span class="name">
+                        <span ><b>closeModal</b></span>
+                        <a href="#closeModal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>closeModal()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="85"
+                                    class="link-to-prism">src/widgets/edit-team-modal/edit-team-modal.ts:85</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteTeam"></a>
+                    <span class="name">
+                        <span ><b>deleteTeam</b></span>
+                        <a href="#deleteTeam"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>deleteTeam()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="139"
+                                    class="link-to-prism">src/widgets/edit-team-modal/edit-team-modal.ts:139</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getErrorMessage"></a>
+                    <span class="name">
+                        <span ><b>getErrorMessage</b></span>
+                        <a href="#getErrorMessage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getErrorMessage(controlName: <a href="../undefineds/EditTeamControlName.html" target="_self">EditTeamControlName</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="93"
+                                    class="link-to-prism">src/widgets/edit-team-modal/edit-team-modal.ts:93</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>controlName</td>
+                                            <td>
+                                                            <code><a href="../miscellaneous/typealiases.html#EditTeamControlName" target="_self" >EditTeamControlName</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getPayload"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>getPayload</b></span>
+                        <a href="#getPayload"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getPayload(activeTeam: <a href="../interfaces/TeamInterface.html" target="_self">TeamInterface</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="176"
+                                    class="link-to-prism">src/widgets/edit-team-modal/edit-team-modal.ts:176</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>activeTeam</td>
+                                            <td>
+                                                            <code><a href="../interfaces/TeamInterface.html" target="_self" >TeamInterface</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>UpdateTeamInterface | null</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isInvalid"></a>
+                    <span class="name">
+                        <span ><b>isInvalid</b></span>
+                        <a href="#isInvalid"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>isInvalid(controlName: <a href="../undefineds/EditTeamControlName.html" target="_self">EditTeamControlName</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="89"
+                                    class="link-to-prism">src/widgets/edit-team-modal/edit-team-modal.ts:89</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>controlName</td>
+                                            <td>
+                                                            <code><a href="../miscellaneous/typealiases.html#EditTeamControlName" target="_self" >EditTeamControlName</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="patchForm"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>patchForm</b></span>
+                        <a href="#patchForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>patchForm()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="165"
+                                    class="link-to-prism">src/widgets/edit-team-modal/edit-team-modal.ts:165</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="saveTeam"></a>
+                    <span class="name">
+                        <span ><b>saveTeam</b></span>
+                        <a href="#saveTeam"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>saveTeam()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="99"
+                                    class="link-to-prism">src/widgets/edit-team-modal/edit-team-modal.ts:99</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showRequestError"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>showRequestError</b></span>
+                        <a href="#showRequestError"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>showRequestError(status: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, action: "update" | "delete")</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="209"
+                                    class="link-to-prism">src/widgets/edit-team-modal/edit-team-modal.ts:209</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>status</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>action</td>
+                                            <td>
+                                                        <code>&quot;update&quot; | &quot;delete&quot;</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="canEdit"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>canEdit</b></span>
+                        <a href="#canEdit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;boolean&gt;(false)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/widgets/edit-team-modal/edit-team-modal.ts:41</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleting"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>deleting</b></span>
+                        <a href="#deleting"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;boolean&gt;(false)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/widgets/edit-team-modal/edit-team-modal.ts:43</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="form"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>form</b></span>
+                        <a href="#form"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new FormGroup({
+    name: new FormControl(&#x27;&#x27;, [
+      Validators.required,
+      Validators.maxLength(TEAM_NAME_MAX_LENGTH),
+    ]),
+    password: new FormControl(&#x27;&#x27;, [
+      Validators.minLength(TEAM_PASSWORD_MIN_LENGTH),
+    ]),
+    category: new FormControl(&#x27;&#x27;),
+    affiliation: new FormControl(&#x27;&#x27;, [
+      Validators.maxLength(TEAM_AFFILIATION_MAX_LENGTH),
+    ]),
+  })</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/widgets/edit-team-modal/edit-team-modal.ts:46</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isOpen"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>isOpen</b></span>
+                        <a href="#isOpen"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;boolean&gt;(false)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/widgets/edit-team-modal/edit-team-modal.ts:39</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loading"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>loading</b></span>
+                        <a href="#loading"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;boolean&gt;(false)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/widgets/edit-team-modal/edit-team-modal.ts:42</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="notification"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>notification</b></span>
+                        <a href="#notification"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;{ type: &#x27;error&#x27; | &#x27;success&#x27;; title: string; message: string } | null&gt;(null)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/widgets/edit-team-modal/edit-team-modal.ts:44</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="team"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>team</b></span>
+                        <a href="#team"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;TeamInterface | null&gt;(null)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/widgets/edit-team-modal/edit-team-modal.ts:40</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="teamApi"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>teamApi</b></span>
+                        <a href="#teamApi"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(TeamApi)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/widgets/edit-team-modal/edit-team-modal.ts:36</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="transloco"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>transloco</b></span>
+                        <a href="#transloco"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(TranslocoService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/widgets/edit-team-modal/edit-team-modal.ts:37</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-accessors">
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="open"></a>
+                        <span class="name"><b>open</b><a href="#open"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>set</b><code>open(value: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">src/widgets/edit-team-modal/edit-team-modal.ts:60</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                        <td>Type</td>
+                                                    <td>Optional</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                            <td>value</td>
+                                                    
+                                                            <td>
+                                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                                            </td>
+                                                    
+                                                        <td>
+                                                                No
+                                                        </td>
+                                                        
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="activeTeam"></a>
+                        <span class="name"><b>activeTeam</b><a href="#activeTeam"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>set</b><code>activeTeam(value: <a href="../interfaces/TeamInterface.html" target="_self">TeamInterface | null</a>)</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="69" class="link-to-prism">src/widgets/edit-team-modal/edit-team-modal.ts:69</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                        <td>Type</td>
+                                                    <td>Optional</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                            <td>value</td>
+                                                    
+                                                            <td>
+                                                                            <code><a href="../interfaces/TeamInterface.html" target="_self" >TeamInterface | null</a></code>
+                                                            </td>
+                                                    
+                                                        <td>
+                                                                No
+                                                        </td>
+                                                        
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="captain"></a>
+                        <span class="name"><b>captain</b><a href="#captain"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>set</b><code>captain(value: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="77" class="link-to-prism">src/widgets/edit-team-modal/edit-team-modal.ts:77</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                        <td>Type</td>
+                                                    <td>Optional</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                            <td>value</td>
+                                                    
+                                                            <td>
+                                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                                            </td>
+                                                    
+                                                        <td>
+                                                                No
+                                                        </td>
+                                                        
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
+            </tbody>
+        </table>
+</section>
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Component, EventEmitter, Input, Output, inject, signal} from &#x27;@angular/core&#x27;;
+import {HttpErrorResponse} from &#x27;@angular/common/http&#x27;;
+import {FormControl, FormGroup, ReactiveFormsModule, Validators} from &#x27;@angular/forms&#x27;;
+import {TranslocoDirective, TranslocoService} from &#x27;@ngneat/transloco&#x27;;
+import {
+  ButtonModule,
+  InputModule,
+  ModalModule,
+  NotificationModule
+} from &#x27;carbon-components-angular&#x27;;
+import {catchError, finalize, of} from &#x27;rxjs&#x27;;
+import {TeamInterface, UpdateTeamInterface} from &#x27;../../entities/team.interface&#x27;;
+import {TeamApi} from &#x27;../../utils/team/team-api&#x27;;
+import {controlInvalid, getControlErrorKey} from &#x27;../../utils/auth/auth-form-validators&#x27;;
+
+type EditTeamControlName &#x3D; &#x27;name&#x27; | &#x27;password&#x27; | &#x27;category&#x27; | &#x27;affiliation&#x27;;
+
+const TEAM_NAME_MAX_LENGTH &#x3D; 64;
+const TEAM_PASSWORD_MIN_LENGTH &#x3D; 8;
+const TEAM_AFFILIATION_MAX_LENGTH &#x3D; 128;
+
+@Component({
+  selector: &#x27;app-edit-team-modal&#x27;,
+  imports: [
+    ButtonModule,
+    InputModule,
+    ModalModule,
+    NotificationModule,
+    ReactiveFormsModule,
+    TranslocoDirective
+  ],
+  templateUrl: &#x27;./edit-team-modal.html&#x27;,
+  styleUrl: &#x27;./edit-team-modal.scss&#x27;,
+})
+export class EditTeamModal {
+  private readonly teamApi &#x3D; inject(TeamApi);
+  private readonly transloco &#x3D; inject(TranslocoService);
+
+  readonly isOpen &#x3D; signal&lt;boolean&gt;(false);
+  readonly team &#x3D; signal&lt;TeamInterface | null&gt;(null);
+  readonly canEdit &#x3D; signal&lt;boolean&gt;(false);
+  readonly loading &#x3D; signal&lt;boolean&gt;(false);
+  readonly deleting &#x3D; signal&lt;boolean&gt;(false);
+  readonly notification &#x3D; signal&lt;{ type: &#x27;error&#x27; | &#x27;success&#x27;; title: string; message: string } | null&gt;(null);
+
+  readonly form &#x3D; new FormGroup({
+    name: new FormControl(&#x27;&#x27;, [
+      Validators.required,
+      Validators.maxLength(TEAM_NAME_MAX_LENGTH),
+    ]),
+    password: new FormControl(&#x27;&#x27;, [
+      Validators.minLength(TEAM_PASSWORD_MIN_LENGTH),
+    ]),
+    category: new FormControl(&#x27;&#x27;),
+    affiliation: new FormControl(&#x27;&#x27;, [
+      Validators.maxLength(TEAM_AFFILIATION_MAX_LENGTH),
+    ]),
+  });
+
+  @Input() set open(value: boolean) {
+    this.isOpen.set(value);
+
+    if (value) {
+      this.notification.set(null);
+      this.patchForm();
+    }
+  }
+
+  @Input() set activeTeam(value: TeamInterface | null) {
+    this.team.set(value);
+
+    if (this.isOpen()) {
+      this.patchForm();
+    }
+  }
+
+  @Input() set captain(value: boolean) {
+    this.canEdit.set(value);
+  }
+
+  @Output() isCloseModal &#x3D; new EventEmitter&lt;void&gt;();
+  @Output() teamUpdated &#x3D; new EventEmitter&lt;TeamInterface&gt;();
+  @Output() teamDeleted &#x3D; new EventEmitter&lt;void&gt;();
+
+  closeModal() {
+    this.isCloseModal.emit();
+  }
+
+  isInvalid(controlName: EditTeamControlName) {
+    return controlInvalid(this.form.get(controlName));
+  }
+
+  getErrorMessage(controlName: EditTeamControlName) {
+    const errorKey &#x3D; getControlErrorKey(this.form.get(controlName));
+
+    return errorKey ? this.transloco.translate(&#x60;edit-team-modal.validation.${controlName}.${errorKey}&#x60;) : &#x27;&#x27;;
+  }
+
+  saveTeam() {
+    if (!this.canEdit() || this.form.invalid || this.loading()) {
+      this.form.markAllAsTouched();
+      return;
+    }
+
+    const activeTeam &#x3D; this.team();
+
+    if (!activeTeam) {
+      return;
+    }
+
+    const payload &#x3D; this.getPayload(activeTeam);
+
+    if (!payload) {
+      this.closeModal();
+      return;
+    }
+
+    this.loading.set(true);
+    this.notification.set(null);
+
+    this.teamApi.updateTeam(payload)
+      .pipe(
+        catchError((error: HttpErrorResponse) &#x3D;&gt; {
+          this.showRequestError(error.status, &#x27;update&#x27;);
+          return of(null);
+        }),
+        finalize(() &#x3D;&gt; this.loading.set(false))
+      )
+      .subscribe((res) &#x3D;&gt; {
+        if (!res?.team) {
+          return;
+        }
+
+        this.teamUpdated.emit(res.team);
+        this.closeModal();
+      });
+  }
+
+  deleteTeam() {
+    if (!this.canEdit() || this.deleting()) {
+      return;
+    }
+
+    this.deleting.set(true);
+    this.notification.set(null);
+
+    this.teamApi.deleteTeam()
+      .pipe(
+        catchError((error: HttpErrorResponse) &#x3D;&gt; {
+          this.showRequestError(error.status, &#x27;delete&#x27;);
+          return of(null);
+        }),
+        finalize(() &#x3D;&gt; this.deleting.set(false))
+      )
+      .subscribe((res) &#x3D;&gt; {
+        if (!res) {
+          return;
+        }
+
+        this.teamDeleted.emit();
+        this.closeModal();
+      });
+  }
+
+  private patchForm() {
+    const activeTeam &#x3D; this.team();
+
+    this.form.reset({
+      name: activeTeam?.name ?? &#x27;&#x27;,
+      password: &#x27;&#x27;,
+      category: activeTeam?.category ?? &#x27;&#x27;,
+      affiliation: activeTeam?.affiliation ?? &#x27;&#x27;,
+    });
+  }
+
+  private getPayload(activeTeam: TeamInterface): UpdateTeamInterface | null {
+    const formValue &#x3D; this.form.getRawValue();
+    const name &#x3D; formValue.name?.trim();
+
+    if (!name) {
+      return null;
+    }
+
+    const payload: UpdateTeamInterface &#x3D; { name };
+    let hasChanges &#x3D; name !&#x3D;&#x3D; activeTeam.name;
+
+    const category &#x3D; formValue.category?.trim();
+    const affiliation &#x3D; formValue.affiliation?.trim();
+    const password &#x3D; formValue.password?.trim();
+
+    if (password) {
+      payload.password &#x3D; password;
+      hasChanges &#x3D; true;
+    }
+
+    if (category !&#x3D;&#x3D; activeTeam.category) {
+      payload.category &#x3D; category;
+      hasChanges &#x3D; true;
+    }
+
+    if (affiliation !&#x3D;&#x3D; activeTeam.affiliation) {
+      payload.affiliation &#x3D; affiliation;
+      hasChanges &#x3D; true;
+    }
+
+    return hasChanges ? payload : null;
+  }
+
+  private showRequestError(status: number, action: &#x27;update&#x27; | &#x27;delete&#x27;) {
+    const messageKey &#x3D; status &#x3D;&#x3D;&#x3D; 0
+      ? &#x27;no-connection&#x27;
+      : status &#x3D;&#x3D;&#x3D; 400 || status &#x3D;&#x3D;&#x3D; 401 || status &#x3D;&#x3D;&#x3D; 403 || status &#x3D;&#x3D;&#x3D; 404 || status &#x3D;&#x3D;&#x3D; 409
+        ? &#x60;${action}-invalid&#x60;
+        : &#x27;universal&#x27;;
+
+    this.notification.set({
+      type: &#x27;error&#x27;,
+      title: this.transloco.translate(&#x27;edit-team-modal.notifications.error.title&#x27;),
+      message: this.transloco.translate(&#x60;edit-team-modal.notifications.error.${messageKey}&#x60;),
+    });
+  }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;ng-container *transloco&#x3D;&quot;let t&quot;&gt;
+  @if (team()) {
+    &lt;cds-modal
+      [open]&#x3D;&quot;isOpen()&quot;
+      size&#x3D;&quot;md&quot;
+      (overlaySelected)&#x3D;&quot;closeModal()&quot;
+      (close)&#x3D;&quot;closeModal()&quot;&gt;
+      &lt;cds-modal-header (closeSelect)&#x3D;&quot;closeModal()&quot;&gt;
+        &lt;h2 cdsModalHeaderLabel&gt;{{ t(&#x27;edit-team-modal.label&#x27;) }}&lt;/h2&gt;
+        &lt;h3 cdsModalHeaderHeading&gt;{{ team()?.name }}&lt;/h3&gt;
+      &lt;/cds-modal-header&gt;
+
+      &lt;section cdsModalContent [hasForm]&#x3D;&quot;true&quot;&gt;
+        &lt;form
+          class&#x3D;&quot;w-full flex flex-col gap-[1rem]&quot;
+          [formGroup]&#x3D;&quot;form&quot;
+          (ngSubmit)&#x3D;&quot;saveTeam()&quot;&gt;
+          @if (notification()) {
+            &lt;cds-notification
+              [notificationObj]&#x3D;&quot;{
+                type: notification()!.type,
+                title: notification()!.title,
+                message: notification()!.message
+              }&quot;&gt;
+            &lt;/cds-notification&gt;
+          }
+
+          &lt;div class&#x3D;&quot;flex flex-col gap-[5px]&quot;&gt;
+            &lt;cds-text-label&gt;
+              &lt;span class&#x3D;&quot;cds--type-body-01&quot;&gt;
+                {{ t(&#x27;new-team-page.fields.name&#x27;) }}
+              &lt;/span&gt;
+              &lt;input
+                formControlName&#x3D;&quot;name&quot;
+                type&#x3D;&quot;text&quot;
+                cdsText
+                size&#x3D;&quot;md&quot;
+                [invalid]&#x3D;&quot;isInvalid(&#x27;name&#x27;)&quot;
+                [placeholder]&#x3D;&quot;t(&#x27;new-team-page.placeholder.name&#x27;)&quot;&gt;
+            &lt;/cds-text-label&gt;
+            @if (isInvalid(&#x27;name&#x27;)) {
+              &lt;div class&#x3D;&quot;cds--form-requirement&quot;&gt;
+                {{ getErrorMessage(&#x27;name&#x27;) }}
+              &lt;/div&gt;
+            }
+          &lt;/div&gt;
+
+          &lt;div class&#x3D;&quot;flex flex-col gap-[5px]&quot;&gt;
+            &lt;cds-text-label&gt;
+              &lt;span class&#x3D;&quot;cds--type-body-01&quot;&gt;
+                {{ t(&#x27;new-team-page.fields.password&#x27;) }}
+              &lt;/span&gt;
+              &lt;input
+                formControlName&#x3D;&quot;password&quot;
+                type&#x3D;&quot;password&quot;
+                cdsText
+                size&#x3D;&quot;md&quot;
+                [invalid]&#x3D;&quot;isInvalid(&#x27;password&#x27;)&quot;
+                [placeholder]&#x3D;&quot;t(&#x27;edit-team-modal.placeholder.password&#x27;)&quot;&gt;
+            &lt;/cds-text-label&gt;
+            @if (isInvalid(&#x27;password&#x27;)) {
+              &lt;div class&#x3D;&quot;cds--form-requirement&quot;&gt;
+                {{ getErrorMessage(&#x27;password&#x27;) }}
+              &lt;/div&gt;
+            }
+          &lt;/div&gt;
+
+          &lt;div class&#x3D;&quot;flex flex-col gap-[5px]&quot;&gt;
+            &lt;cds-text-label&gt;
+              &lt;span class&#x3D;&quot;cds--type-body-01&quot;&gt;
+                {{ t(&#x27;new-team-page.fields.category&#x27;) }}
+              &lt;/span&gt;
+              &lt;input
+                formControlName&#x3D;&quot;category&quot;
+                type&#x3D;&quot;text&quot;
+                cdsText
+                size&#x3D;&quot;md&quot;
+                [invalid]&#x3D;&quot;isInvalid(&#x27;category&#x27;)&quot;
+                [placeholder]&#x3D;&quot;t(&#x27;new-team-page.placeholder.category&#x27;)&quot;&gt;
+            &lt;/cds-text-label&gt;
+            @if (isInvalid(&#x27;category&#x27;)) {
+              &lt;div class&#x3D;&quot;cds--form-requirement&quot;&gt;
+                {{ getErrorMessage(&#x27;category&#x27;) }}
+              &lt;/div&gt;
+            }
+          &lt;/div&gt;
+
+          &lt;div class&#x3D;&quot;flex flex-col gap-[5px]&quot;&gt;
+            &lt;cds-text-label&gt;
+              &lt;span class&#x3D;&quot;cds--type-body-01&quot;&gt;
+                {{ t(&#x27;new-team-page.fields.affiliation&#x27;) }}
+              &lt;/span&gt;
+              &lt;input
+                formControlName&#x3D;&quot;affiliation&quot;
+                type&#x3D;&quot;text&quot;
+                cdsText
+                size&#x3D;&quot;md&quot;
+                [invalid]&#x3D;&quot;isInvalid(&#x27;affiliation&#x27;)&quot;
+                [placeholder]&#x3D;&quot;t(&#x27;new-team-page.placeholder.affiliation&#x27;)&quot;&gt;
+            &lt;/cds-text-label&gt;
+            @if (isInvalid(&#x27;affiliation&#x27;)) {
+              &lt;div class&#x3D;&quot;cds--form-requirement&quot;&gt;
+                {{ getErrorMessage(&#x27;affiliation&#x27;) }}
+              &lt;/div&gt;
+            }
+          &lt;/div&gt;
+        &lt;/form&gt;
+      &lt;/section&gt;
+
+      &lt;cds-modal-footer&gt;
+        &lt;button
+          class&#x3D;&quot;cds--btn cds--btn--danger&quot;
+          [disabled]&#x3D;&quot;loading() || deleting()&quot;
+          (click)&#x3D;&quot;deleteTeam()&quot;&gt;
+          {{ deleting() ? t(&#x27;edit-team-modal.delete.loading&#x27;) : t(&#x27;edit-team-modal.delete.submit&#x27;) }}
+        &lt;/button&gt;
+        &lt;button class&#x3D;&quot;cds--btn cds--btn--secondary&quot; (click)&#x3D;&quot;closeModal()&quot;&gt;
+          {{ t(&#x27;edit-team-modal.close&#x27;) }}
+        &lt;/button&gt;
+        &lt;button
+          class&#x3D;&quot;cds--btn cds--btn--primary&quot;
+          modal-primary-focus
+          [disabled]&#x3D;&quot;loading() || deleting()&quot;
+          (click)&#x3D;&quot;saveTeam()&quot;&gt;
+          {{ loading() ? t(&#x27;edit-team-modal.save.loading&#x27;) : t(&#x27;edit-team-modal.save.submit&#x27;) }}
+        &lt;/button&gt;
+      &lt;/cds-modal-footer&gt;
+    &lt;/cds-modal&gt;
+  }
+&lt;/ng-container&gt;
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><ng-container *transloco="let t">  @if (team()) {    <cds-modal      [open]="isOpen()"      size="md"      (overlaySelected)="closeModal()"      (close)="closeModal()">      <cds-modal-header (closeSelect)="closeModal()">        <h2 cdsModalHeaderLabel>{{ t(\'edit-team-modal.label\') }}</h2>        <h3 cdsModalHeaderHeading>{{ team()?.name }}</h3>      </cds-modal-header>      <section cdsModalContent [hasForm]="true">        <form          class="w-full flex flex-col gap-[1rem]"          [formGroup]="form"          (ngSubmit)="saveTeam()">          @if (notification()) {            <cds-notification              [notificationObj]="{                type: notification()!.type,                title: notification()!.title,                message: notification()!.message              }">            </cds-notification>          }          <div class="flex flex-col gap-[5px]">            <cds-text-label>              <span class="cds--type-body-01">                {{ t(\'new-team-page.fields.name\') }}              </span>              <input                formControlName="name"                type="text"                cdsText                size="md"                [invalid]="isInvalid(\'name\')"                [placeholder]="t(\'new-team-page.placeholder.name\')">            </cds-text-label>            @if (isInvalid(\'name\')) {              <div class="cds--form-requirement">                {{ getErrorMessage(\'name\') }}              </div>            }          </div>          <div class="flex flex-col gap-[5px]">            <cds-text-label>              <span class="cds--type-body-01">                {{ t(\'new-team-page.fields.password\') }}              </span>              <input                formControlName="password"                type="password"                cdsText                size="md"                [invalid]="isInvalid(\'password\')"                [placeholder]="t(\'edit-team-modal.placeholder.password\')">            </cds-text-label>            @if (isInvalid(\'password\')) {              <div class="cds--form-requirement">                {{ getErrorMessage(\'password\') }}              </div>            }          </div>          <div class="flex flex-col gap-[5px]">            <cds-text-label>              <span class="cds--type-body-01">                {{ t(\'new-team-page.fields.category\') }}              </span>              <input                formControlName="category"                type="text"                cdsText                size="md"                [invalid]="isInvalid(\'category\')"                [placeholder]="t(\'new-team-page.placeholder.category\')">            </cds-text-label>            @if (isInvalid(\'category\')) {              <div class="cds--form-requirement">                {{ getErrorMessage(\'category\') }}              </div>            }          </div>          <div class="flex flex-col gap-[5px]">            <cds-text-label>              <span class="cds--type-body-01">                {{ t(\'new-team-page.fields.affiliation\') }}              </span>              <input                formControlName="affiliation"                type="text"                cdsText                size="md"                [invalid]="isInvalid(\'affiliation\')"                [placeholder]="t(\'new-team-page.placeholder.affiliation\')">            </cds-text-label>            @if (isInvalid(\'affiliation\')) {              <div class="cds--form-requirement">                {{ getErrorMessage(\'affiliation\') }}              </div>            }          </div>        </form>      </section>      <cds-modal-footer>        <button          class="cds--btn cds--btn--danger"          [disabled]="loading() || deleting()"          (click)="deleteTeam()">          {{ deleting() ? t(\'edit-team-modal.delete.loading\') : t(\'edit-team-modal.delete.submit\') }}        </button>        <button class="cds--btn cds--btn--secondary" (click)="closeModal()">          {{ t(\'edit-team-modal.close\') }}        </button>        <button          class="cds--btn cds--btn--primary"          modal-primary-focus          [disabled]="loading() || deleting()"          (click)="saveTeam()">          {{ loading() ? t(\'edit-team-modal.save.loading\') : t(\'edit-team-modal.save.submit\') }}        </button>      </cds-modal-footer>    </cds-modal>  }</ng-container></div>'
+    var COMPONENTS = [{'name': 'AdminAudit', 'selector': 'app-admin-audit'},{'name': 'AdminChallenges', 'selector': 'app-admin-challenges'},{'name': 'AdminContestPage', 'selector': 'app-admin-contest'},{'name': 'AdminInstances', 'selector': 'app-admin-instances'},{'name': 'AdminLayout', 'selector': 'app-admin-layout'},{'name': 'AdminOverview', 'selector': 'app-admin-overview'},{'name': 'AdminSolves', 'selector': 'app-admin-solves'},{'name': 'AdminTeams', 'selector': 'app-admin-teams'},{'name': 'AdminUsers', 'selector': 'app-admin-users'},{'name': 'App', 'selector': 'app-root'},{'name': 'ChallengeInstancePanel', 'selector': 'app-challenge-instance-panel'},{'name': 'ChallengeModal', 'selector': 'app-challenge-modal'},{'name': 'ChallengePreview', 'selector': 'app-challenge-preview'},{'name': 'Challenges', 'selector': 'app-challenges'},{'name': 'EditMeModal', 'selector': 'app-edit-me-modal'},{'name': 'EditTeamModal', 'selector': 'app-edit-team-modal'},{'name': 'Footer', 'selector': 'app-footer'},{'name': 'Header', 'selector': 'app-header'},{'name': 'Layout', 'selector': 'app-layout'},{'name': 'Login', 'selector': 'app-login'},{'name': 'MainPage', 'selector': 'app-main-page'},{'name': 'Me', 'selector': 'app-me'},{'name': 'NewTeamPage', 'selector': 'app-new-team-page'},{'name': 'RatingPage', 'selector': 'app-rating-page'},{'name': 'Register', 'selector': 'app-register'},{'name': 'ScoreboardChart', 'selector': 'app-scoreboard'},{'name': 'TeamPage', 'selector': 'app-team-page'},{'name': 'TeamsListPage', 'selector': 'app-teams-list-page'},{'name': 'UserPage', 'selector': 'app-user-page'},{'name': 'UsersListPage', 'selector': 'app-users-list-page'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'EditTeamModal'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'EditTeamModal.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

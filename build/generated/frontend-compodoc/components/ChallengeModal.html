@@ -1,0 +1,1913 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>ctfast documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">ctfast documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  ChallengeModal</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/widgets/challenge-modal/challenge-modal.ts</code>
+</p>
+
+
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-challenge-modal</code></td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>TranslocoDirective</code>
+                            <code>ModalModule</code>
+                            <code>ButtonModule</code>
+                            <code>InputModule</code>
+                            <code>NotificationModule</code>
+                            <code>FormsModule</code>
+                            <code>ReactiveFormsModule</code>
+                                <code><a href="../components/ChallengeInstancePanel.html" target="_self" >ChallengeInstancePanel</a></code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./challenge-modal.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./challenge-modal.scss</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#challengeDetails" >challengeDetails</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#challengeId" >challengeId</a>
+                            </li>
+                            <li>
+                                <a href="#challengePreview" >challengePreview</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#challengesApi" >challengesApi</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#flag" >flag</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#isOpen" >isOpen</a>
+                            </li>
+                            <li>
+                                <a href="#isSolved" >isSolved</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#loading" >loading</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#notification" >notification</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#submitting" >submitting</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#transloco" >transloco</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#closeModal" >closeModal</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#handleSubmitError" >handleSubmitError</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#handleSubmitResponse" >handleSubmitResponse</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#loadChallenge" >loadChallenge</a>
+                            </li>
+                            <li>
+                                <a href="#onInstanceChanged" >onInstanceChanged</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#setNotification" >setNotification</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#setSuccessfulSubmitNotification" >setSuccessfulSubmitNotification</a>
+                            </li>
+                            <li>
+                                <a href="#submitFlag" >submitFlag</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#translateNotification" >translateNotification</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#challenge" >challenge</a>
+                            </li>
+                            <li>
+                                <a href="#open" >open</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Outputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#challengeUpdated" >challengeUpdated</a>
+                            </li>
+                            <li>
+                                <a href="#isCloseModal" >isCloseModal</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#challenge" >challenge</a>
+                                </li>
+                                <li>
+                                    <a href="#open" >open</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+
+    <section data-compodoc="block-inputs">
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="challenge"></a>
+                        <b>challenge</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/ChallengePreviewInterface.html" target="_self" >ChallengePreviewInterface | null</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/widgets/challenge-modal/challenge-modal.ts:42</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="open"></a>
+                        <b>open</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">src/widgets/challenge-modal/challenge-modal.ts:58</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+    <section data-compodoc="block-outputs">
+    <h3 id="outputs">Outputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="challengeUpdated"></a>
+                        <b>challengeUpdated</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EventEmitter</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="74" class="link-to-prism">src/widgets/challenge-modal/challenge-modal.ts:74</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isCloseModal"></a>
+                        <b>isCloseModal</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EventEmitter</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="73" class="link-to-prism">src/widgets/challenge-modal/challenge-modal.ts:73</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="closeModal"></a>
+                    <span class="name">
+                        <span ><b>closeModal</b></span>
+                        <a href="#closeModal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>closeModal()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="81"
+                                    class="link-to-prism">src/widgets/challenge-modal/challenge-modal.ts:81</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleSubmitError"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>handleSubmitError</b></span>
+                        <a href="#handleSubmitError"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>handleSubmitError(error: HttpErrorResponse)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="135"
+                                    class="link-to-prism">src/widgets/challenge-modal/challenge-modal.ts:135</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>error</td>
+                                            <td>
+                                                        <code>HttpErrorResponse</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleSubmitResponse"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>handleSubmitResponse</b></span>
+                        <a href="#handleSubmitResponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>handleSubmitResponse(response: <a href="../interfaces/ChallengeSubmitResponseInterface.html" target="_self">ChallengeSubmitResponseInterface</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="173"
+                                    class="link-to-prism">src/widgets/challenge-modal/challenge-modal.ts:173</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>response</td>
+                                            <td>
+                                                            <code><a href="../interfaces/ChallengeSubmitResponseInterface.html" target="_self" >ChallengeSubmitResponseInterface</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadChallenge"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>loadChallenge</b></span>
+                        <a href="#loadChallenge"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>loadChallenge(challengeId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="149"
+                                    class="link-to-prism">src/widgets/challenge-modal/challenge-modal.ts:149</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>challengeId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onInstanceChanged"></a>
+                    <span class="name">
+                        <span ><b>onInstanceChanged</b></span>
+                        <a href="#onInstanceChanged"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onInstanceChanged(instance: <a href="../interfaces/ChallengeInstance.html" target="_self">ChallengeInstance | undefined</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="119"
+                                    class="link-to-prism">src/widgets/challenge-modal/challenge-modal.ts:119</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>instance</td>
+                                            <td>
+                                                            <code><a href="../interfaces/ChallengeInstance.html" target="_self" >ChallengeInstance | undefined</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setNotification"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>setNotification</b></span>
+                        <a href="#setNotification"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setNotification(type: "error" | "success" | "warning", key: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, params?: Record<string | >)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="207"
+                                    class="link-to-prism">src/widgets/challenge-modal/challenge-modal.ts:207</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>type</td>
+                                            <td>
+                                                        <code>&quot;error&quot; | &quot;success&quot; | &quot;warning&quot;</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>key</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>params</td>
+                                            <td>
+                                                        <code>Record&lt;string | &gt;</code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setSuccessfulSubmitNotification"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>setSuccessfulSubmitNotification</b></span>
+                        <a href="#setSuccessfulSubmitNotification"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setSuccessfulSubmitNotification(response: <a href="../interfaces/ChallengeSubmitResponseInterface.html" target="_self">ChallengeSubmitResponseInterface</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="195"
+                                    class="link-to-prism">src/widgets/challenge-modal/challenge-modal.ts:195</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>response</td>
+                                            <td>
+                                                            <code><a href="../interfaces/ChallengeSubmitResponseInterface.html" target="_self" >ChallengeSubmitResponseInterface</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="submitFlag"></a>
+                    <span class="name">
+                        <span ><b>submitFlag</b></span>
+                        <a href="#submitFlag"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>submitFlag()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="85"
+                                    class="link-to-prism">src/widgets/challenge-modal/challenge-modal.ts:85</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="translateNotification"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>translateNotification</b></span>
+                        <a href="#translateNotification"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>translateNotification(key: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, params?: Record<string | >)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="219"
+                                    class="link-to-prism">src/widgets/challenge-modal/challenge-modal.ts:219</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>key</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>params</td>
+                                            <td>
+                                                        <code>Record&lt;string | &gt;</code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="challengeDetails"></a>
+                    <span class="name">
+                        <span ><b>challengeDetails</b></span>
+                        <a href="#challengeDetails"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;ChallengeInterface | null&gt;(null)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/widgets/challenge-modal/challenge-modal.ts:36</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="challengeId"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>challengeId</b></span>
+                        <a href="#challengeId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string | null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/widgets/challenge-modal/challenge-modal.ts:39</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="challengePreview"></a>
+                    <span class="name">
+                        <span ><b>challengePreview</b></span>
+                        <a href="#challengePreview"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;ChallengePreviewInterface | null&gt;(null)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/widgets/challenge-modal/challenge-modal.ts:35</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="challengesApi"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>challengesApi</b></span>
+                        <a href="#challengesApi"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(ChallengesApi)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/widgets/challenge-modal/challenge-modal.ts:32</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="flag"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>flag</b></span>
+                        <a href="#flag"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal(&#x27;&#x27;)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="76" class="link-to-prism">src/widgets/challenge-modal/challenge-modal.ts:76</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isOpen"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>isOpen</b></span>
+                        <a href="#isOpen"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;boolean&gt;(false)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/widgets/challenge-modal/challenge-modal.ts:38</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isSolved"></a>
+                    <span class="name">
+                        <span ><b>isSolved</b></span>
+                        <a href="#isSolved"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;boolean&gt;(false)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/widgets/challenge-modal/challenge-modal.ts:40</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loading"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>loading</b></span>
+                        <a href="#loading"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal(false)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="77" class="link-to-prism">src/widgets/challenge-modal/challenge-modal.ts:77</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="notification"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>notification</b></span>
+                        <a href="#notification"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;{ type: &#x27;error&#x27; | &#x27;success&#x27; | &#x27;warning&#x27;; title: string; message: string } | null&gt;(null)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="79" class="link-to-prism">src/widgets/challenge-modal/challenge-modal.ts:79</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="submitting"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>submitting</b></span>
+                        <a href="#submitting"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal(false)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="78" class="link-to-prism">src/widgets/challenge-modal/challenge-modal.ts:78</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="transloco"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>transloco</b></span>
+                        <a href="#transloco"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(TranslocoService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/widgets/challenge-modal/challenge-modal.ts:33</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-accessors">
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="challenge"></a>
+                        <span class="name"><b>challenge</b><a href="#challenge"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>set</b><code>challenge(value: <a href="../interfaces/ChallengePreviewInterface.html" target="_self">ChallengePreviewInterface | null</a>)</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/widgets/challenge-modal/challenge-modal.ts:42</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                        <td>Type</td>
+                                                    <td>Optional</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                            <td>value</td>
+                                                    
+                                                            <td>
+                                                                            <code><a href="../interfaces/ChallengePreviewInterface.html" target="_self" >ChallengePreviewInterface | null</a></code>
+                                                            </td>
+                                                    
+                                                        <td>
+                                                                No
+                                                        </td>
+                                                        
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="open"></a>
+                        <span class="name"><b>open</b><a href="#open"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>set</b><code>open(value: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">src/widgets/challenge-modal/challenge-modal.ts:58</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                        <td>Type</td>
+                                                    <td>Optional</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                            <td>value</td>
+                                                    
+                                                            <td>
+                                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                                            </td>
+                                                    
+                                                        <td>
+                                                                No
+                                                        </td>
+                                                        
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
+            </tbody>
+        </table>
+</section>
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {FormsModule, ReactiveFormsModule} from &#x27;@angular/forms&#x27;;
+import {HttpErrorResponse} from &#x27;@angular/common/http&#x27;;
+import {Component, EventEmitter, Input, Output, inject, signal} from &#x27;@angular/core&#x27;;
+import {TranslocoDirective, TranslocoService} from &#x27;@ngneat/transloco&#x27;;
+import {ButtonModule, InputModule, ModalModule, NotificationModule} from &#x27;carbon-components-angular&#x27;;
+import {ChallengesApi} from &#x27;../../utils/api/challenges&#x27;;
+import {
+  ChallengeInterface,
+  ChallengeInstance,
+  ChallengeSubmitResponseInterface,
+  ChallengePreviewInterface
+} from &#x27;../../entities/challenge.interface&#x27;;
+import {catchError, finalize, of} from &#x27;rxjs&#x27;;
+import {ChallengeInstancePanel} from &#x27;../challenge-instance-panel/challenge-instance-panel&#x27;;
+
+@Component({
+  selector: &#x27;app-challenge-modal&#x27;,
+  imports: [
+    TranslocoDirective,
+    ModalModule,
+    ButtonModule,
+    InputModule,
+    NotificationModule,
+    FormsModule,
+    ReactiveFormsModule,
+    ChallengeInstancePanel
+  ],
+  templateUrl: &#x27;./challenge-modal.html&#x27;,
+  styleUrl: &#x27;./challenge-modal.scss&#x27;,
+})
+export class ChallengeModal {
+  private readonly challengesApi &#x3D; inject(ChallengesApi);
+  private readonly transloco &#x3D; inject(TranslocoService);
+
+  challengePreview &#x3D; signal&lt;ChallengePreviewInterface | null&gt;(null);
+  challengeDetails &#x3D; signal&lt;ChallengeInterface | null&gt;(null)
+
+  readonly isOpen &#x3D; signal&lt;boolean&gt;(false);
+  private challengeId: string | null &#x3D; null;
+  isSolved &#x3D; signal&lt;boolean&gt;(false)
+
+  @Input() set challenge(value: ChallengePreviewInterface | null) {
+    this.challengePreview.set(value);
+    this.notification.set(null);
+    this.flag.set(&#x27;&#x27;);
+
+    if (value &amp;&amp; this.isOpen()) {
+      this.isSolved.set(value.is_solved);
+      this.loadChallenge(value.id);
+      return;
+    }
+
+    if (!value) {
+      this.challengeDetails.set(null);
+    }
+  }
+
+  @Input() set open(value: boolean) {
+    this.isOpen.set(value);
+
+    if (value) {
+      this.notification.set(null);
+      this.flag.set(&#x27;&#x27;);
+    }
+
+    const activeChallenge &#x3D; this.challengePreview();
+
+    if (value &amp;&amp; activeChallenge) {
+      this.loadChallenge(activeChallenge.id);
+    }
+  }
+
+  @Output() isCloseModal &#x3D; new EventEmitter&lt;void&gt;();
+  @Output() challengeUpdated &#x3D; new EventEmitter&lt;ChallengePreviewInterface&gt;();
+
+  readonly flag &#x3D; signal(&#x27;&#x27;);
+  readonly loading &#x3D; signal(false);
+  readonly submitting &#x3D; signal(false);
+  readonly notification &#x3D; signal&lt;{ type: &#x27;error&#x27; | &#x27;success&#x27; | &#x27;warning&#x27;; title: string; message: string } | null&gt;(null);
+
+  closeModal() {
+    this.isCloseModal.emit();
+  }
+
+  submitFlag() {
+    const activeChallenge &#x3D; this.challengeDetails();
+    const flag &#x3D; this.flag().trim();
+
+    if (!activeChallenge || !flag || this.submitting()) {
+      return;
+    }
+
+    this.submitting.set(true);
+    this.notification.set(null);
+
+    this.challengesApi.submitChallengeFlag(activeChallenge.id, flag)
+      .pipe(
+        catchError((error: HttpErrorResponse) &#x3D;&gt; {
+          this.handleSubmitError(error);
+
+          return of(null);
+        }),
+        finalize(() &#x3D;&gt; this.submitting.set(false))
+      )
+      .subscribe((res) &#x3D;&gt; {
+        if (!res) {
+          return;
+        }
+
+        if (res.status &#x3D;&#x3D;&#x3D; &quot;correct&quot;) {
+          this.setNotification(&#x27;success&#x27;, &#x27;submission-success&#x27;);
+          this.loadChallenge(activeChallenge.id);
+        }
+
+        this.handleSubmitResponse(res);
+      });
+  }
+
+  onInstanceChanged(instance: ChallengeInstance | undefined) {
+    const activeChallenge &#x3D; this.challengeDetails();
+
+    if (!activeChallenge) {
+      return;
+    }
+
+    const updatedChallenge: ChallengeInterface &#x3D; {
+      ...activeChallenge,
+      instance,
+    };
+
+    this.challengeDetails.set(updatedChallenge);
+    this.challengeUpdated.emit(updatedChallenge);
+  }
+
+  private handleSubmitError(error: HttpErrorResponse): void {
+    if (error.status &#x3D;&#x3D;&#x3D; 400) {
+      this.setNotification(&#x27;warning&#x27;, &#x27;submission-rejected&#x27;);
+      return;
+    }
+
+    if (error.status &#x3D;&#x3D;&#x3D; 403) {
+      this.setNotification(&#x27;warning&#x27;, &#x27;team-page-required&#x27;);
+      return;
+    }
+
+    this.setNotification(&#x27;error&#x27;, &#x27;submission-failed&#x27;);
+  }
+
+  private loadChallenge(challengeId: string) {
+    this.challengeId &#x3D; challengeId;
+    this.loading.set(true);
+
+    this.challengesApi.getChallengeById(challengeId)
+      .pipe(
+        catchError(() &#x3D;&gt; {
+          this.setNotification(&#x27;error&#x27;, &#x27;challenge-unavailable&#x27;);
+
+          this.challengeDetails.set(null);
+          return of(null);
+        }),
+        finalize(() &#x3D;&gt; this.loading.set(false))
+      )
+      .subscribe((res) &#x3D;&gt; {
+        if (this.challengeId !&#x3D;&#x3D; res?.challenge.id) {
+          return;
+        }
+
+        this.challengeDetails.set(res.challenge);
+        this.isSolved.set(res.challenge.is_solved);
+      });
+  }
+
+  private handleSubmitResponse(response: ChallengeSubmitResponseInterface) {
+    const current &#x3D; this.challengeDetails();
+
+    if (!current) {
+      return;
+    }
+
+    if (response.status &#x3D;&#x3D;&#x3D; &#x27;correct&#x27; || response.status &#x3D;&#x3D;&#x3D; &#x27;already_solved&#x27;) {
+      const updatedChallenge: ChallengeInterface &#x3D; {
+        ...current,
+        is_solved: true
+      };
+
+      this.challengeDetails.set(updatedChallenge);
+      this.challengeUpdated.emit(updatedChallenge);
+      this.setSuccessfulSubmitNotification(response);
+      return;
+    }
+
+    this.setNotification(&#x27;error&#x27;, &#x27;wrong-flag&#x27;);
+  }
+
+  private setSuccessfulSubmitNotification(response: ChallengeSubmitResponseInterface): void {
+    if (response.status &#x3D;&#x3D;&#x3D; &#x27;correct&#x27;) {
+      this.setNotification(&#x27;success&#x27;, &#x27;correct-flag&#x27;, {
+        points: response.points_awarded,
+        score: response.team_score
+      });
+      return;
+    }
+
+    this.setNotification(&#x27;success&#x27;, &#x27;already-solved&#x27;);
+  }
+
+  private setNotification(
+    type: &#x27;error&#x27; | &#x27;success&#x27; | &#x27;warning&#x27;,
+    key: string,
+    params?: Record&lt;string, unknown&gt;
+  ): void {
+    this.notification.set({
+      type,
+      title: this.translateNotification(&#x60;${key}.title&#x60;, params),
+      message: this.translateNotification(&#x60;${key}.message&#x60;, params),
+    });
+  }
+
+  private translateNotification(key: string, params?: Record&lt;string, unknown&gt;) {
+    return this.transloco.translate(&#x60;challenges-page.modal.notifications.${key}&#x60;, params);
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;ng-container *transloco&#x3D;&quot;let t&quot;&gt;
+  @if (challengePreview()) {
+    &lt;cds-modal
+      [open]&#x3D;&quot;isOpen()&quot;
+      size&#x3D;&quot;md&quot;
+      (overlaySelected)&#x3D;&quot;closeModal()&quot;
+      (close)&#x3D;&quot;closeModal()&quot;&gt;
+      &lt;cds-modal-header (closeSelect)&#x3D;&quot;closeModal()&quot;&gt;
+        &lt;h2 cdsModalHeaderLabel&gt;{{ challengeDetails()?.category || challengePreview()?.category }}&lt;/h2&gt;
+        &lt;h3 cdsModalHeaderHeading&gt;{{ challengeDetails()?.title || challengePreview()?.title }}&lt;/h3&gt;
+      &lt;/cds-modal-header&gt;
+      &lt;section cdsModalContent [hasForm]&#x3D;&quot;true&quot;&gt;
+        &lt;div class&#x3D;&quot;w-full flex flex-col gap-[12px]&quot;&gt;
+        @if (notification()) {
+          &lt;cds-notification
+            [notificationObj]&#x3D;&quot;{
+              type: notification()!.type,
+              title: notification()!.title,
+              message: notification()!.message,
+              showClose: false
+            }&quot;&gt;
+          &lt;/cds-notification&gt;
+        } @else if (isSolved()) {
+          &lt;cds-notification
+            [notificationObj]&#x3D;&quot;{
+              type: &#x27;success&#x27;,
+              title: t(&#x27;challenges-page.modal.notifications.submission-success.title&#x27;),
+              message: t(&#x27;challenges-page.modal.notifications.submission-success.message&#x27;),
+              showClose: false
+            }&quot;&gt;
+          &lt;/cds-notification&gt;
+        }
+
+        @if (loading()) {
+          &lt;h1 cdsModalContentText class&#x3D;&quot;cds--modal-content__regular-content modal-text&quot;&gt;
+            {{ t(&#x27;challenges-page.modal.loading&#x27;) }}
+          &lt;/h1&gt;
+        } @else if (challengeDetails(); as activeChallenge) {
+          &lt;h1 cdsModalContentText class&#x3D;&quot;cds--modal-content__regular-content modal-text&quot;&gt;
+            {{ challengeDetails()?.description }}
+          &lt;/h1&gt;
+
+          &lt;app-challenge-instance-panel
+            [challengeId]&#x3D;&quot;activeChallenge.id&quot;
+            [hasInstance]&#x3D;&quot;activeChallenge.has_instance&quot;
+            [initialInstance]&#x3D;&quot;activeChallenge.instance&quot;
+            (instanceChange)&#x3D;&quot;onInstanceChanged($event)&quot;&gt;
+          &lt;/app-challenge-instance-panel&gt;
+
+          @if (!isSolved()) {
+            &lt;cds-text-label&gt;
+              &lt;span class&#x3D;&quot;cds--type-body-01&quot;&gt;
+                flag
+              &lt;/span&gt;
+              &lt;input
+                type&#x3D;&quot;text&quot;
+                cdsText
+                size&#x3D;&quot;md&quot;
+                [placeholder]&#x3D;&quot;t(&#x27;challenges-page.modal.flag-placeholder&#x27;)&quot;
+                [ngModel]&#x3D;&quot;flag()&quot;
+                (ngModelChange)&#x3D;&quot;flag.set($event)&quot;&gt;
+            &lt;/cds-text-label&gt;
+          }
+        }
+        &lt;/div&gt;
+      &lt;/section&gt;
+      &lt;cds-modal-footer&gt;
+        &lt;button class&#x3D;&quot;cds--btn cds--btn--secondary&quot; (click)&#x3D;&quot;closeModal()&quot;&gt;
+          {{ t(&#x27;challenges-page.modal.close&#x27;) }}
+        &lt;/button&gt;
+        @if (!isSolved()) {
+          &lt;button
+            class&#x3D;&quot;cds--btn cds--btn--primary&quot;
+            modal-primary-focus
+            [disabled]&#x3D;&quot;loading() || submitting() || !flag().trim()&quot;
+            (click)&#x3D;&quot;submitFlag()&quot;&gt;
+            {{ t(&#x27;challenges-page.modal.submit&#x27;) }}
+          &lt;/button&gt;
+        }
+      &lt;/cds-modal-footer&gt;
+    &lt;/cds-modal&gt;
+  }
+&lt;/ng-container&gt;
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><ng-container *transloco="let t">  @if (challengePreview()) {    <cds-modal      [open]="isOpen()"      size="md"      (overlaySelected)="closeModal()"      (close)="closeModal()">      <cds-modal-header (closeSelect)="closeModal()">        <h2 cdsModalHeaderLabel>{{ challengeDetails()?.category || challengePreview()?.category }}</h2>        <h3 cdsModalHeaderHeading>{{ challengeDetails()?.title || challengePreview()?.title }}</h3>      </cds-modal-header>      <section cdsModalContent [hasForm]="true">        <div class="w-full flex flex-col gap-[12px]">        @if (notification()) {          <cds-notification            [notificationObj]="{              type: notification()!.type,              title: notification()!.title,              message: notification()!.message,              showClose: false            }">          </cds-notification>        } @else if (isSolved()) {          <cds-notification            [notificationObj]="{              type: \'success\',              title: t(\'challenges-page.modal.notifications.submission-success.title\'),              message: t(\'challenges-page.modal.notifications.submission-success.message\'),              showClose: false            }">          </cds-notification>        }        @if (loading()) {          <h1 cdsModalContentText class="cds--modal-content__regular-content modal-text">            {{ t(\'challenges-page.modal.loading\') }}          </h1>        } @else if (challengeDetails(); as activeChallenge) {          <h1 cdsModalContentText class="cds--modal-content__regular-content modal-text">            {{ challengeDetails()?.description }}          </h1>          <app-challenge-instance-panel            [challengeId]="activeChallenge.id"            [hasInstance]="activeChallenge.has_instance"            [initialInstance]="activeChallenge.instance"            (instanceChange)="onInstanceChanged($event)">          </app-challenge-instance-panel>          @if (!isSolved()) {            <cds-text-label>              <span class="cds--type-body-01">                flag              </span>              <input                type="text"                cdsText                size="md"                [placeholder]="t(\'challenges-page.modal.flag-placeholder\')"                [ngModel]="flag()"                (ngModelChange)="flag.set($event)">            </cds-text-label>          }        }        </div>      </section>      <cds-modal-footer>        <button class="cds--btn cds--btn--secondary" (click)="closeModal()">          {{ t(\'challenges-page.modal.close\') }}        </button>        @if (!isSolved()) {          <button            class="cds--btn cds--btn--primary"            modal-primary-focus            [disabled]="loading() || submitting() || !flag().trim()"            (click)="submitFlag()">            {{ t(\'challenges-page.modal.submit\') }}          </button>        }      </cds-modal-footer>    </cds-modal>  }</ng-container></div>'
+    var COMPONENTS = [{'name': 'AdminAudit', 'selector': 'app-admin-audit'},{'name': 'AdminChallenges', 'selector': 'app-admin-challenges'},{'name': 'AdminContestPage', 'selector': 'app-admin-contest'},{'name': 'AdminInstances', 'selector': 'app-admin-instances'},{'name': 'AdminLayout', 'selector': 'app-admin-layout'},{'name': 'AdminOverview', 'selector': 'app-admin-overview'},{'name': 'AdminSolves', 'selector': 'app-admin-solves'},{'name': 'AdminTeams', 'selector': 'app-admin-teams'},{'name': 'AdminUsers', 'selector': 'app-admin-users'},{'name': 'App', 'selector': 'app-root'},{'name': 'ChallengeInstancePanel', 'selector': 'app-challenge-instance-panel'},{'name': 'ChallengeModal', 'selector': 'app-challenge-modal'},{'name': 'ChallengePreview', 'selector': 'app-challenge-preview'},{'name': 'Challenges', 'selector': 'app-challenges'},{'name': 'EditMeModal', 'selector': 'app-edit-me-modal'},{'name': 'EditTeamModal', 'selector': 'app-edit-team-modal'},{'name': 'Footer', 'selector': 'app-footer'},{'name': 'Header', 'selector': 'app-header'},{'name': 'Layout', 'selector': 'app-layout'},{'name': 'Login', 'selector': 'app-login'},{'name': 'MainPage', 'selector': 'app-main-page'},{'name': 'Me', 'selector': 'app-me'},{'name': 'NewTeamPage', 'selector': 'app-new-team-page'},{'name': 'RatingPage', 'selector': 'app-rating-page'},{'name': 'Register', 'selector': 'app-register'},{'name': 'ScoreboardChart', 'selector': 'app-scoreboard'},{'name': 'TeamPage', 'selector': 'app-team-page'},{'name': 'TeamsListPage', 'selector': 'app-teams-list-page'},{'name': 'UserPage', 'selector': 'app-user-page'},{'name': 'UsersListPage', 'selector': 'app-users-list-page'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'ChallengeModal'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ChallengeModal.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

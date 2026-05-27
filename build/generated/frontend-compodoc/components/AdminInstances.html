@@ -1,0 +1,2816 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>ctfast documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">ctfast documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  AdminInstances</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/pages/admin-instances/admin-instances.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>AfterViewInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-admin-instances</code></td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>CommonModule</code>
+                            <code>TranslocoDirective</code>
+                            <code>TableModule</code>
+                            <code>LoadingModule</code>
+                            <code>ButtonModule</code>
+                            <code>ModalModule</code>
+                            <code>NotificationModule</code>
+                            <code>TagModule</code>
+                            <code>InputModule</code>
+                            <code>ReactiveFormsModule</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./admin-instances.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./admin-instances.scss</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Protected</span>
+                                <a href="#actionsTemplate" >actionsTemplate</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#adminApi" >adminApi</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#allInstances" >allInstances</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Protected</span>
+                                <a href="#connectionTemplate" >connectionTemplate</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#detailError" >detailError</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#detailInstanceId" >detailInstanceId</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#detailLoading" >detailLoading</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#error" >error</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#hasInstances" >hasInstances</a>
+                            </li>
+                            <li>
+                                <a href="#instances" >instances</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Protected</span>
+                                <a href="#linkTemplate" >linkTemplate</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#loading" >loading</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#mutationLoading" >mutationLoading</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#notification" >notification</a>
+                            </li>
+                            <li>
+                                <a href="#openDeleteModal" >openDeleteModal</a>
+                            </li>
+                            <li>
+                                <a href="#openDetailModal" >openDetailModal</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#searchQuery" >searchQuery</a>
+                            </li>
+                            <li>
+                                <a href="#selectedDetailInstance" >selectedDetailInstance</a>
+                            </li>
+                            <li>
+                                <a href="#selectedInstance" >selectedInstance</a>
+                            </li>
+                            <li>
+                                <a href="#statusForm" >statusForm</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Protected</span>
+                                <a href="#statusTemplate" >statusTemplate</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#transloco" >transloco</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#applySearch" >applySearch</a>
+                            </li>
+                            <li>
+                                <a href="#askDelete" >askDelete</a>
+                            </li>
+                            <li>
+                                <a href="#askDeleteFromDetail" >askDeleteFromDetail</a>
+                            </li>
+                            <li>
+                                <a href="#confirmDelete" >confirmDelete</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#createModel" >createModel</a>
+                            </li>
+                            <li>
+                                <a href="#extend" >extend</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#formatDate" >formatDate</a>
+                            </li>
+                            <li>
+                                <a href="#getStatusView" >getStatusView</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#loadData" >loadData</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#mutateInstance" >mutateInstance</a>
+                            </li>
+                            <li>
+                                <a href="#ngAfterViewInit" >ngAfterViewInit</a>
+                            </li>
+                            <li>
+                                <a href="#onSearch" >onSearch</a>
+                            </li>
+                            <li>
+                                <a href="#openDetail" >openDetail</a>
+                            </li>
+                            <li>
+                                <a href="#refresh" >refresh</a>
+                            </li>
+                            <li>
+                                <a href="#restart" >restart</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#setDetailInstance" >setDetailInstance</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#showNotification" >showNotification</a>
+                            </li>
+                            <li>
+                                <a href="#updateStatus" >updateStatus</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="applySearch"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>applySearch</b></span>
+                        <a href="#applySearch"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>applySearch()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="311"
+                                    class="link-to-prism">src/pages/admin-instances/admin-instances.ts:311</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="askDelete"></a>
+                    <span class="name">
+                        <span ><b>askDelete</b></span>
+                        <a href="#askDelete"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>askDelete(instance: <a href="../interfaces/AdminInstance.html" target="_self">AdminInstance</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="225"
+                                    class="link-to-prism">src/pages/admin-instances/admin-instances.ts:225</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>instance</td>
+                                            <td>
+                                                            <code><a href="../interfaces/AdminInstance.html" target="_self" >AdminInstance</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="askDeleteFromDetail"></a>
+                    <span class="name">
+                        <span ><b>askDeleteFromDetail</b></span>
+                        <a href="#askDeleteFromDetail"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>askDeleteFromDetail(instance: <a href="../interfaces/AdminInstance.html" target="_self">AdminInstance</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="230"
+                                    class="link-to-prism">src/pages/admin-instances/admin-instances.ts:230</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>instance</td>
+                                            <td>
+                                                            <code><a href="../interfaces/AdminInstance.html" target="_self" >AdminInstance</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="confirmDelete"></a>
+                    <span class="name">
+                        <span ><b>confirmDelete</b></span>
+                        <a href="#confirmDelete"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>confirmDelete()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="235"
+                                    class="link-to-prism">src/pages/admin-instances/admin-instances.ts:235</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createModel"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>createModel</b></span>
+                        <a href="#createModel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>createModel(items: <a href="../interfaces/AdminInstance.html" target="_self">AdminInstance[]</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="101"
+                                    class="link-to-prism">src/pages/admin-instances/admin-instances.ts:101</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>items</td>
+                                            <td>
+                                                            <code><a href="../interfaces/AdminInstance.html" target="_self" >AdminInstance[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="extend"></a>
+                    <span class="name">
+                        <span ><b>extend</b></span>
+                        <a href="#extend"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>extend(instance: <a href="../interfaces/AdminInstance.html" target="_self">AdminInstance</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="185"
+                                    class="link-to-prism">src/pages/admin-instances/admin-instances.ts:185</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>instance</td>
+                                            <td>
+                                                            <code><a href="../interfaces/AdminInstance.html" target="_self" >AdminInstance</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="formatDate"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>formatDate</b></span>
+                        <a href="#formatDate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>formatDate(value: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="333"
+                                    class="link-to-prism">src/pages/admin-instances/admin-instances.ts:333</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>value</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getStatusView"></a>
+                    <span class="name">
+                        <span ><b>getStatusView</b></span>
+                        <a href="#getStatusView"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getStatusView(instance: <a href="../interfaces/AdminInstance.html" target="_self">AdminInstance</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="138"
+                                    class="link-to-prism">src/pages/admin-instances/admin-instances.ts:138</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>instance</td>
+                                            <td>
+                                                            <code><a href="../interfaces/AdminInstance.html" target="_self" >AdminInstance</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadData"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>loadData</b></span>
+                        <a href="#loadData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>loadData()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="82"
+                                    class="link-to-prism">src/pages/admin-instances/admin-instances.ts:82</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mutateInstance"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>mutateInstance</b></span>
+                        <a href="#mutateInstance"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>mutateInstance(instanceId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, request: ReturnType<>, successKey: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, errorKey: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="267"
+                                    class="link-to-prism">src/pages/admin-instances/admin-instances.ts:267</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>instanceId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>request</td>
+                                            <td>
+                                                        <code>ReturnType&lt;&gt;</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>successKey</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>errorKey</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngAfterViewInit"></a>
+                    <span class="name">
+                        <span ><b>ngAfterViewInit</b></span>
+                        <a href="#ngAfterViewInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngAfterViewInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="78"
+                                    class="link-to-prism">src/pages/admin-instances/admin-instances.ts:78</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onSearch"></a>
+                    <span class="name">
+                        <span ><b>onSearch</b></span>
+                        <a href="#onSearch"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onSearch(query: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="146"
+                                    class="link-to-prism">src/pages/admin-instances/admin-instances.ts:146</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>query</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openDetail"></a>
+                    <span class="name">
+                        <span ><b>openDetail</b></span>
+                        <a href="#openDetail"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>openDetail(instance: <a href="../interfaces/AdminInstance.html" target="_self">AdminInstance</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="151"
+                                    class="link-to-prism">src/pages/admin-instances/admin-instances.ts:151</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>instance</td>
+                                            <td>
+                                                            <code><a href="../interfaces/AdminInstance.html" target="_self" >AdminInstance</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="refresh"></a>
+                    <span class="name">
+                        <span ><b>refresh</b></span>
+                        <a href="#refresh"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>refresh()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="142"
+                                    class="link-to-prism">src/pages/admin-instances/admin-instances.ts:142</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="restart"></a>
+                    <span class="name">
+                        <span ><b>restart</b></span>
+                        <a href="#restart"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>restart(instance: <a href="../interfaces/AdminInstance.html" target="_self">AdminInstance</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="194"
+                                    class="link-to-prism">src/pages/admin-instances/admin-instances.ts:194</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>instance</td>
+                                            <td>
+                                                            <code><a href="../interfaces/AdminInstance.html" target="_self" >AdminInstance</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setDetailInstance"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>setDetailInstance</b></span>
+                        <a href="#setDetailInstance"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setDetailInstance(instance: <a href="../interfaces/AdminInstance.html" target="_self">AdminInstance</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="295"
+                                    class="link-to-prism">src/pages/admin-instances/admin-instances.ts:295</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>instance</td>
+                                            <td>
+                                                            <code><a href="../interfaces/AdminInstance.html" target="_self" >AdminInstance</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showNotification"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>showNotification</b></span>
+                        <a href="#showNotification"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>showNotification(type: "error" | "success", key: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="303"
+                                    class="link-to-prism">src/pages/admin-instances/admin-instances.ts:303</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>type</td>
+                                            <td>
+                                                        <code>&quot;error&quot; | &quot;success&quot;</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>key</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateStatus"></a>
+                    <span class="name">
+                        <span ><b>updateStatus</b></span>
+                        <a href="#updateStatus"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>updateStatus()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="203"
+                                    class="link-to-prism">src/pages/admin-instances/admin-instances.ts:203</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="actionsTemplate"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Protected</span>
+                        <span ><b>actionsTemplate</b></span>
+                        <a href="#actionsTemplate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>TemplateRef&lt;literal type&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;actionsTemplate&#x27;)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/pages/admin-instances/admin-instances.ts:51</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="adminApi"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>adminApi</b></span>
+                        <a href="#adminApi"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(AdminApi)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/pages/admin-instances/admin-instances.ts:53</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="allInstances"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>allInstances</b></span>
+                        <a href="#allInstances"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/AdminInstance.html" target="_self" >AdminInstance[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="63" class="link-to-prism">src/pages/admin-instances/admin-instances.ts:63</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="connectionTemplate"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Protected</span>
+                        <span ><b>connectionTemplate</b></span>
+                        <a href="#connectionTemplate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>TemplateRef&lt;literal type&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;connectionTemplate&#x27;)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/pages/admin-instances/admin-instances.ts:48</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="detailError"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>detailError</b></span>
+                        <a href="#detailError"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;string | null&gt;(null)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">src/pages/admin-instances/admin-instances.ts:60</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="detailInstanceId"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>detailInstanceId</b></span>
+                        <a href="#detailInstanceId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string | null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">src/pages/admin-instances/admin-instances.ts:65</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="detailLoading"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>detailLoading</b></span>
+                        <a href="#detailLoading"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal(false)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">src/pages/admin-instances/admin-instances.ts:59</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="error"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>error</b></span>
+                        <a href="#error"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;string | null&gt;(null)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">src/pages/admin-instances/admin-instances.ts:57</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="hasInstances"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>hasInstances</b></span>
+                        <a href="#hasInstances"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal(false)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">src/pages/admin-instances/admin-instances.ts:58</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="instances"></a>
+                    <span class="name">
+                        <span ><b>instances</b></span>
+                        <a href="#instances"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>this.createModel([])</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="66" class="link-to-prism">src/pages/admin-instances/admin-instances.ts:66</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="linkTemplate"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Protected</span>
+                        <span ><b>linkTemplate</b></span>
+                        <a href="#linkTemplate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>TemplateRef&lt;literal type&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;linkTemplate&#x27;)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/pages/admin-instances/admin-instances.ts:42</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loading"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>loading</b></span>
+                        <a href="#loading"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal(true)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">src/pages/admin-instances/admin-instances.ts:56</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mutationLoading"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>mutationLoading</b></span>
+                        <a href="#mutationLoading"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;string | null&gt;(null)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">src/pages/admin-instances/admin-instances.ts:61</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="notification"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>notification</b></span>
+                        <a href="#notification"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;{ type: &#x27;error&#x27; | &#x27;success&#x27;; title: string; message: string } | null&gt;(null)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">src/pages/admin-instances/admin-instances.ts:62</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openDeleteModal"></a>
+                    <span class="name">
+                        <span ><b>openDeleteModal</b></span>
+                        <a href="#openDeleteModal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal(false)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="70" class="link-to-prism">src/pages/admin-instances/admin-instances.ts:70</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openDetailModal"></a>
+                    <span class="name">
+                        <span ><b>openDetailModal</b></span>
+                        <a href="#openDetailModal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal(false)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="71" class="link-to-prism">src/pages/admin-instances/admin-instances.ts:71</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="searchQuery"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>searchQuery</b></span>
+                        <a href="#searchQuery"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">src/pages/admin-instances/admin-instances.ts:64</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectedDetailInstance"></a>
+                    <span class="name">
+                        <span ><b>selectedDetailInstance</b></span>
+                        <a href="#selectedDetailInstance"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;AdminInstance | null&gt;(null)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="69" class="link-to-prism">src/pages/admin-instances/admin-instances.ts:69</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectedInstance"></a>
+                    <span class="name">
+                        <span ><b>selectedInstance</b></span>
+                        <a href="#selectedInstance"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;AdminInstance | null&gt;(null)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">src/pages/admin-instances/admin-instances.ts:68</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="statusForm"></a>
+                    <span class="name">
+                        <span ><b>statusForm</b></span>
+                        <a href="#statusForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new FormGroup({
+    status: new FormControl(&#x27;&#x27;, [Validators.required]),
+    error_message: new FormControl(&#x27;&#x27;),
+  })</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="73" class="link-to-prism">src/pages/admin-instances/admin-instances.ts:73</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="statusTemplate"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Protected</span>
+                        <span ><b>statusTemplate</b></span>
+                        <a href="#statusTemplate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>TemplateRef&lt;literal type&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;statusTemplate&#x27;)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/pages/admin-instances/admin-instances.ts:45</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="transloco"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>transloco</b></span>
+                        <a href="#transloco"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(TranslocoService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/pages/admin-instances/admin-instances.ts:54</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {AfterViewInit, Component, inject, signal, TemplateRef, ViewChild} from &#x27;@angular/core&#x27;;
+import {CommonModule} from &#x27;@angular/common&#x27;;
+import {FormControl, FormGroup, ReactiveFormsModule, Validators} from &#x27;@angular/forms&#x27;;
+import {TranslocoDirective, TranslocoService} from &#x27;@ngneat/transloco&#x27;;
+import {
+  ButtonModule,
+  InputModule,
+  LoadingModule,
+  ModalModule,
+  NotificationModule,
+  TagModule,
+  TableHeaderItem,
+  TableItem,
+  TableModel,
+  TableModule,
+} from &#x27;carbon-components-angular&#x27;;
+import {AdminApi} from &#x27;../../utils/api/admin-api&#x27;;
+import {AdminInstance} from &#x27;../../entities/admin/admin.interface&#x27;;
+import {catchError, finalize, of} from &#x27;rxjs&#x27;;
+import {getInstanceStatusView} from &#x27;../../utils/instances/instance-status&#x27;;
+import {matchesSearch} from &#x27;../../utils/search/table-search&#x27;;
+
+@Component({
+  selector: &#x27;app-admin-instances&#x27;,
+  imports: [
+    CommonModule,
+    TranslocoDirective,
+    TableModule,
+    LoadingModule,
+    ButtonModule,
+    ModalModule,
+    NotificationModule,
+    TagModule,
+    InputModule,
+    ReactiveFormsModule,
+  ],
+  templateUrl: &#x27;./admin-instances.html&#x27;,
+  styleUrl: &#x27;./admin-instances.scss&#x27;,
+})
+export class AdminInstances implements AfterViewInit {
+  @ViewChild(&#x27;linkTemplate&#x27;)
+  protected linkTemplate!: TemplateRef&lt;{ data: AdminInstance }&gt;;
+
+  @ViewChild(&#x27;statusTemplate&#x27;)
+  protected statusTemplate!: TemplateRef&lt;{ data: ReturnType&lt;typeof getInstanceStatusView&gt; }&gt;;
+
+  @ViewChild(&#x27;connectionTemplate&#x27;)
+  protected connectionTemplate!: TemplateRef&lt;{ data: string }&gt;;
+
+  @ViewChild(&#x27;actionsTemplate&#x27;)
+  protected actionsTemplate!: TemplateRef&lt;{ data: { instance: AdminInstance } }&gt;;
+
+  private readonly adminApi &#x3D; inject(AdminApi);
+  private readonly transloco &#x3D; inject(TranslocoService);
+
+  readonly loading &#x3D; signal(true);
+  readonly error &#x3D; signal&lt;string | null&gt;(null);
+  readonly hasInstances &#x3D; signal(false);
+  readonly detailLoading &#x3D; signal(false);
+  readonly detailError &#x3D; signal&lt;string | null&gt;(null);
+  readonly mutationLoading &#x3D; signal&lt;string | null&gt;(null);
+  readonly notification &#x3D; signal&lt;{ type: &#x27;error&#x27; | &#x27;success&#x27;; title: string; message: string } | null&gt;(null);
+  private allInstances: AdminInstance[] &#x3D; [];
+  private searchQuery &#x3D; &#x27;&#x27;;
+  private detailInstanceId: string | null &#x3D; null;
+  instances &#x3D; this.createModel([]);
+
+  selectedInstance &#x3D; signal&lt;AdminInstance | null&gt;(null);
+  selectedDetailInstance &#x3D; signal&lt;AdminInstance | null&gt;(null);
+  openDeleteModal &#x3D; signal(false);
+  openDetailModal &#x3D; signal(false);
+
+  statusForm &#x3D; new FormGroup({
+    status: new FormControl(&#x27;&#x27;, [Validators.required]),
+    error_message: new FormControl(&#x27;&#x27;),
+  });
+
+  ngAfterViewInit() {
+    this.loadData();
+  }
+
+  private loadData() {
+    this.loading.set(true);
+    this.error.set(null);
+
+    this.adminApi.getInstances()
+      .pipe(
+        catchError(() &#x3D;&gt; {
+          this.error.set(this.transloco.translate(&#x27;admin.instances.errors.load&#x27;));
+          return of({ instances: [] });
+        }),
+        finalize(() &#x3D;&gt; this.loading.set(false))
+      )
+      .subscribe((res) &#x3D;&gt; {
+        this.allInstances &#x3D; res.instances;
+        this.hasInstances.set(this.allInstances.length &gt; 0);
+        this.applySearch();
+      });
+  }
+
+  private createModel(items: AdminInstance[]) {
+    const model &#x3D; new TableModel();
+    model.header &#x3D; [
+      new TableHeaderItem({ data: this.transloco.translate(&#x27;admin.instances.columns.challenge&#x27;) }),
+      new TableHeaderItem({ data: this.transloco.translate(&#x27;admin.instances.columns.team&#x27;) }),
+      new TableHeaderItem({ data: this.transloco.translate(&#x27;admin.instances.columns.status&#x27;) }),
+      new TableHeaderItem({ data: this.transloco.translate(&#x27;admin.instances.columns.connection&#x27;) }),
+      new TableHeaderItem({ data: this.transloco.translate(&#x27;admin.instances.columns.expires&#x27;) }),
+      new TableHeaderItem({ data: this.transloco.translate(&#x27;admin.instances.columns.created&#x27;) }),
+      new TableHeaderItem({ data: this.transloco.translate(&#x27;admin.instances.columns.updated&#x27;) }),
+      new TableHeaderItem({ data: this.transloco.translate(&#x27;admin.instances.columns.actions&#x27;) }),
+    ];
+    model.data &#x3D; items.map((i) &#x3D;&gt; [
+      new TableItem({
+        data: i,
+        template: this.linkTemplate,
+      }),
+      new TableItem({ data: i.team_name }),
+      new TableItem({
+        data: this.getStatusView(i),
+        template: this.statusTemplate,
+      }),
+      new TableItem({
+        data: i.connection_url,
+        template: this.connectionTemplate,
+      }),
+      new TableItem({ data: this.formatDate(i.expires_at) }),
+      new TableItem({ data: this.formatDate(i.created_at) }),
+      new TableItem({ data: this.formatDate(i.updated_at) }),
+      new TableItem({
+        data: { instance: i },
+        template: this.actionsTemplate,
+      }),
+    ]);
+    return model;
+  }
+
+  getStatusView(instance: AdminInstance) {
+    return getInstanceStatusView(instance.status, instance.expires_at);
+  }
+
+  refresh() {
+    this.loadData();
+  }
+
+  onSearch(query: string) {
+    this.searchQuery &#x3D; query;
+    this.applySearch();
+  }
+
+  openDetail(instance: AdminInstance) {
+    const requestedInstanceId &#x3D; instance.id;
+
+    this.detailInstanceId &#x3D; requestedInstanceId;
+    this.openDetailModal.set(true);
+    this.selectedDetailInstance.set(null);
+    this.detailLoading.set(true);
+    this.detailError.set(null);
+    this.notification.set(null);
+
+    this.adminApi.getInstance(instance.id)
+      .pipe(
+        catchError(() &#x3D;&gt; {
+          if (this.detailInstanceId &#x3D;&#x3D;&#x3D; requestedInstanceId) {
+            this.detailError.set(this.transloco.translate(&#x27;admin.instances.errors.detail&#x27;));
+          }
+          return of(null);
+        })
+      )
+      .subscribe((res) &#x3D;&gt; {
+        if (this.detailInstanceId !&#x3D;&#x3D; requestedInstanceId) {
+          return;
+        }
+
+        this.detailLoading.set(false);
+
+        if (!res) {
+          return;
+        }
+
+        this.setDetailInstance(res.instance);
+      });
+  }
+
+  extend(instance: AdminInstance) {
+    this.mutateInstance(
+      instance.id,
+      this.adminApi.extendInstance(instance.id, { ttl_seconds: 3600 }),
+      &#x27;extendSuccess&#x27;,
+      &#x27;extendFailed&#x27;
+    );
+  }
+
+  restart(instance: AdminInstance) {
+    this.mutateInstance(
+      instance.id,
+      this.adminApi.restartInstance(instance.id, { ttl_seconds: 3600 }),
+      &#x27;restartSuccess&#x27;,
+      &#x27;restartFailed&#x27;
+    );
+  }
+
+  updateStatus() {
+    const instance &#x3D; this.selectedDetailInstance();
+
+    if (!instance || this.statusForm.invalid) {
+      this.statusForm.markAllAsTouched();
+      return;
+    }
+
+    const raw &#x3D; this.statusForm.value;
+    const errorMessage &#x3D; raw.error_message?.trim();
+
+    this.mutateInstance(
+      instance.id,
+      this.adminApi.updateInstanceStatus(instance.id, {
+        status: raw.status!,
+        error_message: errorMessage &#x3D;&#x3D;&#x3D; &#x27;&#x27; ? undefined : errorMessage,
+      }),
+      &#x27;statusSuccess&#x27;,
+      &#x27;statusFailed&#x27;
+    );
+  }
+
+  askDelete(instance: AdminInstance) {
+    this.selectedInstance.set(instance);
+    this.openDeleteModal.set(true);
+  }
+
+  askDeleteFromDetail(instance: AdminInstance) {
+    this.openDetailModal.set(false);
+    this.askDelete(instance);
+  }
+
+  confirmDelete() {
+    const id &#x3D; this.selectedInstance()?.id;
+    if (!id) return;
+    this.mutationLoading.set(id);
+    this.notification.set(null);
+
+    this.adminApi.deleteInstance(id, { confirm: &#x27;DELETE_INSTANCE&#x27; })
+      .pipe(
+        catchError(() &#x3D;&gt; {
+          this.showNotification(&#x27;error&#x27;, &#x27;deleteFailed&#x27;);
+          return of(null);
+        }),
+        finalize(() &#x3D;&gt; this.mutationLoading.set(null))
+      )
+      .subscribe((res) &#x3D;&gt; {
+        if (!res) {
+          return;
+        }
+
+        this.openDeleteModal.set(false);
+        this.selectedInstance.set(null);
+
+        if (this.selectedDetailInstance()?.id &#x3D;&#x3D;&#x3D; id) {
+          this.selectedDetailInstance.set(null);
+          this.openDetailModal.set(false);
+        }
+
+        this.showNotification(&#x27;success&#x27;, &#x27;deleteSuccess&#x27;);
+        this.loadData();
+      });
+  }
+
+  private mutateInstance(
+    instanceId: string,
+    request: ReturnType&lt;AdminApi[&#x27;extendInstance&#x27;]&gt;,
+    successKey: string,
+    errorKey: string
+  ) {
+    this.mutationLoading.set(instanceId);
+    this.notification.set(null);
+
+    request
+      .pipe(
+        catchError(() &#x3D;&gt; {
+          this.showNotification(&#x27;error&#x27;, errorKey);
+          return of(null);
+        }),
+        finalize(() &#x3D;&gt; this.mutationLoading.set(null))
+      )
+      .subscribe((res) &#x3D;&gt; {
+        if (!res) {
+          return;
+        }
+
+        this.setDetailInstance(res.instance);
+        this.showNotification(&#x27;success&#x27;, successKey);
+        this.loadData();
+      });
+  }
+
+  private setDetailInstance(instance: AdminInstance) {
+    this.selectedDetailInstance.set(instance);
+    this.statusForm.reset({
+      status: instance.status,
+      error_message: instance.error_message ?? &#x27;&#x27;,
+    });
+  }
+
+  private showNotification(type: &#x27;error&#x27; | &#x27;success&#x27;, key: string) {
+    this.notification.set({
+      type,
+      title: this.transloco.translate(&#x60;admin.instances.notifications.${key}.title&#x60;),
+      message: this.transloco.translate(&#x60;admin.instances.notifications.${key}.message&#x60;),
+    });
+  }
+
+  private applySearch() {
+    const filtered &#x3D; this.allInstances.filter((instance) &#x3D;&gt; matchesSearch([
+      instance.id,
+      instance.challenge_id,
+      instance.challenge_title,
+      instance.team_id,
+      instance.team_name,
+      instance.instance_name,
+      instance.connection_url,
+      instance.status,
+      instance.error_message,
+      instance.expires_at,
+      instance.created_at,
+      instance.updated_at,
+      this.formatDate(instance.expires_at),
+      this.formatDate(instance.created_at),
+      this.formatDate(instance.updated_at),
+    ], this.searchQuery));
+
+    this.instances &#x3D; this.createModel(filtered);
+  }
+
+  private formatDate(value: string): string {
+    const date &#x3D; new Date(value);
+
+    if (Number.isNaN(date.getTime())) {
+      return value;
+    }
+
+    return date.toLocaleString(this.transloco.getActiveLang());
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;ng-container *transloco&#x3D;&quot;let t&quot;&gt;
+  &lt;ng-template #linkTemplate let-data&#x3D;&quot;data&quot;&gt;
+    &lt;a href&#x3D;&quot;javascript:void(0)&quot; (click)&#x3D;&quot;openDetail(data)&quot; class&#x3D;&quot;cds--link&quot;&gt;
+      {{ data.challenge_title }}
+    &lt;/a&gt;
+  &lt;/ng-template&gt;
+
+  &lt;ng-template #statusTemplate let-data&#x3D;&quot;data&quot;&gt;
+    &lt;cds-tag [type]&#x3D;&quot;data.tagType&quot; size&#x3D;&quot;sm&quot;&gt;
+      {{ t(data.labelKey) }}
+    &lt;/cds-tag&gt;
+    @if (data.status &#x3D;&#x3D;&#x3D; &#x27;unknown&#x27;) {
+      &lt;span class&#x3D;&quot;text-secondary&quot;&gt;{{ data.rawStatus }}&lt;/span&gt;
+    }
+  &lt;/ng-template&gt;
+
+  &lt;ng-template #connectionTemplate let-data&#x3D;&quot;data&quot;&gt;
+    &lt;span class&#x3D;&quot;connection-value&quot;&gt;{{ data }}&lt;/span&gt;
+  &lt;/ng-template&gt;
+
+  &lt;ng-template #actionsTemplate let-data&#x3D;&quot;data&quot;&gt;
+    &lt;div class&#x3D;&quot;flex gap-2&quot;&gt;
+      &lt;button
+        cdsButton&#x3D;&quot;tertiary&quot;
+        size&#x3D;&quot;sm&quot;
+        type&#x3D;&quot;button&quot;
+        (click)&#x3D;&quot;openDetail(data.instance)&quot;&gt;
+        {{ t(&#x27;admin.instances.actions.view&#x27;) }}
+      &lt;/button&gt;
+      &lt;button
+        cdsButton&#x3D;&quot;secondary&quot;
+        size&#x3D;&quot;sm&quot;
+        type&#x3D;&quot;button&quot;
+        [disabled]&#x3D;&quot;mutationLoading() &#x3D;&#x3D;&#x3D; data.instance.id&quot;
+        (click)&#x3D;&quot;extend(data.instance)&quot;&gt;
+        {{ t(&#x27;admin.instances.actions.extend&#x27;) }}
+      &lt;/button&gt;
+      &lt;button
+        cdsButton&#x3D;&quot;secondary&quot;
+        size&#x3D;&quot;sm&quot;
+        type&#x3D;&quot;button&quot;
+        [disabled]&#x3D;&quot;mutationLoading() &#x3D;&#x3D;&#x3D; data.instance.id&quot;
+        (click)&#x3D;&quot;restart(data.instance)&quot;&gt;
+        {{ t(&#x27;admin.instances.actions.restart&#x27;) }}
+      &lt;/button&gt;
+      &lt;button
+        cdsButton&#x3D;&quot;danger&quot;
+        size&#x3D;&quot;sm&quot;
+        type&#x3D;&quot;button&quot;
+        [disabled]&#x3D;&quot;mutationLoading() &#x3D;&#x3D;&#x3D; data.instance.id&quot;
+        (click)&#x3D;&quot;askDelete(data.instance)&quot;&gt;
+        {{ t(&#x27;admin.instances.actions.delete&#x27;) }}
+      &lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/ng-template&gt;
+
+  &lt;div class&#x3D;&quot;container flex flex-col gap-[1.5rem]&quot;&gt;
+    &lt;div class&#x3D;&quot;flex items-center justify-between&quot;&gt;
+      &lt;h1 class&#x3D;&quot;cds--type-heading-07&quot;&gt;{{ t(&#x27;admin.instances.title&#x27;) }}&lt;/h1&gt;
+      &lt;button cdsButton type&#x3D;&quot;button&quot; (click)&#x3D;&quot;refresh()&quot;&gt;{{ t(&#x27;admin.instances.refresh&#x27;) }}&lt;/button&gt;
+    &lt;/div&gt;
+
+    @if (notification(); as message) {
+      &lt;cds-notification
+        [notificationObj]&#x3D;&quot;{
+          type: message.type,
+          title: message.title,
+          message: message.message,
+          showClose: false
+        }&quot;&gt;
+      &lt;/cds-notification&gt;
+    }
+
+    @if (loading()) {
+      &lt;cds-loading [isActive]&#x3D;&quot;true&quot; size&#x3D;&quot;normal&quot;&gt;&lt;/cds-loading&gt;
+    } @else if (error()) {
+      &lt;div class&#x3D;&quot;cds--tile p-8&quot;&gt;
+        &lt;p class&#x3D;&quot;cds--type-productive-heading-03&quot;&gt;{{ error() }}&lt;/p&gt;
+      &lt;/div&gt;
+    } @else if (!hasInstances()) {
+      &lt;div class&#x3D;&quot;cds--tile p-8&quot;&gt;
+        &lt;p class&#x3D;&quot;cds--type-productive-heading-03&quot;&gt;{{ t(&#x27;admin.instances.empty&#x27;) }}&lt;/p&gt;
+      &lt;/div&gt;
+    } @else {
+      &lt;cds-table-container&gt;
+        &lt;cds-table-toolbar [model]&#x3D;&quot;instances&quot;&gt;
+          &lt;cds-table-toolbar-content&gt;
+            &lt;cds-table-toolbar-search
+              [expandable]&#x3D;&quot;true&quot;
+              (valueChange)&#x3D;&quot;onSearch($event)&quot;&gt;
+            &lt;/cds-table-toolbar-search&gt;
+          &lt;/cds-table-toolbar-content&gt;
+        &lt;/cds-table-toolbar&gt;
+
+        &lt;cds-table
+          [model]&#x3D;&quot;instances&quot;
+          size&#x3D;&quot;md&quot;
+          [showSelectionColumn]&#x3D;&quot;false&quot;
+          [striped]&#x3D;&quot;true&quot;&gt;
+        &lt;/cds-table&gt;
+      &lt;/cds-table-container&gt;
+    }
+  &lt;/div&gt;
+
+  &lt;cds-modal [open]&#x3D;&quot;openDeleteModal()&quot; (close)&#x3D;&quot;openDeleteModal.set(false)&quot;&gt;
+    &lt;cds-modal-header (closeSelect)&#x3D;&quot;openDeleteModal.set(false)&quot;&gt;
+      &lt;p class&#x3D;&quot;cds--modal-header__heading&quot;&gt;{{ t(&#x27;admin.instances.deleteTitle&#x27;) }}&lt;/p&gt;
+    &lt;/cds-modal-header&gt;
+    &lt;div class&#x3D;&quot;cds--modal-content&quot;&gt;
+      &lt;p&gt;{{ t(&#x27;admin.instances.deleteText&#x27;, { name: selectedInstance()?.instance_name }) }}&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;cds-modal-footer&gt;
+      &lt;button class&#x3D;&quot;cds--btn cds--btn--secondary&quot; (click)&#x3D;&quot;openDeleteModal.set(false)&quot;&gt;
+        {{ t(&#x27;admin.instances.cancel&#x27;) }}
+      &lt;/button&gt;
+      &lt;button class&#x3D;&quot;cds--btn cds--btn--danger&quot; (click)&#x3D;&quot;confirmDelete()&quot;&gt;
+        {{ t(&#x27;admin.instances.confirmDelete&#x27;) }}
+      &lt;/button&gt;
+    &lt;/cds-modal-footer&gt;
+  &lt;/cds-modal&gt;
+
+  &lt;cds-modal [open]&#x3D;&quot;openDetailModal()&quot; (close)&#x3D;&quot;openDetailModal.set(false)&quot;&gt;
+    &lt;cds-modal-header (closeSelect)&#x3D;&quot;openDetailModal.set(false)&quot;&gt;
+      &lt;p class&#x3D;&quot;cds--modal-header__heading&quot;&gt;{{ t(&#x27;admin.instances.detailTitle&#x27;) }}&lt;/p&gt;
+    &lt;/cds-modal-header&gt;
+    &lt;div class&#x3D;&quot;cds--modal-content flex flex-col gap-[1rem]&quot;&gt;
+      @if (detailLoading()) {
+        &lt;cds-loading [isActive]&#x3D;&quot;true&quot; size&#x3D;&quot;sm&quot;&gt;&lt;/cds-loading&gt;
+      } @else if (detailError()) {
+        &lt;div class&#x3D;&quot;cds--tile p-6&quot;&gt;
+          &lt;p class&#x3D;&quot;cds--type-productive-heading-03&quot;&gt;{{ detailError() }}&lt;/p&gt;
+        &lt;/div&gt;
+      } @else if (selectedDetailInstance(); as instance) {
+        &lt;div class&#x3D;&quot;instance-details&quot;&gt;
+          &lt;p&gt;&lt;strong&gt;{{ t(&#x27;admin.instances.fields.id&#x27;) }}:&lt;/strong&gt; {{ instance.id }}&lt;/p&gt;
+          &lt;p&gt;&lt;strong&gt;{{ t(&#x27;admin.instances.columns.challenge&#x27;) }}:&lt;/strong&gt; {{ instance.challenge_title }}&lt;/p&gt;
+          &lt;p&gt;&lt;strong&gt;{{ t(&#x27;admin.instances.fields.challengeId&#x27;) }}:&lt;/strong&gt; {{ instance.challenge_id }}&lt;/p&gt;
+          &lt;p&gt;&lt;strong&gt;{{ t(&#x27;admin.instances.columns.team&#x27;) }}:&lt;/strong&gt; {{ instance.team_name }}&lt;/p&gt;
+          &lt;p&gt;&lt;strong&gt;{{ t(&#x27;admin.instances.fields.teamId&#x27;) }}:&lt;/strong&gt; {{ instance.team_id }}&lt;/p&gt;
+          &lt;p&gt;&lt;strong&gt;{{ t(&#x27;admin.instances.fields.name&#x27;) }}:&lt;/strong&gt; {{ instance.instance_name }}&lt;/p&gt;
+          &lt;p&gt;&lt;strong&gt;{{ t(&#x27;admin.instances.fields.connection&#x27;) }}:&lt;/strong&gt; &lt;span class&#x3D;&quot;connection-value&quot;&gt;{{ instance.connection_url }}&lt;/span&gt;&lt;/p&gt;
+          &lt;p&gt;
+            &lt;strong&gt;{{ t(&#x27;admin.instances.columns.status&#x27;) }}:&lt;/strong&gt;
+            &lt;cds-tag [type]&#x3D;&quot;getStatusView(instance).tagType&quot; size&#x3D;&quot;sm&quot;&gt;
+              {{ t(getStatusView(instance).labelKey) }}
+            &lt;/cds-tag&gt;
+            @if (getStatusView(instance).status &#x3D;&#x3D;&#x3D; &#x27;unknown&#x27;) {
+              &lt;span class&#x3D;&quot;text-secondary&quot;&gt;{{ getStatusView(instance).rawStatus }}&lt;/span&gt;
+            }
+          &lt;/p&gt;
+          &lt;p&gt;&lt;strong&gt;{{ t(&#x27;admin.instances.columns.expires&#x27;) }}:&lt;/strong&gt; {{ instance.expires_at | date:&#x27;medium&#x27; }}&lt;/p&gt;
+          &lt;p&gt;&lt;strong&gt;{{ t(&#x27;admin.instances.fields.created&#x27;) }}:&lt;/strong&gt; {{ instance.created_at | date:&#x27;medium&#x27; }}&lt;/p&gt;
+          &lt;p&gt;&lt;strong&gt;{{ t(&#x27;admin.instances.fields.updated&#x27;) }}:&lt;/strong&gt; {{ instance.updated_at | date:&#x27;medium&#x27; }}&lt;/p&gt;
+          @if (instance.error_message) {
+            &lt;p&gt;&lt;strong&gt;{{ t(&#x27;admin.instances.fields.error&#x27;) }}:&lt;/strong&gt; {{ instance.error_message }}&lt;/p&gt;
+          }
+        &lt;/div&gt;
+
+        &lt;form class&#x3D;&quot;flex flex-col gap-[1rem]&quot; [formGroup]&#x3D;&quot;statusForm&quot;&gt;
+          &lt;cds-text-label&gt;
+            &lt;span class&#x3D;&quot;cds--type-body-01&quot;&gt;{{ t(&#x27;admin.instances.fields.status&#x27;) }}&lt;/span&gt;
+            &lt;input type&#x3D;&quot;text&quot; cdsText formControlName&#x3D;&quot;status&quot; size&#x3D;&quot;md&quot;&gt;
+          &lt;/cds-text-label&gt;
+          &lt;cds-text-label&gt;
+            &lt;span class&#x3D;&quot;cds--type-body-01&quot;&gt;{{ t(&#x27;admin.instances.fields.errorMessage&#x27;) }}&lt;/span&gt;
+            &lt;input type&#x3D;&quot;text&quot; cdsText formControlName&#x3D;&quot;error_message&quot; size&#x3D;&quot;md&quot;&gt;
+          &lt;/cds-text-label&gt;
+        &lt;/form&gt;
+
+        &lt;div class&#x3D;&quot;flex flex-wrap gap-2&quot;&gt;
+          &lt;button
+            cdsButton&#x3D;&quot;secondary&quot;
+            type&#x3D;&quot;button&quot;
+            [disabled]&#x3D;&quot;mutationLoading() &#x3D;&#x3D;&#x3D; instance.id&quot;
+            (click)&#x3D;&quot;extend(instance)&quot;&gt;
+            {{ t(&#x27;admin.instances.actions.extend&#x27;) }}
+          &lt;/button&gt;
+          &lt;button
+            cdsButton&#x3D;&quot;secondary&quot;
+            type&#x3D;&quot;button&quot;
+            [disabled]&#x3D;&quot;mutationLoading() &#x3D;&#x3D;&#x3D; instance.id&quot;
+            (click)&#x3D;&quot;restart(instance)&quot;&gt;
+            {{ t(&#x27;admin.instances.actions.restart&#x27;) }}
+          &lt;/button&gt;
+          &lt;button
+            cdsButton&#x3D;&quot;primary&quot;
+            type&#x3D;&quot;button&quot;
+            [disabled]&#x3D;&quot;statusForm.invalid || mutationLoading() &#x3D;&#x3D;&#x3D; instance.id&quot;
+            (click)&#x3D;&quot;updateStatus()&quot;&gt;
+            {{ t(&#x27;admin.instances.actions.updateStatus&#x27;) }}
+          &lt;/button&gt;
+          &lt;button
+            cdsButton&#x3D;&quot;danger&quot;
+            type&#x3D;&quot;button&quot;
+            [disabled]&#x3D;&quot;mutationLoading() &#x3D;&#x3D;&#x3D; instance.id&quot;
+            (click)&#x3D;&quot;askDeleteFromDetail(instance)&quot;&gt;
+            {{ t(&#x27;admin.instances.actions.delete&#x27;) }}
+          &lt;/button&gt;
+        &lt;/div&gt;
+      }
+    &lt;/div&gt;
+    &lt;cds-modal-footer&gt;
+      &lt;button class&#x3D;&quot;cds--btn cds--btn--secondary&quot; (click)&#x3D;&quot;openDetailModal.set(false)&quot;&gt;
+        {{ t(&#x27;admin.instances.close&#x27;) }}
+      &lt;/button&gt;
+    &lt;/cds-modal-footer&gt;
+  &lt;/cds-modal&gt;
+&lt;/ng-container&gt;
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><ng-container *transloco="let t">  <ng-template #linkTemplate let-data="data">    <a href="javascript:void(0)" (click)="openDetail(data)" class="cds--link">      {{ data.challenge_title }}    </a>  </ng-template>  <ng-template #statusTemplate let-data="data">    <cds-tag [type]="data.tagType" size="sm">      {{ t(data.labelKey) }}    </cds-tag>    @if (data.status === \'unknown\') {      <span class="text-secondary">{{ data.rawStatus }}</span>    }  </ng-template>  <ng-template #connectionTemplate let-data="data">    <span class="connection-value">{{ data }}</span>  </ng-template>  <ng-template #actionsTemplate let-data="data">    <div class="flex gap-2">      <button        cdsButton="tertiary"        size="sm"        type="button"        (click)="openDetail(data.instance)">        {{ t(\'admin.instances.actions.view\') }}      </button>      <button        cdsButton="secondary"        size="sm"        type="button"        [disabled]="mutationLoading() === data.instance.id"        (click)="extend(data.instance)">        {{ t(\'admin.instances.actions.extend\') }}      </button>      <button        cdsButton="secondary"        size="sm"        type="button"        [disabled]="mutationLoading() === data.instance.id"        (click)="restart(data.instance)">        {{ t(\'admin.instances.actions.restart\') }}      </button>      <button        cdsButton="danger"        size="sm"        type="button"        [disabled]="mutationLoading() === data.instance.id"        (click)="askDelete(data.instance)">        {{ t(\'admin.instances.actions.delete\') }}      </button>    </div>  </ng-template>  <div class="container flex flex-col gap-[1.5rem]">    <div class="flex items-center justify-between">      <h1 class="cds--type-heading-07">{{ t(\'admin.instances.title\') }}</h1>      <button cdsButton type="button" (click)="refresh()">{{ t(\'admin.instances.refresh\') }}</button>    </div>    @if (notification(); as message) {      <cds-notification        [notificationObj]="{          type: message.type,          title: message.title,          message: message.message,          showClose: false        }">      </cds-notification>    }    @if (loading()) {      <cds-loading [isActive]="true" size="normal"></cds-loading>    } @else if (error()) {      <div class="cds--tile p-8">        <p class="cds--type-productive-heading-03">{{ error() }}</p>      </div>    } @else if (!hasInstances()) {      <div class="cds--tile p-8">        <p class="cds--type-productive-heading-03">{{ t(\'admin.instances.empty\') }}</p>      </div>    } @else {      <cds-table-container>        <cds-table-toolbar [model]="instances">          <cds-table-toolbar-content>            <cds-table-toolbar-search              [expandable]="true"              (valueChange)="onSearch($event)">            </cds-table-toolbar-search>          </cds-table-toolbar-content>        </cds-table-toolbar>        <cds-table          [model]="instances"          size="md"          [showSelectionColumn]="false"          [striped]="true">        </cds-table>      </cds-table-container>    }  </div>  <cds-modal [open]="openDeleteModal()" (close)="openDeleteModal.set(false)">    <cds-modal-header (closeSelect)="openDeleteModal.set(false)">      <p class="cds--modal-header__heading">{{ t(\'admin.instances.deleteTitle\') }}</p>    </cds-modal-header>    <div class="cds--modal-content">      <p>{{ t(\'admin.instances.deleteText\', { name: selectedInstance()?.instance_name }) }}</p>    </div>    <cds-modal-footer>      <button class="cds--btn cds--btn--secondary" (click)="openDeleteModal.set(false)">        {{ t(\'admin.instances.cancel\') }}      </button>      <button class="cds--btn cds--btn--danger" (click)="confirmDelete()">        {{ t(\'admin.instances.confirmDelete\') }}      </button>    </cds-modal-footer>  </cds-modal>  <cds-modal [open]="openDetailModal()" (close)="openDetailModal.set(false)">    <cds-modal-header (closeSelect)="openDetailModal.set(false)">      <p class="cds--modal-header__heading">{{ t(\'admin.instances.detailTitle\') }}</p>    </cds-modal-header>    <div class="cds--modal-content flex flex-col gap-[1rem]">      @if (detailLoading()) {        <cds-loading [isActive]="true" size="sm"></cds-loading>      } @else if (detailError()) {        <div class="cds--tile p-6">          <p class="cds--type-productive-heading-03">{{ detailError() }}</p>        </div>      } @else if (selectedDetailInstance(); as instance) {        <div class="instance-details">          <p><strong>{{ t(\'admin.instances.fields.id\') }}:</strong> {{ instance.id }}</p>          <p><strong>{{ t(\'admin.instances.columns.challenge\') }}:</strong> {{ instance.challenge_title }}</p>          <p><strong>{{ t(\'admin.instances.fields.challengeId\') }}:</strong> {{ instance.challenge_id }}</p>          <p><strong>{{ t(\'admin.instances.columns.team\') }}:</strong> {{ instance.team_name }}</p>          <p><strong>{{ t(\'admin.instances.fields.teamId\') }}:</strong> {{ instance.team_id }}</p>          <p><strong>{{ t(\'admin.instances.fields.name\') }}:</strong> {{ instance.instance_name }}</p>          <p><strong>{{ t(\'admin.instances.fields.connection\') }}:</strong> <span class="connection-value">{{ instance.connection_url }}</span></p>          <p>            <strong>{{ t(\'admin.instances.columns.status\') }}:</strong>            <cds-tag [type]="getStatusView(instance).tagType" size="sm">              {{ t(getStatusView(instance).labelKey) }}            </cds-tag>            @if (getStatusView(instance).status === \'unknown\') {              <span class="text-secondary">{{ getStatusView(instance).rawStatus }}</span>            }          </p>          <p><strong>{{ t(\'admin.instances.columns.expires\') }}:</strong> {{ instance.expires_at | date:\'medium\' }}</p>          <p><strong>{{ t(\'admin.instances.fields.created\') }}:</strong> {{ instance.created_at | date:\'medium\' }}</p>          <p><strong>{{ t(\'admin.instances.fields.updated\') }}:</strong> {{ instance.updated_at | date:\'medium\' }}</p>          @if (instance.error_message) {            <p><strong>{{ t(\'admin.instances.fields.error\') }}:</strong> {{ instance.error_message }}</p>          }        </div>        <form class="flex flex-col gap-[1rem]" [formGroup]="statusForm">          <cds-text-label>            <span class="cds--type-body-01">{{ t(\'admin.instances.fields.status\') }}</span>            <input type="text" cdsText formControlName="status" size="md">          </cds-text-label>          <cds-text-label>            <span class="cds--type-body-01">{{ t(\'admin.instances.fields.errorMessage\') }}</span>            <input type="text" cdsText formControlName="error_message" size="md">          </cds-text-label>        </form>        <div class="flex flex-wrap gap-2">          <button            cdsButton="secondary"            type="button"            [disabled]="mutationLoading() === instance.id"            (click)="extend(instance)">            {{ t(\'admin.instances.actions.extend\') }}          </button>          <button            cdsButton="secondary"            type="button"            [disabled]="mutationLoading() === instance.id"            (click)="restart(instance)">            {{ t(\'admin.instances.actions.restart\') }}          </button>          <button            cdsButton="primary"            type="button"            [disabled]="statusForm.invalid || mutationLoading() === instance.id"            (click)="updateStatus()">            {{ t(\'admin.instances.actions.updateStatus\') }}          </button>          <button            cdsButton="danger"            type="button"            [disabled]="mutationLoading() === instance.id"            (click)="askDeleteFromDetail(instance)">            {{ t(\'admin.instances.actions.delete\') }}          </button>        </div>      }    </div>    <cds-modal-footer>      <button class="cds--btn cds--btn--secondary" (click)="openDetailModal.set(false)">        {{ t(\'admin.instances.close\') }}      </button>    </cds-modal-footer>  </cds-modal></ng-container></div>'
+    var COMPONENTS = [{'name': 'AdminAudit', 'selector': 'app-admin-audit'},{'name': 'AdminChallenges', 'selector': 'app-admin-challenges'},{'name': 'AdminContestPage', 'selector': 'app-admin-contest'},{'name': 'AdminInstances', 'selector': 'app-admin-instances'},{'name': 'AdminLayout', 'selector': 'app-admin-layout'},{'name': 'AdminOverview', 'selector': 'app-admin-overview'},{'name': 'AdminSolves', 'selector': 'app-admin-solves'},{'name': 'AdminTeams', 'selector': 'app-admin-teams'},{'name': 'AdminUsers', 'selector': 'app-admin-users'},{'name': 'App', 'selector': 'app-root'},{'name': 'ChallengeInstancePanel', 'selector': 'app-challenge-instance-panel'},{'name': 'ChallengeModal', 'selector': 'app-challenge-modal'},{'name': 'ChallengePreview', 'selector': 'app-challenge-preview'},{'name': 'Challenges', 'selector': 'app-challenges'},{'name': 'EditMeModal', 'selector': 'app-edit-me-modal'},{'name': 'EditTeamModal', 'selector': 'app-edit-team-modal'},{'name': 'Footer', 'selector': 'app-footer'},{'name': 'Header', 'selector': 'app-header'},{'name': 'Layout', 'selector': 'app-layout'},{'name': 'Login', 'selector': 'app-login'},{'name': 'MainPage', 'selector': 'app-main-page'},{'name': 'Me', 'selector': 'app-me'},{'name': 'NewTeamPage', 'selector': 'app-new-team-page'},{'name': 'RatingPage', 'selector': 'app-rating-page'},{'name': 'Register', 'selector': 'app-register'},{'name': 'ScoreboardChart', 'selector': 'app-scoreboard'},{'name': 'TeamPage', 'selector': 'app-team-page'},{'name': 'TeamsListPage', 'selector': 'app-teams-list-page'},{'name': 'UserPage', 'selector': 'app-user-page'},{'name': 'UsersListPage', 'selector': 'app-users-list-page'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'AdminInstances'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'AdminInstances.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

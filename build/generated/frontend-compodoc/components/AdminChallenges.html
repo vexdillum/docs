@@ -1,0 +1,2995 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>ctfast documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">ctfast documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  AdminChallenges</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/pages/admin-challenges/admin-challenges.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>AfterViewInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-admin-challenges</code></td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>CommonModule</code>
+                            <code>TranslocoDirective</code>
+                            <code>TableModule</code>
+                            <code>LoadingModule</code>
+                            <code>ButtonModule</code>
+                            <code>DialogModule</code>
+                            <code>ModalModule</code>
+                            <code>InputModule</code>
+                            <code>CheckboxModule</code>
+                            <code>SelectModule</code>
+                            <code>ReactiveFormsModule</code>
+                            <code>ContentSwitcherModule</code>
+                            <code>SliderModule</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./admin-challenges.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./admin-challenges.scss</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#adminApi" >adminApi</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#allChallenges" >allChallenges</a>
+                            </li>
+                            <li>
+                                <a href="#categories" >categories</a>
+                            </li>
+                            <li>
+                                <a href="#challenges" >challenges</a>
+                            </li>
+                            <li>
+                                <a href="#createForm" >createForm</a>
+                            </li>
+                            <li>
+                                <a href="#isEditMode" >isEditMode</a>
+                            </li>
+                            <li>
+                                <a href="#isNewCategory" >isNewCategory</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Protected</span>
+                                <a href="#linkTemplate" >linkTemplate</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#loading" >loading</a>
+                            </li>
+                            <li>
+                                <a href="#openCreateModal" >openCreateModal</a>
+                            </li>
+                            <li>
+                                <a href="#openDeleteModal" >openDeleteModal</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#searchQuery" >searchQuery</a>
+                            </li>
+                            <li>
+                                <a href="#selectedChallenge" >selectedChallenge</a>
+                            </li>
+                            <li>
+                                <a href="#selectedEditChallenge" >selectedEditChallenge</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#slugPattern" >slugPattern</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#transloco" >transloco</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#applySearch" >applySearch</a>
+                            </li>
+                            <li>
+                                <a href="#askDelete" >askDelete</a>
+                            </li>
+                            <li>
+                                <a href="#askDeleteFromEdit" >askDeleteFromEdit</a>
+                            </li>
+                            <li>
+                                <a href="#confirmDelete" >confirmDelete</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#createModel" >createModel</a>
+                            </li>
+                            <li>
+                                <a href="#deploy" >deploy</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#generateSlug" >generateSlug</a>
+                            </li>
+                            <li>
+                                <a href="#getErrorMessage" >getErrorMessage</a>
+                            </li>
+                            <li>
+                                <a href="#isDynamicType" >isDynamicType</a>
+                            </li>
+                            <li>
+                                <a href="#isInvalid" >isInvalid</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#loadData" >loadData</a>
+                            </li>
+                            <li>
+                                <a href="#ngAfterViewInit" >ngAfterViewInit</a>
+                            </li>
+                            <li>
+                                <a href="#onFlagTypeSwitch" >onFlagTypeSwitch</a>
+                            </li>
+                            <li>
+                                <a href="#onScoringModeSwitch" >onScoringModeSwitch</a>
+                            </li>
+                            <li>
+                                <a href="#onSearch" >onSearch</a>
+                            </li>
+                            <li>
+                                <a href="#onTypeSwitch" >onTypeSwitch</a>
+                            </li>
+                            <li>
+                                <a href="#openCreate" >openCreate</a>
+                            </li>
+                            <li>
+                                <a href="#openEdit" >openEdit</a>
+                            </li>
+                            <li>
+                                <a href="#refresh" >refresh</a>
+                            </li>
+                            <li>
+                                <a href="#stop" >stop</a>
+                            </li>
+                            <li>
+                                <a href="#submit" >submit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#toOptionalText" >toOptionalText</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#updateNewCategoryState" >updateNewCategoryState</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#updateTypeSpecificValidators" >updateTypeSpecificValidators</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#typeIndex" >typeIndex</a>
+                                </li>
+                                <li>
+                                    <a href="#flagTypeIndex" >flagTypeIndex</a>
+                                </li>
+                                <li>
+                                    <a href="#scoringModeIndex" >scoringModeIndex</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="applySearch"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>applySearch</b></span>
+                        <a href="#applySearch"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>applySearch()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="344"
+                                    class="link-to-prism">src/pages/admin-challenges/admin-challenges.ts:344</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="askDelete"></a>
+                    <span class="name">
+                        <span ><b>askDelete</b></span>
+                        <a href="#askDelete"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>askDelete(challenge: <a href="../interfaces/AdminChallenge.html" target="_self">AdminChallenge</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="299"
+                                    class="link-to-prism">src/pages/admin-challenges/admin-challenges.ts:299</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>challenge</td>
+                                            <td>
+                                                            <code><a href="../interfaces/AdminChallenge.html" target="_self" >AdminChallenge</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="askDeleteFromEdit"></a>
+                    <span class="name">
+                        <span ><b>askDeleteFromEdit</b></span>
+                        <a href="#askDeleteFromEdit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>askDeleteFromEdit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="304"
+                                    class="link-to-prism">src/pages/admin-challenges/admin-challenges.ts:304</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="confirmDelete"></a>
+                    <span class="name">
+                        <span ><b>confirmDelete</b></span>
+                        <a href="#confirmDelete"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>confirmDelete()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="311"
+                                    class="link-to-prism">src/pages/admin-challenges/admin-challenges.ts:311</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createModel"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>createModel</b></span>
+                        <a href="#createModel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>createModel(items: <a href="../interfaces/AdminChallenge.html" target="_self">AdminChallenge[]</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="131"
+                                    class="link-to-prism">src/pages/admin-challenges/admin-challenges.ts:131</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>items</td>
+                                            <td>
+                                                            <code><a href="../interfaces/AdminChallenge.html" target="_self" >AdminChallenge[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deploy"></a>
+                    <span class="name">
+                        <span ><b>deploy</b></span>
+                        <a href="#deploy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>deploy(challenge: <a href="../interfaces/AdminChallenge.html" target="_self">AdminChallenge</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="289"
+                                    class="link-to-prism">src/pages/admin-challenges/admin-challenges.ts:289</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>challenge</td>
+                                            <td>
+                                                            <code><a href="../interfaces/AdminChallenge.html" target="_self" >AdminChallenge</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="generateSlug"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>generateSlug</b></span>
+                        <a href="#generateSlug"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>generateSlug(title: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="112"
+                                    class="link-to-prism">src/pages/admin-challenges/admin-challenges.ts:112</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>title</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getErrorMessage"></a>
+                    <span class="name">
+                        <span ><b>getErrorMessage</b></span>
+                        <a href="#getErrorMessage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getErrorMessage(controlName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="158"
+                                    class="link-to-prism">src/pages/admin-challenges/admin-challenges.ts:158</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>controlName</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isDynamicType"></a>
+                    <span class="name">
+                        <span ><b>isDynamicType</b></span>
+                        <a href="#isDynamicType"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>isDynamicType()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="88"
+                                    class="link-to-prism">src/pages/admin-challenges/admin-challenges.ts:88</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isInvalid"></a>
+                    <span class="name">
+                        <span ><b>isInvalid</b></span>
+                        <a href="#isInvalid"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>isInvalid(controlName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="153"
+                                    class="link-to-prism">src/pages/admin-challenges/admin-challenges.ts:153</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>controlName</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadData"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>loadData</b></span>
+                        <a href="#loadData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>loadData()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="120"
+                                    class="link-to-prism">src/pages/admin-challenges/admin-challenges.ts:120</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngAfterViewInit"></a>
+                    <span class="name">
+                        <span ><b>ngAfterViewInit</b></span>
+                        <a href="#ngAfterViewInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngAfterViewInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="100"
+                                    class="link-to-prism">src/pages/admin-challenges/admin-challenges.ts:100</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onFlagTypeSwitch"></a>
+                    <span class="name">
+                        <span ><b>onFlagTypeSwitch</b></span>
+                        <a href="#onFlagTypeSwitch"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onFlagTypeSwitch(option: ContentSwitcherOption)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="328"
+                                    class="link-to-prism">src/pages/admin-challenges/admin-challenges.ts:328</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>option</td>
+                                            <td>
+                                                        <code>ContentSwitcherOption</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onScoringModeSwitch"></a>
+                    <span class="name">
+                        <span ><b>onScoringModeSwitch</b></span>
+                        <a href="#onScoringModeSwitch"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onScoringModeSwitch(option: ContentSwitcherOption)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="332"
+                                    class="link-to-prism">src/pages/admin-challenges/admin-challenges.ts:332</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>option</td>
+                                            <td>
+                                                        <code>ContentSwitcherOption</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onSearch"></a>
+                    <span class="name">
+                        <span ><b>onSearch</b></span>
+                        <a href="#onSearch"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onSearch(query: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="284"
+                                    class="link-to-prism">src/pages/admin-challenges/admin-challenges.ts:284</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>query</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onTypeSwitch"></a>
+                    <span class="name">
+                        <span ><b>onTypeSwitch</b></span>
+                        <a href="#onTypeSwitch"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onTypeSwitch(option: ContentSwitcherOption)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="322"
+                                    class="link-to-prism">src/pages/admin-challenges/admin-challenges.ts:322</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>option</td>
+                                            <td>
+                                                        <code>ContentSwitcherOption</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openCreate"></a>
+                    <span class="name">
+                        <span ><b>openCreate</b></span>
+                        <a href="#openCreate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>openCreate()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="173"
+                                    class="link-to-prism">src/pages/admin-challenges/admin-challenges.ts:173</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openEdit"></a>
+                    <span class="name">
+                        <span ><b>openEdit</b></span>
+                        <a href="#openEdit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>openEdit(challenge: <a href="../interfaces/AdminChallenge.html" target="_self">AdminChallenge</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="196"
+                                    class="link-to-prism">src/pages/admin-challenges/admin-challenges.ts:196</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>challenge</td>
+                                            <td>
+                                                            <code><a href="../interfaces/AdminChallenge.html" target="_self" >AdminChallenge</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="refresh"></a>
+                    <span class="name">
+                        <span ><b>refresh</b></span>
+                        <a href="#refresh"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>refresh()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="280"
+                                    class="link-to-prism">src/pages/admin-challenges/admin-challenges.ts:280</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="stop"></a>
+                    <span class="name">
+                        <span ><b>stop</b></span>
+                        <a href="#stop"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>stop(challenge: <a href="../interfaces/AdminChallenge.html" target="_self">AdminChallenge</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="294"
+                                    class="link-to-prism">src/pages/admin-challenges/admin-challenges.ts:294</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>challenge</td>
+                                            <td>
+                                                            <code><a href="../interfaces/AdminChallenge.html" target="_self" >AdminChallenge</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="submit"></a>
+                    <span class="name">
+                        <span ><b>submit</b></span>
+                        <a href="#submit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>submit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="219"
+                                    class="link-to-prism">src/pages/admin-challenges/admin-challenges.ts:219</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toOptionalText"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>toOptionalText</b></span>
+                        <a href="#toOptionalText"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>toOptionalText(value: string | null | undefined)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="336"
+                                    class="link-to-prism">src/pages/admin-challenges/admin-challenges.ts:336</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>value</td>
+                                            <td>
+                                                        <code>string | null | undefined</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>string | undefined</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateNewCategoryState"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>updateNewCategoryState</b></span>
+                        <a href="#updateNewCategoryState"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateNewCategoryState(category: string | null | undefined)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="385"
+                                    class="link-to-prism">src/pages/admin-challenges/admin-challenges.ts:385</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>category</td>
+                                            <td>
+                                                        <code>string | null | undefined</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateTypeSpecificValidators"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>updateTypeSpecificValidators</b></span>
+                        <a href="#updateTypeSpecificValidators"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateTypeSpecificValidators(type: "static" | "dynamic")</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="369"
+                                    class="link-to-prism">src/pages/admin-challenges/admin-challenges.ts:369</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>type</td>
+                                            <td>
+                                                        <code>&quot;static&quot; | &quot;dynamic&quot;</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="adminApi"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>adminApi</b></span>
+                        <a href="#adminApi"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(AdminApi)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/pages/admin-challenges/admin-challenges.ts:49</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="allChallenges"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>allChallenges</b></span>
+                        <a href="#allChallenges"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/AdminChallenge.html" target="_self" >AdminChallenge[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/pages/admin-challenges/admin-challenges.ts:53</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="categories"></a>
+                    <span class="name">
+                        <span ><b>categories</b></span>
+                        <a href="#categories"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;string[]&gt;([])</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">src/pages/admin-challenges/admin-challenges.ts:56</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="challenges"></a>
+                    <span class="name">
+                        <span ><b>challenges</b></span>
+                        <a href="#challenges"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>this.createModel([])</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/pages/admin-challenges/admin-challenges.ts:55</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createForm"></a>
+                    <span class="name">
+                        <span ><b>createForm</b></span>
+                        <a href="#createForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new FormGroup({
+    title: new FormControl(&#x27;&#x27;, [Validators.required]),
+    category: new FormControl(&#x27;&#x27;, [Validators.required]),
+    newCategory: new FormControl(&#x27;&#x27;),
+    description: new FormControl(&#x27;&#x27;, [Validators.required]),
+    type: new FormControl&lt;&#x27;static&#x27; | &#x27;dynamic&#x27;&gt;(&#x27;static&#x27;, [Validators.required]),
+    flag: new FormControl(&#x27;&#x27;, [Validators.required]),
+    image: new FormControl(&#x27;&#x27;),
+    points: new FormControl&lt;[number, number]&gt;([10, 100], [Validators.required]),
+    flag_type: new FormControl(&#x27;static&#x27;),
+    scoring_mode: new FormControl(&#x27;dynamic&#x27;),
+    is_hidden: new FormControl(false),
+    public: new FormControl(false),
+    healthcheck_enabled: new FormControl(false),
+  })</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="66" class="link-to-prism">src/pages/admin-challenges/admin-challenges.ts:66</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isEditMode"></a>
+                    <span class="name">
+                        <span ><b>isEditMode</b></span>
+                        <a href="#isEditMode"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal(false)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">src/pages/admin-challenges/admin-challenges.ts:62</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isNewCategory"></a>
+                    <span class="name">
+                        <span ><b>isNewCategory</b></span>
+                        <a href="#isNewCategory"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal(false)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="82" class="link-to-prism">src/pages/admin-challenges/admin-challenges.ts:82</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="linkTemplate"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Protected</span>
+                        <span ><b>linkTemplate</b></span>
+                        <a href="#linkTemplate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>TemplateRef&lt;literal type&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;linkTemplate&#x27;)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/pages/admin-challenges/admin-challenges.ts:47</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loading"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>loading</b></span>
+                        <a href="#loading"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal(true)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/pages/admin-challenges/admin-challenges.ts:52</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openCreateModal"></a>
+                    <span class="name">
+                        <span ><b>openCreateModal</b></span>
+                        <a href="#openCreateModal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal(false)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">src/pages/admin-challenges/admin-challenges.ts:61</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openDeleteModal"></a>
+                    <span class="name">
+                        <span ><b>openDeleteModal</b></span>
+                        <a href="#openDeleteModal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal(false)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">src/pages/admin-challenges/admin-challenges.ts:60</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="searchQuery"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>searchQuery</b></span>
+                        <a href="#searchQuery"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/pages/admin-challenges/admin-challenges.ts:54</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectedChallenge"></a>
+                    <span class="name">
+                        <span ><b>selectedChallenge</b></span>
+                        <a href="#selectedChallenge"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;AdminChallenge | null&gt;(null)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">src/pages/admin-challenges/admin-challenges.ts:58</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectedEditChallenge"></a>
+                    <span class="name">
+                        <span ><b>selectedEditChallenge</b></span>
+                        <a href="#selectedEditChallenge"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;AdminChallenge | null&gt;(null)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">src/pages/admin-challenges/admin-challenges.ts:59</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="slugPattern"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>slugPattern</b></span>
+                        <a href="#slugPattern"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>/^[a-z0-9-]+$/</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">src/pages/admin-challenges/admin-challenges.ts:64</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="transloco"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>transloco</b></span>
+                        <a href="#transloco"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(TranslocoService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/pages/admin-challenges/admin-challenges.ts:50</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-accessors">
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="typeIndex"></a>
+                        <span class="name"><b>typeIndex</b><a href="#typeIndex"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>typeIndex()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="84" class="link-to-prism">src/pages/admin-challenges/admin-challenges.ts:84</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="flagTypeIndex"></a>
+                        <span class="name"><b>flagTypeIndex</b><a href="#flagTypeIndex"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>flagTypeIndex()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="92" class="link-to-prism">src/pages/admin-challenges/admin-challenges.ts:92</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="scoringModeIndex"></a>
+                        <span class="name"><b>scoringModeIndex</b><a href="#scoringModeIndex"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>scoringModeIndex()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="96" class="link-to-prism">src/pages/admin-challenges/admin-challenges.ts:96</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+</section>
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {AfterViewInit, Component, inject, signal, TemplateRef, ViewChild} from &#x27;@angular/core&#x27;;
+import {FormControl, FormGroup, ReactiveFormsModule, Validators} from &#x27;@angular/forms&#x27;;
+import {CommonModule} from &#x27;@angular/common&#x27;;
+import {TranslocoDirective, TranslocoService} from &#x27;@ngneat/transloco&#x27;;
+import {
+  ButtonModule,
+  CheckboxModule,
+  ContentSwitcherModule,
+  DialogModule,
+  InputModule,
+  LoadingModule,
+  ModalModule,
+  SelectModule,
+  SliderModule,
+  TableHeaderItem,
+  TableItem,
+  TableModel,
+  TableModule,
+} from &#x27;carbon-components-angular&#x27;;
+import {ContentSwitcherOption} from &#x27;carbon-components-angular/content-switcher&#x27;;
+import {AdminApi} from &#x27;../../utils/api/admin-api&#x27;;
+import {AdminChallenge} from &#x27;../../entities/admin/admin.interface&#x27;;
+import {matchesSearch} from &#x27;../../utils/search/table-search&#x27;;
+
+@Component({
+  selector: &#x27;app-admin-challenges&#x27;,
+  imports: [
+    CommonModule,
+    TranslocoDirective,
+    TableModule,
+    LoadingModule,
+    ButtonModule,
+    DialogModule,
+    ModalModule,
+    InputModule,
+    CheckboxModule,
+    SelectModule,
+    ReactiveFormsModule,
+    ContentSwitcherModule,
+    SliderModule,
+  ],
+  templateUrl: &#x27;./admin-challenges.html&#x27;,
+  styleUrl: &#x27;./admin-challenges.scss&#x27;,
+})
+export class AdminChallenges implements AfterViewInit {
+  @ViewChild(&#x27;linkTemplate&#x27;)
+  protected linkTemplate!: TemplateRef&lt;{ data: AdminChallenge }&gt;;
+
+  private readonly adminApi &#x3D; inject(AdminApi);
+  private readonly transloco &#x3D; inject(TranslocoService);
+
+  readonly loading &#x3D; signal(true);
+  private allChallenges: AdminChallenge[] &#x3D; [];
+  private searchQuery &#x3D; &#x27;&#x27;;
+  challenges &#x3D; this.createModel([]);
+  categories &#x3D; signal&lt;string[]&gt;([]);
+
+  selectedChallenge &#x3D; signal&lt;AdminChallenge | null&gt;(null);
+  selectedEditChallenge &#x3D; signal&lt;AdminChallenge | null&gt;(null);
+  openDeleteModal &#x3D; signal(false);
+  openCreateModal &#x3D; signal(false);
+  isEditMode &#x3D; signal(false);
+
+  readonly slugPattern &#x3D; /^[a-z0-9-]+$/;
+
+  createForm &#x3D; new FormGroup({
+    title: new FormControl(&#x27;&#x27;, [Validators.required]),
+    category: new FormControl(&#x27;&#x27;, [Validators.required]),
+    newCategory: new FormControl(&#x27;&#x27;),
+    description: new FormControl(&#x27;&#x27;, [Validators.required]),
+    type: new FormControl&lt;&#x27;static&#x27; | &#x27;dynamic&#x27;&gt;(&#x27;static&#x27;, [Validators.required]),
+    flag: new FormControl(&#x27;&#x27;, [Validators.required]),
+    image: new FormControl(&#x27;&#x27;),
+    points: new FormControl&lt;[number, number]&gt;([10, 100], [Validators.required]),
+    flag_type: new FormControl(&#x27;static&#x27;),
+    scoring_mode: new FormControl(&#x27;dynamic&#x27;),
+    is_hidden: new FormControl(false),
+    public: new FormControl(false),
+    healthcheck_enabled: new FormControl(false),
+  });
+
+  isNewCategory &#x3D; signal(false);
+
+  get typeIndex(): number {
+    return this.createForm.value.type &#x3D;&#x3D;&#x3D; &#x27;dynamic&#x27; ? 1 : 0;
+  }
+
+  isDynamicType(): boolean {
+    return this.createForm.value.type &#x3D;&#x3D;&#x3D; &#x27;dynamic&#x27;;
+  }
+
+  get flagTypeIndex(): number {
+    return this.createForm.value.flag_type &#x3D;&#x3D;&#x3D; &#x27;regex&#x27; ? 1 : 0;
+  }
+
+  get scoringModeIndex(): number {
+    return this.createForm.value.scoring_mode &#x3D;&#x3D;&#x3D; &#x27;static&#x27; ? 1 : 0;
+  }
+
+  ngAfterViewInit() {
+    this.createForm.get(&#x27;category&#x27;)?.valueChanges.subscribe((category) &#x3D;&gt; {
+      this.updateNewCategoryState(category);
+    });
+    this.updateNewCategoryState(this.createForm.value.category);
+    this.createForm.get(&#x27;type&#x27;)?.valueChanges.subscribe((type) &#x3D;&gt; {
+      this.updateTypeSpecificValidators(type ?? &#x27;static&#x27;);
+    });
+    this.updateTypeSpecificValidators(this.createForm.value.type ?? &#x27;static&#x27;);
+    this.loadData();
+  }
+
+  private generateSlug(title: string): string {
+    return title
+      .toLowerCase()
+      .trim()
+      .replace(/[^a-z0-9]+/g, &#x27;-&#x27;)
+      .replace(/^-|-$/g, &#x27;&#x27;);
+  }
+
+  private loadData() {
+    this.loading.set(true);
+    this.adminApi.getChallenges().subscribe((res) &#x3D;&gt; {
+      this.allChallenges &#x3D; res.challenges;
+      const uniqueCategories &#x3D; Array.from(new Set(this.allChallenges.map(c &#x3D;&gt; c.category).filter(Boolean)));
+      this.categories.set(uniqueCategories);
+      this.applySearch();
+      this.loading.set(false);
+    });
+  }
+
+  private createModel(items: AdminChallenge[]) {
+    const model &#x3D; new TableModel();
+    model.header &#x3D; [
+      new TableHeaderItem({ data: this.transloco.translate(&#x27;admin.challenges.columns.title&#x27;) }),
+      new TableHeaderItem({ data: this.transloco.translate(&#x27;admin.challenges.columns.category&#x27;) }),
+      new TableHeaderItem({ data: this.transloco.translate(&#x27;admin.challenges.columns.points&#x27;) }),
+      new TableHeaderItem({ data: this.transloco.translate(&#x27;admin.challenges.columns.status&#x27;) }),
+      new TableHeaderItem({ data: this.transloco.translate(&#x27;admin.challenges.columns.type&#x27;) }),
+    ];
+    model.data &#x3D; items.map((c) &#x3D;&gt; [
+      new TableItem({
+        data: c,
+        template: this.linkTemplate,
+      }),
+      new TableItem({ data: c.category }),
+      new TableItem({ data: c.current_points }),
+      new TableItem({ data: c.status }),
+      new TableItem({ data: c.type }),
+    ]);
+    return model;
+  }
+
+  isInvalid(controlName: string) {
+    const control &#x3D; this.createForm.get(controlName);
+    return control ? control.invalid &amp;&amp; control.touched : false;
+  }
+
+  getErrorMessage(controlName: string) {
+    const control &#x3D; this.createForm.get(controlName);
+    if (!control?.errors || !control.touched) return &#x27;&#x27;;
+    if (control.errors[&#x27;required&#x27;]) {
+      return this.transloco.translate(&#x27;admin.challenges.validation.required&#x27;);
+    }
+    if (control.errors[&#x27;pattern&#x27;]) {
+      return this.transloco.translate(&#x27;admin.challenges.validation.name.pattern&#x27;);
+    }
+    if (control.errors[&#x27;min&#x27;]) {
+      return this.transloco.translate(&#x27;admin.challenges.validation.min&#x27;);
+    }
+    return &#x27;&#x27;;
+  }
+
+  openCreate() {
+    this.isEditMode.set(false);
+    this.selectedEditChallenge.set(null);
+    this.createForm.reset({
+      title: &#x27;&#x27;,
+      category: &#x27;&#x27;,
+      newCategory: &#x27;&#x27;,
+      description: &#x27;&#x27;,
+      type: &#x27;static&#x27;,
+      flag: &#x27;&#x27;,
+      image: &#x27;&#x27;,
+      points: [10, 100],
+      flag_type: &#x27;static&#x27;,
+      scoring_mode: &#x27;dynamic&#x27;,
+      is_hidden: false,
+      public: false,
+      healthcheck_enabled: false,
+    });
+    this.updateNewCategoryState(&#x27;&#x27;);
+    this.updateTypeSpecificValidators(&#x27;static&#x27;);
+    this.openCreateModal.set(true);
+  }
+
+  openEdit(challenge: AdminChallenge) {
+    this.isEditMode.set(true);
+    this.selectedEditChallenge.set(challenge);
+    this.createForm.reset({
+      title: challenge.title,
+      category: challenge.category,
+      newCategory: &#x27;&#x27;,
+      description: challenge.description ?? &#x27;&#x27;,
+      type: (challenge.type as &#x27;static&#x27; | &#x27;dynamic&#x27;) ?? &#x27;static&#x27;,
+      flag: challenge.flag ?? &#x27;&#x27;,
+      image: challenge.image ?? &#x27;&#x27;,
+      points: [challenge.minimum_points ?? 10, challenge.initial_points ?? 100],
+      flag_type: challenge.flag_type ?? &#x27;static&#x27;,
+      scoring_mode: challenge.scoring_mode ?? &#x27;dynamic&#x27;,
+      is_hidden: challenge.is_hidden ?? false,
+      public: challenge.public ?? false,
+      healthcheck_enabled: challenge.healthcheck_enabled ?? false,
+    });
+    this.updateNewCategoryState(challenge.category);
+    this.updateTypeSpecificValidators((challenge.type as &#x27;static&#x27; | &#x27;dynamic&#x27;) ?? &#x27;static&#x27;);
+    this.openCreateModal.set(true);
+  }
+
+  submit() {
+    if (this.createForm.invalid) {
+      this.createForm.markAllAsTouched();
+      return;
+    }
+    const raw &#x3D; this.createForm.value;
+    const category &#x3D; raw.category &#x3D;&#x3D;&#x3D; &#x27;__new__&#x27; ? raw.newCategory : raw.category;
+    const type &#x3D; raw.type ?? &#x27;static&#x27;;
+
+    if (raw.category &#x3D;&#x3D;&#x3D; &#x27;__new__&#x27; &amp;&amp; !category?.trim()) {
+      this.createForm.get(&#x27;newCategory&#x27;)?.setErrors({ required: true });
+      this.createForm.get(&#x27;newCategory&#x27;)?.markAsTouched();
+      return;
+    }
+
+    if (this.isEditMode()) {
+      const challenge &#x3D; this.selectedEditChallenge();
+      const id &#x3D; challenge?.id ?? challenge?.name;
+      if (!id) return;
+      this.adminApi.updateChallenge(id, {
+        title: this.toOptionalText(raw.title),
+        category: this.toOptionalText(category),
+        description: this.toOptionalText(raw.description),
+        type,
+        flag: type &#x3D;&#x3D;&#x3D; &#x27;static&#x27; ? this.toOptionalText(raw.flag) : undefined,
+        image: type &#x3D;&#x3D;&#x3D; &#x27;dynamic&#x27; ? this.toOptionalText(raw.image) : undefined,
+        initial_points: raw.points?.[1] !&#x3D;&#x3D; undefined ? Number(raw.points[1]) : undefined,
+        minimum_points: raw.points?.[0] !&#x3D;&#x3D; undefined ? Number(raw.points[0]) : undefined,
+        flag_type: type &#x3D;&#x3D;&#x3D; &#x27;static&#x27; ? raw.flag_type ?? undefined : undefined,
+        scoring_mode: raw.scoring_mode ?? undefined,
+        is_hidden: raw.is_hidden ?? undefined,
+        public: raw.public ?? undefined,
+        healthcheck_enabled: raw.healthcheck_enabled ?? undefined,
+      }).subscribe(() &#x3D;&gt; {
+        this.openCreateModal.set(false);
+        this.loadData();
+      });
+    } else {
+      const name &#x3D; this.generateSlug(raw.title ?? &#x27;&#x27;);
+      this.adminApi.createChallenge({
+        name,
+        title: raw.title!,
+        category: category ?? &#x27;&#x27;,
+        initial_points: Number(raw.points?.[1]),
+        minimum_points: Number(raw.points?.[0]),
+        flag: type &#x3D;&#x3D;&#x3D; &#x27;static&#x27; ? raw.flag! : &#x27;&#x27;,
+        description: this.toOptionalText(raw.description),
+        type,
+        image: type &#x3D;&#x3D;&#x3D; &#x27;dynamic&#x27; ? this.toOptionalText(raw.image) : undefined,
+        flag_type: type &#x3D;&#x3D;&#x3D; &#x27;static&#x27; ? raw.flag_type ?? undefined : undefined,
+        scoring_mode: raw.scoring_mode ?? undefined,
+        is_hidden: raw.is_hidden ?? false,
+        public: raw.public ?? false,
+        healthcheck_enabled: raw.healthcheck_enabled ?? false,
+      }).subscribe(() &#x3D;&gt; {
+        this.openCreateModal.set(false);
+        this.loadData();
+      });
+    }
+  }
+
+  refresh() {
+    this.loadData();
+  }
+
+  onSearch(query: string) {
+    this.searchQuery &#x3D; query;
+    this.applySearch();
+  }
+
+  deploy(challenge: AdminChallenge) {
+    const id &#x3D; challenge.id ?? challenge.name;
+    this.adminApi.deployChallenge(id).subscribe(() &#x3D;&gt; this.loadData());
+  }
+
+  stop(challenge: AdminChallenge) {
+    const id &#x3D; challenge.id ?? challenge.name;
+    this.adminApi.stopChallenge(id).subscribe(() &#x3D;&gt; this.loadData());
+  }
+
+  askDelete(challenge: AdminChallenge) {
+    this.selectedChallenge.set(challenge);
+    this.openDeleteModal.set(true);
+  }
+
+  askDeleteFromEdit() {
+    const challenge &#x3D; this.selectedEditChallenge();
+    if (!challenge) return;
+    this.openCreateModal.set(false);
+    this.askDelete(challenge);
+  }
+
+  confirmDelete() {
+    const challenge &#x3D; this.selectedChallenge();
+    const id &#x3D; challenge?.id ?? challenge?.name;
+    if (!id) return;
+    this.adminApi.deleteChallenge(id, { confirm: &#x27;DELETE_CHALLENGE&#x27; }).subscribe(() &#x3D;&gt; {
+      this.openDeleteModal.set(false);
+      this.selectedChallenge.set(null);
+      this.loadData();
+    });
+  }
+
+  onTypeSwitch(option: ContentSwitcherOption) {
+    const type &#x3D; option.name as &#x27;static&#x27; | &#x27;dynamic&#x27;;
+    this.createForm.get(&#x27;type&#x27;)?.setValue(type);
+    this.updateTypeSpecificValidators(type);
+  }
+
+  onFlagTypeSwitch(option: ContentSwitcherOption) {
+    this.createForm.get(&#x27;flag_type&#x27;)?.setValue(option.name);
+  }
+
+  onScoringModeSwitch(option: ContentSwitcherOption) {
+    this.createForm.get(&#x27;scoring_mode&#x27;)?.setValue(option.name);
+  }
+
+  private toOptionalText(value: string | null | undefined): string | undefined {
+    const trimmed &#x3D; value?.trim();
+    if (!trimmed) {
+      return undefined;
+    }
+    return trimmed;
+  }
+
+  private applySearch() {
+    const filtered &#x3D; this.allChallenges.filter((challenge) &#x3D;&gt; matchesSearch([
+      challenge.id,
+      challenge.name,
+      challenge.title,
+      challenge.category,
+      challenge.description,
+      challenge.type,
+      challenge.status,
+      challenge.flag,
+      challenge.flag_type,
+      challenge.image,
+      challenge.namespace,
+      challenge.author,
+      challenge.scoring_mode,
+      challenge.current_points,
+      challenge.initial_points,
+      challenge.minimum_points,
+      challenge.static_file_url,
+      challenge.url,
+    ], this.searchQuery));
+
+    this.challenges &#x3D; this.createModel(filtered);
+  }
+
+  private updateTypeSpecificValidators(type: &#x27;static&#x27; | &#x27;dynamic&#x27;) {
+    const flagControl &#x3D; this.createForm.get(&#x27;flag&#x27;);
+    const imageControl &#x3D; this.createForm.get(&#x27;image&#x27;);
+
+    if (type &#x3D;&#x3D;&#x3D; &#x27;dynamic&#x27;) {
+      flagControl?.clearValidators();
+      imageControl?.addValidators(Validators.required);
+    } else {
+      flagControl?.addValidators(Validators.required);
+      imageControl?.clearValidators();
+    }
+
+    flagControl?.updateValueAndValidity({ emitEvent: false });
+    imageControl?.updateValueAndValidity({ emitEvent: false });
+  }
+
+  private updateNewCategoryState(category: string | null | undefined) {
+    const isNewCategory &#x3D; category &#x3D;&#x3D;&#x3D; &#x27;__new__&#x27;;
+    const newCategoryControl &#x3D; this.createForm.get(&#x27;newCategory&#x27;);
+
+    this.isNewCategory.set(isNewCategory);
+
+    if (isNewCategory) {
+      newCategoryControl?.addValidators(Validators.required);
+    } else {
+      newCategoryControl?.clearValidators();
+      newCategoryControl?.setValue(&#x27;&#x27;, { emitEvent: false });
+    }
+
+    newCategoryControl?.updateValueAndValidity({ emitEvent: false });
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;ng-container *transloco&#x3D;&quot;let t&quot;&gt;
+  &lt;ng-template #linkTemplate let-data&#x3D;&quot;data&quot;&gt;
+    &lt;a href&#x3D;&quot;javascript:void(0)&quot; (click)&#x3D;&quot;openEdit(data)&quot; class&#x3D;&quot;cds--link&quot;&gt;
+      {{ data.title }}
+    &lt;/a&gt;
+  &lt;/ng-template&gt;
+
+  &lt;div class&#x3D;&quot;container flex flex-col gap-[1.5rem]&quot;&gt;
+    &lt;div class&#x3D;&quot;flex items-center justify-between&quot;&gt;
+      &lt;h1 class&#x3D;&quot;cds--type-heading-07&quot;&gt;{{ t(&#x27;admin.challenges.title&#x27;) }}&lt;/h1&gt;
+      &lt;div class&#x3D;&quot;flex gap-2&quot;&gt;
+        &lt;button cdsButton type&#x3D;&quot;button&quot; (click)&#x3D;&quot;openCreate()&quot;&gt;{{ t(&#x27;admin.challenges.create&#x27;) }}&lt;/button&gt;
+        &lt;button cdsButton&#x3D;&quot;secondary&quot; type&#x3D;&quot;button&quot; (click)&#x3D;&quot;refresh()&quot;&gt;{{ t(&#x27;admin.challenges.refresh&#x27;) }}&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    @if (loading()) {
+      &lt;cds-loading [isActive]&#x3D;&quot;true&quot; size&#x3D;&quot;normal&quot;&gt;&lt;/cds-loading&gt;
+    } @else {
+      &lt;cds-table-container&gt;
+        &lt;cds-table-toolbar [model]&#x3D;&quot;challenges&quot;&gt;
+          &lt;cds-table-toolbar-content&gt;
+            &lt;cds-table-toolbar-search
+              [expandable]&#x3D;&quot;true&quot;
+              (valueChange)&#x3D;&quot;onSearch($event)&quot;&gt;
+            &lt;/cds-table-toolbar-search&gt;
+          &lt;/cds-table-toolbar-content&gt;
+        &lt;/cds-table-toolbar&gt;
+
+        &lt;cds-table
+          [model]&#x3D;&quot;challenges&quot;
+          size&#x3D;&quot;md&quot;
+          [showSelectionColumn]&#x3D;&quot;false&quot;
+          [striped]&#x3D;&quot;true&quot;&gt;
+        &lt;/cds-table&gt;
+      &lt;/cds-table-container&gt;
+    }
+  &lt;/div&gt;
+
+  &lt;cds-modal [open]&#x3D;&quot;openDeleteModal()&quot; (close)&#x3D;&quot;openDeleteModal.set(false)&quot;&gt;
+    &lt;cds-modal-header (closeSelect)&#x3D;&quot;openDeleteModal.set(false)&quot;&gt;
+      &lt;p class&#x3D;&quot;cds--modal-header__heading&quot;&gt;{{ t(&#x27;admin.challenges.deleteTitle&#x27;) }}&lt;/p&gt;
+    &lt;/cds-modal-header&gt;
+    &lt;div class&#x3D;&quot;cds--modal-content&quot;&gt;
+      &lt;p&gt;{{ t(&#x27;admin.challenges.deleteText&#x27;, { name: selectedChallenge()?.title }) }}&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;cds-modal-footer&gt;
+      &lt;button class&#x3D;&quot;cds--btn cds--btn--secondary&quot; (click)&#x3D;&quot;openDeleteModal.set(false)&quot;&gt;
+        {{ t(&#x27;admin.challenges.cancel&#x27;) }}
+      &lt;/button&gt;
+      &lt;button class&#x3D;&quot;cds--btn cds--btn--danger&quot; (click)&#x3D;&quot;confirmDelete()&quot;&gt;
+        {{ t(&#x27;admin.challenges.confirmDelete&#x27;) }}
+      &lt;/button&gt;
+    &lt;/cds-modal-footer&gt;
+  &lt;/cds-modal&gt;
+
+  &lt;cds-modal [open]&#x3D;&quot;openCreateModal()&quot; (close)&#x3D;&quot;openCreateModal.set(false)&quot;&gt;
+    &lt;cds-modal-header (closeSelect)&#x3D;&quot;openCreateModal.set(false)&quot;&gt;
+      &lt;p class&#x3D;&quot;cds--modal-header__heading&quot;&gt;
+        {{ isEditMode() ? t(&#x27;admin.challenges.editTitle&#x27;) : t(&#x27;admin.challenges.createTitle&#x27;) }}
+      &lt;/p&gt;
+    &lt;/cds-modal-header&gt;
+    &lt;section cdsModalContent [hasForm]&#x3D;&quot;true&quot;&gt;
+      &lt;form class&#x3D;&quot;flex flex-col gap-[1rem]&quot; [formGroup]&#x3D;&quot;createForm&quot;&gt;
+        &lt;!-- 1. Title --&gt;
+        &lt;cds-text-label [invalid]&#x3D;&quot;isInvalid(&#x27;title&#x27;)&quot; [invalidText]&#x3D;&quot;getErrorMessage(&#x27;title&#x27;)&quot;&gt;
+          &lt;span class&#x3D;&quot;cds--type-body-01&quot;&gt;{{ t(&#x27;admin.challenges.fields.title&#x27;) }}&lt;/span&gt;
+          &lt;input type&#x3D;&quot;text&quot; cdsText formControlName&#x3D;&quot;title&quot; size&#x3D;&quot;md&quot; [invalid]&#x3D;&quot;isInvalid(&#x27;title&#x27;)&quot;&gt;
+        &lt;/cds-text-label&gt;
+
+        &lt;!-- 2. Category --&gt;
+        &lt;cds-select formControlName&#x3D;&quot;category&quot; [label]&#x3D;&quot;t(&#x27;admin.challenges.fields.category&#x27;)&quot; [invalid]&#x3D;&quot;isInvalid(&#x27;category&#x27;)&quot; [invalidText]&#x3D;&quot;getErrorMessage(&#x27;category&#x27;)&quot;&gt;
+          &lt;option value&#x3D;&quot;&quot; disabled selected&gt;{{ t(&#x27;admin.challenges.fields.chooseCategory&#x27;) }}&lt;/option&gt;
+          @for (cat of categories(); track cat) {
+            &lt;option [value]&#x3D;&quot;cat&quot;&gt;{{ cat }}&lt;/option&gt;
+          }
+          &lt;option value&#x3D;&quot;__new__&quot;&gt;{{ t(&#x27;admin.challenges.fields.newCategoryOption&#x27;) }}&lt;/option&gt;
+        &lt;/cds-select&gt;
+        @if (isNewCategory()) {
+          &lt;cds-text-label [invalid]&#x3D;&quot;isInvalid(&#x27;newCategory&#x27;)&quot; [invalidText]&#x3D;&quot;getErrorMessage(&#x27;newCategory&#x27;)&quot;&gt;
+            &lt;span class&#x3D;&quot;cds--type-body-01&quot;&gt;{{ t(&#x27;admin.challenges.fields.newCategory&#x27;) }}&lt;/span&gt;
+            &lt;input type&#x3D;&quot;text&quot; cdsText formControlName&#x3D;&quot;newCategory&quot; size&#x3D;&quot;md&quot; [invalid]&#x3D;&quot;isInvalid(&#x27;newCategory&#x27;)&quot;&gt;
+          &lt;/cds-text-label&gt;
+        }
+
+        &lt;!-- 3. Description --&gt;
+        &lt;cds-text-label [invalid]&#x3D;&quot;isInvalid(&#x27;description&#x27;)&quot; [invalidText]&#x3D;&quot;getErrorMessage(&#x27;description&#x27;)&quot;&gt;
+          &lt;span class&#x3D;&quot;cds--type-body-01&quot;&gt;{{ t(&#x27;admin.challenges.fields.description&#x27;) }}&lt;/span&gt;
+          &lt;input type&#x3D;&quot;text&quot; cdsText formControlName&#x3D;&quot;description&quot; size&#x3D;&quot;md&quot; [invalid]&#x3D;&quot;isInvalid(&#x27;description&#x27;)&quot;&gt;
+        &lt;/cds-text-label&gt;
+
+        &lt;!-- 4. Type --&gt;
+        &lt;div class&#x3D;&quot;flex flex-col gap-2&quot;&gt;
+          &lt;span class&#x3D;&quot;cds--type-body-01&quot;&gt;{{ t(&#x27;admin.challenges.fields.type&#x27;) }}&lt;/span&gt;
+          &lt;cds-content-switcher [selectedIndex]&#x3D;&quot;typeIndex&quot; (selected)&#x3D;&quot;onTypeSwitch($event)&quot;&gt;
+            &lt;button cdsContentOption name&#x3D;&quot;static&quot;&gt;{{ t(&#x27;admin.challenges.type.static&#x27;) }}&lt;/button&gt;
+            &lt;button cdsContentOption name&#x3D;&quot;dynamic&quot;&gt;{{ t(&#x27;admin.challenges.type.dynamic&#x27;) }}&lt;/button&gt;
+          &lt;/cds-content-switcher&gt;
+        &lt;/div&gt;
+
+        @if (isDynamicType()) {
+          &lt;cds-text-label [invalid]&#x3D;&quot;isInvalid(&#x27;image&#x27;)&quot; [invalidText]&#x3D;&quot;getErrorMessage(&#x27;image&#x27;)&quot;&gt;
+            &lt;span class&#x3D;&quot;cds--type-body-01&quot;&gt;{{ t(&#x27;admin.challenges.fields.image&#x27;) }}&lt;/span&gt;
+            &lt;input type&#x3D;&quot;text&quot; cdsText formControlName&#x3D;&quot;image&quot; size&#x3D;&quot;md&quot; [invalid]&#x3D;&quot;isInvalid(&#x27;image&#x27;)&quot;&gt;
+          &lt;/cds-text-label&gt;
+        } @else {
+          &lt;cds-text-label [invalid]&#x3D;&quot;isInvalid(&#x27;flag&#x27;)&quot; [invalidText]&#x3D;&quot;getErrorMessage(&#x27;flag&#x27;)&quot;&gt;
+            &lt;span class&#x3D;&quot;cds--type-body-01&quot;&gt;{{ t(&#x27;admin.challenges.fields.flag&#x27;) }}&lt;/span&gt;
+            &lt;input type&#x3D;&quot;text&quot; cdsText formControlName&#x3D;&quot;flag&quot; size&#x3D;&quot;md&quot; [invalid]&#x3D;&quot;isInvalid(&#x27;flag&#x27;)&quot;&gt;
+          &lt;/cds-text-label&gt;
+        }
+
+        &lt;!-- 6. Points (range slider) --&gt;
+        &lt;cds-slider
+          formControlName&#x3D;&quot;points&quot;
+          [min]&#x3D;&quot;0&quot;
+          [max]&#x3D;&quot;1000&quot;
+          [step]&#x3D;&quot;10&quot;
+          [label]&#x3D;&quot;t(&#x27;admin.challenges.fields.points&#x27;)&quot;&gt;
+          &lt;span minLabel&gt;0&lt;/span&gt;
+          &lt;span maxLabel&gt;1000&lt;/span&gt;
+          &lt;input/&gt;
+          &lt;input/&gt;
+        &lt;/cds-slider&gt;
+
+        @if (!isDynamicType()) {
+          &lt;div class&#x3D;&quot;flex flex-col gap-2&quot;&gt;
+            &lt;span class&#x3D;&quot;cds--type-body-01&quot;&gt;{{ t(&#x27;admin.challenges.fields.flagType&#x27;) }}&lt;/span&gt;
+            &lt;cds-content-switcher [selectedIndex]&#x3D;&quot;flagTypeIndex&quot; (selected)&#x3D;&quot;onFlagTypeSwitch($event)&quot;&gt;
+              &lt;button cdsContentOption name&#x3D;&quot;static&quot;&gt;{{ t(&#x27;admin.challenges.flagType.static&#x27;) }}&lt;/button&gt;
+              &lt;button cdsContentOption name&#x3D;&quot;regex&quot;&gt;{{ t(&#x27;admin.challenges.flagType.regex&#x27;) }}&lt;/button&gt;
+            &lt;/cds-content-switcher&gt;
+          &lt;/div&gt;
+        }
+
+        &lt;!-- 8. Scoring mode --&gt;
+        &lt;div class&#x3D;&quot;flex flex-col gap-2&quot;&gt;
+          &lt;span class&#x3D;&quot;cds--type-body-01&quot;&gt;{{ t(&#x27;admin.challenges.fields.scoringMode&#x27;) }}&lt;/span&gt;
+          &lt;cds-content-switcher [selectedIndex]&#x3D;&quot;scoringModeIndex&quot; (selected)&#x3D;&quot;onScoringModeSwitch($event)&quot;&gt;
+            &lt;button cdsContentOption name&#x3D;&quot;dynamic&quot;&gt;{{ t(&#x27;admin.challenges.scoringMode.dynamic&#x27;) }}&lt;/button&gt;
+            &lt;button cdsContentOption name&#x3D;&quot;static&quot;&gt;{{ t(&#x27;admin.challenges.scoringMode.static&#x27;) }}&lt;/button&gt;
+          &lt;/cds-content-switcher&gt;
+        &lt;/div&gt;
+
+        &lt;cds-checkbox formControlName&#x3D;&quot;is_hidden&quot;&gt;
+          {{ t(&#x27;admin.challenges.fields.isHidden&#x27;) }}
+        &lt;/cds-checkbox&gt;
+        &lt;cds-checkbox formControlName&#x3D;&quot;public&quot;&gt;
+          {{ t(&#x27;admin.challenges.fields.public&#x27;) }}
+        &lt;/cds-checkbox&gt;
+        &lt;cds-checkbox formControlName&#x3D;&quot;healthcheck_enabled&quot;&gt;
+          {{ t(&#x27;admin.challenges.fields.healthcheck&#x27;) }}
+        &lt;/cds-checkbox&gt;
+      &lt;/form&gt;
+    &lt;/section&gt;
+    &lt;cds-modal-footer&gt;
+      &lt;button class&#x3D;&quot;cds--btn cds--btn--secondary&quot; (click)&#x3D;&quot;openCreateModal.set(false)&quot;&gt;
+        {{ t(&#x27;admin.challenges.cancel&#x27;) }}
+      &lt;/button&gt;
+      @if (isEditMode()) {
+        &lt;button class&#x3D;&quot;cds--btn cds--btn--danger&quot; (click)&#x3D;&quot;askDeleteFromEdit()&quot;&gt;
+          {{ t(&#x27;admin.challenges.actions.delete&#x27;) }}
+        &lt;/button&gt;
+      }
+      &lt;button class&#x3D;&quot;cds--btn cds--btn--primary&quot; [disabled]&#x3D;&quot;createForm.invalid&quot; (click)&#x3D;&quot;submit()&quot;&gt;
+        {{ isEditMode() ? t(&#x27;admin.challenges.confirmEdit&#x27;) : t(&#x27;admin.challenges.confirmCreate&#x27;) }}
+      &lt;/button&gt;
+    &lt;/cds-modal-footer&gt;
+  &lt;/cds-modal&gt;
+&lt;/ng-container&gt;
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><ng-container *transloco="let t">  <ng-template #linkTemplate let-data="data">    <a href="javascript:void(0)" (click)="openEdit(data)" class="cds--link">      {{ data.title }}    </a>  </ng-template>  <div class="container flex flex-col gap-[1.5rem]">    <div class="flex items-center justify-between">      <h1 class="cds--type-heading-07">{{ t(\'admin.challenges.title\') }}</h1>      <div class="flex gap-2">        <button cdsButton type="button" (click)="openCreate()">{{ t(\'admin.challenges.create\') }}</button>        <button cdsButton="secondary" type="button" (click)="refresh()">{{ t(\'admin.challenges.refresh\') }}</button>      </div>    </div>    @if (loading()) {      <cds-loading [isActive]="true" size="normal"></cds-loading>    } @else {      <cds-table-container>        <cds-table-toolbar [model]="challenges">          <cds-table-toolbar-content>            <cds-table-toolbar-search              [expandable]="true"              (valueChange)="onSearch($event)">            </cds-table-toolbar-search>          </cds-table-toolbar-content>        </cds-table-toolbar>        <cds-table          [model]="challenges"          size="md"          [showSelectionColumn]="false"          [striped]="true">        </cds-table>      </cds-table-container>    }  </div>  <cds-modal [open]="openDeleteModal()" (close)="openDeleteModal.set(false)">    <cds-modal-header (closeSelect)="openDeleteModal.set(false)">      <p class="cds--modal-header__heading">{{ t(\'admin.challenges.deleteTitle\') }}</p>    </cds-modal-header>    <div class="cds--modal-content">      <p>{{ t(\'admin.challenges.deleteText\', { name: selectedChallenge()?.title }) }}</p>    </div>    <cds-modal-footer>      <button class="cds--btn cds--btn--secondary" (click)="openDeleteModal.set(false)">        {{ t(\'admin.challenges.cancel\') }}      </button>      <button class="cds--btn cds--btn--danger" (click)="confirmDelete()">        {{ t(\'admin.challenges.confirmDelete\') }}      </button>    </cds-modal-footer>  </cds-modal>  <cds-modal [open]="openCreateModal()" (close)="openCreateModal.set(false)">    <cds-modal-header (closeSelect)="openCreateModal.set(false)">      <p class="cds--modal-header__heading">        {{ isEditMode() ? t(\'admin.challenges.editTitle\') : t(\'admin.challenges.createTitle\') }}      </p>    </cds-modal-header>    <section cdsModalContent [hasForm]="true">      <form class="flex flex-col gap-[1rem]" [formGroup]="createForm">        <!-- 1. Title -->        <cds-text-label [invalid]="isInvalid(\'title\')" [invalidText]="getErrorMessage(\'title\')">          <span class="cds--type-body-01">{{ t(\'admin.challenges.fields.title\') }}</span>          <input type="text" cdsText formControlName="title" size="md" [invalid]="isInvalid(\'title\')">        </cds-text-label>        <!-- 2. Category -->        <cds-select formControlName="category" [label]="t(\'admin.challenges.fields.category\')" [invalid]="isInvalid(\'category\')" [invalidText]="getErrorMessage(\'category\')">          <option value="" disabled selected>{{ t(\'admin.challenges.fields.chooseCategory\') }}</option>          @for (cat of categories(); track cat) {            <option [value]="cat">{{ cat }}</option>          }          <option value="__new__">{{ t(\'admin.challenges.fields.newCategoryOption\') }}</option>        </cds-select>        @if (isNewCategory()) {          <cds-text-label [invalid]="isInvalid(\'newCategory\')" [invalidText]="getErrorMessage(\'newCategory\')">            <span class="cds--type-body-01">{{ t(\'admin.challenges.fields.newCategory\') }}</span>            <input type="text" cdsText formControlName="newCategory" size="md" [invalid]="isInvalid(\'newCategory\')">          </cds-text-label>        }        <!-- 3. Description -->        <cds-text-label [invalid]="isInvalid(\'description\')" [invalidText]="getErrorMessage(\'description\')">          <span class="cds--type-body-01">{{ t(\'admin.challenges.fields.description\') }}</span>          <input type="text" cdsText formControlName="description" size="md" [invalid]="isInvalid(\'description\')">        </cds-text-label>        <!-- 4. Type -->        <div class="flex flex-col gap-2">          <span class="cds--type-body-01">{{ t(\'admin.challenges.fields.type\') }}</span>          <cds-content-switcher [selectedIndex]="typeIndex" (selected)="onTypeSwitch($event)">            <button cdsContentOption name="static">{{ t(\'admin.challenges.type.static\') }}</button>            <button cdsContentOption name="dynamic">{{ t(\'admin.challenges.type.dynamic\') }}</button>          </cds-content-switcher>        </div>        @if (isDynamicType()) {          <cds-text-label [invalid]="isInvalid(\'image\')" [invalidText]="getErrorMessage(\'image\')">            <span class="cds--type-body-01">{{ t(\'admin.challenges.fields.image\') }}</span>            <input type="text" cdsText formControlName="image" size="md" [invalid]="isInvalid(\'image\')">          </cds-text-label>        } @else {          <cds-text-label [invalid]="isInvalid(\'flag\')" [invalidText]="getErrorMessage(\'flag\')">            <span class="cds--type-body-01">{{ t(\'admin.challenges.fields.flag\') }}</span>            <input type="text" cdsText formControlName="flag" size="md" [invalid]="isInvalid(\'flag\')">          </cds-text-label>        }        <!-- 6. Points (range slider) -->        <cds-slider          formControlName="points"          [min]="0"          [max]="1000"          [step]="10"          [label]="t(\'admin.challenges.fields.points\')">          <span minLabel>0</span>          <span maxLabel>1000</span>          <input/>          <input/>        </cds-slider>        @if (!isDynamicType()) {          <div class="flex flex-col gap-2">            <span class="cds--type-body-01">{{ t(\'admin.challenges.fields.flagType\') }}</span>            <cds-content-switcher [selectedIndex]="flagTypeIndex" (selected)="onFlagTypeSwitch($event)">              <button cdsContentOption name="static">{{ t(\'admin.challenges.flagType.static\') }}</button>              <button cdsContentOption name="regex">{{ t(\'admin.challenges.flagType.regex\') }}</button>            </cds-content-switcher>          </div>        }        <!-- 8. Scoring mode -->        <div class="flex flex-col gap-2">          <span class="cds--type-body-01">{{ t(\'admin.challenges.fields.scoringMode\') }}</span>          <cds-content-switcher [selectedIndex]="scoringModeIndex" (selected)="onScoringModeSwitch($event)">            <button cdsContentOption name="dynamic">{{ t(\'admin.challenges.scoringMode.dynamic\') }}</button>            <button cdsContentOption name="static">{{ t(\'admin.challenges.scoringMode.static\') }}</button>          </cds-content-switcher>        </div>        <cds-checkbox formControlName="is_hidden">          {{ t(\'admin.challenges.fields.isHidden\') }}        </cds-checkbox>        <cds-checkbox formControlName="public">          {{ t(\'admin.challenges.fields.public\') }}        </cds-checkbox>        <cds-checkbox formControlName="healthcheck_enabled">          {{ t(\'admin.challenges.fields.healthcheck\') }}        </cds-checkbox>      </form>    </section>    <cds-modal-footer>      <button class="cds--btn cds--btn--secondary" (click)="openCreateModal.set(false)">        {{ t(\'admin.challenges.cancel\') }}      </button>      @if (isEditMode()) {        <button class="cds--btn cds--btn--danger" (click)="askDeleteFromEdit()">          {{ t(\'admin.challenges.actions.delete\') }}        </button>      }      <button class="cds--btn cds--btn--primary" [disabled]="createForm.invalid" (click)="submit()">        {{ isEditMode() ? t(\'admin.challenges.confirmEdit\') : t(\'admin.challenges.confirmCreate\') }}      </button>    </cds-modal-footer>  </cds-modal></ng-container></div>'
+    var COMPONENTS = [{'name': 'AdminAudit', 'selector': 'app-admin-audit'},{'name': 'AdminChallenges', 'selector': 'app-admin-challenges'},{'name': 'AdminContestPage', 'selector': 'app-admin-contest'},{'name': 'AdminInstances', 'selector': 'app-admin-instances'},{'name': 'AdminLayout', 'selector': 'app-admin-layout'},{'name': 'AdminOverview', 'selector': 'app-admin-overview'},{'name': 'AdminSolves', 'selector': 'app-admin-solves'},{'name': 'AdminTeams', 'selector': 'app-admin-teams'},{'name': 'AdminUsers', 'selector': 'app-admin-users'},{'name': 'App', 'selector': 'app-root'},{'name': 'ChallengeInstancePanel', 'selector': 'app-challenge-instance-panel'},{'name': 'ChallengeModal', 'selector': 'app-challenge-modal'},{'name': 'ChallengePreview', 'selector': 'app-challenge-preview'},{'name': 'Challenges', 'selector': 'app-challenges'},{'name': 'EditMeModal', 'selector': 'app-edit-me-modal'},{'name': 'EditTeamModal', 'selector': 'app-edit-team-modal'},{'name': 'Footer', 'selector': 'app-footer'},{'name': 'Header', 'selector': 'app-header'},{'name': 'Layout', 'selector': 'app-layout'},{'name': 'Login', 'selector': 'app-login'},{'name': 'MainPage', 'selector': 'app-main-page'},{'name': 'Me', 'selector': 'app-me'},{'name': 'NewTeamPage', 'selector': 'app-new-team-page'},{'name': 'RatingPage', 'selector': 'app-rating-page'},{'name': 'Register', 'selector': 'app-register'},{'name': 'ScoreboardChart', 'selector': 'app-scoreboard'},{'name': 'TeamPage', 'selector': 'app-team-page'},{'name': 'TeamsListPage', 'selector': 'app-teams-list-page'},{'name': 'UserPage', 'selector': 'app-user-page'},{'name': 'UsersListPage', 'selector': 'app-users-list-page'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'AdminChallenges'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'AdminChallenges.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

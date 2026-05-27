@@ -1,0 +1,772 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>ctfast documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">ctfast documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interface">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Interfaces</li>
+  <li class="breadcrumb-item"
+  >
+  UserSeed</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/pages/user-page/user-page.ts</code>
+        </p>
+
+
+
+
+        <section data-compodoc="block-index">
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Properties</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                        <a href="#currentTeam" 
+>
+                                            currentTeam
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#me" 
+>
+                                            me
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#team" 
+>
+                                            team
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#user" 
+>
+                                            user
+                                        </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+            <section data-compodoc="block-properties">
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="currentTeam"></a>
+                                        <span class="name "><b>currentTeam</b>
+                                            <a href="#currentTeam">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>currentTeam:         <code><a href="../interfaces/TeamInterface.html" target="_self" >TeamInterface | null</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../interfaces/TeamInterface.html" target="_self" >TeamInterface | null</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="me"></a>
+                                        <span class="name "><b>me</b>
+                                            <a href="#me">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>me:         <code><a href="../interfaces/UserInterface.html" target="_self" >UserInterface | null</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../interfaces/UserInterface.html" target="_self" >UserInterface | null</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="team"></a>
+                                        <span class="name "><b>team</b>
+                                            <a href="#team">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>team:         <code><a href="../interfaces/TeamInterface.html" target="_self" >TeamInterface | null</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../interfaces/TeamInterface.html" target="_self" >TeamInterface | null</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="user"></a>
+                                        <span class="name "><b>user</b>
+                                            <a href="#user">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>user:         <code><a href="../interfaces/UserInterface.html" target="_self" >UserInterface | null</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../interfaces/UserInterface.html" target="_self" >UserInterface | null</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  AfterViewInit,
+  Component,
+  inject,
+  Input,
+  OnChanges,
+  signal,
+  SimpleChanges,
+  TemplateRef,
+  ViewChild
+} from &#x27;@angular/core&#x27;;
+import {DatePipe, Location} from &#x27;@angular/common&#x27;;
+import {RouterLink} from &#x27;@angular/router&#x27;;
+import {TranslocoDirective, TranslocoService} from &#x27;@ngneat/transloco&#x27;;
+import {
+  ButtonModule,
+  TagModule,
+  TableModel,
+  TableModule
+} from &#x27;carbon-components-angular&#x27;;
+import {catchError, finalize, forkJoin, map, Observable, of, switchMap} from &#x27;rxjs&#x27;;
+import {TeamInterface, TeamSolveInterface} from &#x27;../../entities/team.interface&#x27;;
+import {UserInterface} from &#x27;../../entities/user.interface&#x27;;
+import {UsersApi} from &#x27;../../utils/api/users&#x27;;
+import {TeamApi} from &#x27;../../utils/team/team-api&#x27;;
+import {MeApi} from &#x27;../../utils/auth/me-api&#x27;;
+import {EditMeModal} from &#x27;../../widgets/edit-me-modal/edit-me-modal&#x27;;
+import {MeInterface} from &#x27;../../entities/auth/me.interface&#x27;;
+import {
+  createMembersModel,
+  createSolvesModel,
+  getUserBadges,
+  MemberBadge,
+  MemberTableItem
+} from &#x27;../../utils/team/team-table-models&#x27;;
+
+interface UserSeed {
+  user: UserInterface | null;
+  team: TeamInterface | null;
+  currentTeam: TeamInterface | null;
+  me: UserInterface | null;
+}
+
+interface UserTeam {
+  team: TeamInterface | null;
+  members: UserInterface[];
+}
+
+interface UserPageData {
+  user: UserInterface | null;
+  team: TeamInterface | null;
+  members: UserInterface[];
+  solves: TeamSolveInterface[];
+  me: UserInterface | null;
+}
+
+@Component({
+  selector: &#x27;app-user-page&#x27;,
+  imports: [
+    ButtonModule,
+    RouterLink,
+    TranslocoDirective,
+    TagModule,
+    TableModule,
+    EditMeModal
+  ],
+  templateUrl: &#x27;./user-page.html&#x27;,
+  styleUrl: &#x27;../team-page/team-page.scss&#x27;,
+  providers: [DatePipe],
+})
+export class UserPage implements AfterViewInit, OnChanges {
+  @Input() user_id?: string;
+  @ViewChild(&#x27;memberCellTemplate&#x27;)
+  protected memberCellTemplate!: TemplateRef&lt;{ data: MemberTableItem }&gt;;
+
+  private readonly usersApi &#x3D; inject(UsersApi);
+  private readonly teamApi &#x3D; inject(TeamApi);
+  private readonly meApi &#x3D; inject(MeApi);
+  private readonly datePipe &#x3D; inject(DatePipe);
+  private readonly location &#x3D; inject(Location);
+  private readonly transloco &#x3D; inject(TranslocoService);
+
+  readonly user &#x3D; signal&lt;UserInterface | null&gt;(null);
+  readonly team &#x3D; signal&lt;TeamInterface | null&gt;(null);
+  readonly membersList &#x3D; signal&lt;UserInterface[] | null&gt;(null);
+  readonly solvesList &#x3D; signal&lt;TeamSolveInterface[] | null&gt;(null);
+  readonly myUser &#x3D; signal&lt;UserInterface | null&gt;(null);
+  readonly loading &#x3D; signal&lt;boolean&gt;(true);
+  readonly isMyUser &#x3D; signal&lt;boolean&gt;(false);
+  readonly editMeModalOpen &#x3D; signal&lt;boolean&gt;(false);
+
+  members &#x3D; new TableModel();
+  solves &#x3D; new TableModel();
+
+  ngAfterViewInit(): void {
+    this.loadPage();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes[&#x27;user_id&#x27;] &amp;&amp; !changes[&#x27;user_id&#x27;].firstChange) {
+      this.loadPage();
+    }
+  }
+
+  private loadPage() {
+    const userId &#x3D; this.user_id ?? null;
+
+    this.resetPageState();
+    this.fetchUserPageData(userId)
+      .pipe(
+        catchError(() &#x3D;&gt; {
+          this.location.back();
+          return of&lt;UserPageData | null&gt;(null);
+        }),
+        finalize(() &#x3D;&gt; this.loading.set(false))
+      )
+      .subscribe((res) &#x3D;&gt; this.applyPageData(res));
+  }
+
+  private resetPageState(): void {
+    this.loading.set(true);
+    this.user.set(null);
+    this.team.set(null);
+    this.membersList.set(null);
+    this.solvesList.set(null);
+    this.myUser.set(null);
+    this.isMyUser.set(false);
+    this.editMeModalOpen.set(false);
+    this.members &#x3D; this.buildMembersModel([]);
+    this.solves &#x3D; this.buildSolvesModel([]);
+  }
+
+  private fetchUserPageData(userId: string | null): Observable&lt;UserPageData&gt; {
+    return this.getUserSeed(userId).pipe(
+      switchMap((seed) &#x3D;&gt; this.resolveUserSeed(seed))
+    );
+  }
+
+  private resolveUserSeed(seed: UserSeed): Observable&lt;UserPageData&gt; {
+    if (!seed.user) {
+      return of({
+        user: null,
+        team: null,
+        members: [],
+        solves: [],
+        me: seed.me,
+      });
+    }
+
+    const selectedUser &#x3D; seed.user;
+
+    return this.getUserTeam(selectedUser, seed.team, seed.currentTeam).pipe(
+      switchMap((userTeam) &#x3D;&gt; this.resolveUserTeamPageData(selectedUser, userTeam, seed.me))
+    );
+  }
+
+  private resolveUserTeamPageData(
+    selectedUser: UserInterface,
+    userTeam: UserTeam,
+    me: UserInterface | null
+  ): Observable&lt;UserPageData&gt; {
+    const user &#x3D; this.mergeUserFromMembers(selectedUser, userTeam.members);
+
+    if (!userTeam.team) {
+      return of({
+        user,
+        team: null,
+        members: [],
+        solves: [],
+        me,
+      });
+    }
+
+    return this.teamApi.getTeamSolves(userTeam.team.id).pipe(
+      catchError(() &#x3D;&gt; of(null)),
+      map((solvesResponse) &#x3D;&gt; ({
+        user,
+        team: userTeam.team,
+        members: userTeam.members,
+        solves: this.getUserSolves(user, solvesResponse?.solves ?? []),
+        me,
+      }))
+    );
+  }
+
+  private applyPageData(res: UserPageData | null): void {
+    if (!res?.user) {
+      this.location.back();
+      return;
+    }
+
+    this.user.set(res.user);
+    this.team.set(res.team);
+    this.membersList.set(res.members);
+    this.solvesList.set(res.solves);
+    this.myUser.set(res.me);
+    this.isMyUser.set(res.user.id &#x3D;&#x3D;&#x3D; res.me?.id);
+    this.rebuildTableModels();
+  }
+
+  openEditMeModal() {
+    if (!this.isMyUser()) {
+      return;
+    }
+
+    this.editMeModalOpen.set(true);
+  }
+
+  closeEditMeModal() {
+    this.editMeModalOpen.set(false);
+  }
+
+  onMeUpdated(me: MeInterface) {
+    this.user.set(me.user);
+    this.myUser.set(me.user);
+    this.team.set(me.team);
+    this.loadPage();
+  }
+
+  private getUserSeed(userId: string | null): Observable&lt;UserSeed&gt; {
+    if (!userId) {
+      return this.meApi.me().pipe(
+        map((res) &#x3D;&gt; ({
+          user: res.user ?? null,
+          team: res.team ?? null,
+          currentTeam: res.team ?? null,
+          me: res.user ?? null,
+        }))
+      );
+    }
+
+    return forkJoin({
+      user: this.usersApi.getUser(userId).pipe(catchError(() &#x3D;&gt; of(null))),
+      me: this.meApi.me().pipe(catchError(() &#x3D;&gt; of(null))),
+    }).pipe(
+      switchMap(({user: userResponse, me}) &#x3D;&gt; {
+        const user &#x3D; userResponse?.user ?? null;
+        const currentUser &#x3D; me?.user ?? null;
+        const currentTeam &#x3D; me?.team ?? null;
+        const seed &#x3D; {
+          user,
+          team: this.getTeamFromUser(user, currentUser, currentTeam),
+          currentTeam,
+          me: currentUser,
+        };
+
+        if (seed.team || !user?.team_id) {
+          return of(seed);
+        }
+
+        return this.teamApi.getTeam(user.team_id).pipe(
+          catchError(() &#x3D;&gt; of(null)),
+          map((teamResponse) &#x3D;&gt; ({
+            ...seed,
+            team: teamResponse?.team ?? null,
+          }))
+        );
+      })
+    );
+  }
+
+  private getUserTeam(
+    user: UserInterface,
+    team: TeamInterface | null,
+    currentTeam: TeamInterface | null
+  ): Observable&lt;UserTeam&gt; {
+    if (team) {
+      return this.teamApi.getTeamMembers(currentTeam?.id &#x3D;&#x3D;&#x3D; team.id ? null : team.id).pipe(
+        catchError(() &#x3D;&gt; of(null)),
+        map((membersResponse) &#x3D;&gt; ({
+          team,
+          members: membersResponse?.members ?? [],
+        }))
+      );
+    }
+
+    if (!currentTeam) {
+      return of&lt;UserTeam&gt;({
+        team: null,
+        members: [],
+      });
+    }
+
+    return this.teamApi.getTeamMembers().pipe(
+      catchError(() &#x3D;&gt; of(null)),
+      map((membersResponse) &#x3D;&gt; {
+        const members &#x3D; membersResponse?.members ?? [];
+
+        return members.some((member) &#x3D;&gt; member.id &#x3D;&#x3D;&#x3D; user.id)
+          ? {
+            team: currentTeam,
+            members,
+          }
+          : {
+            team: null,
+            members: [],
+          };
+      })
+    );
+  }
+
+  private getTeamFromUser(
+    user: UserInterface | null,
+    currentUser: UserInterface | null,
+    currentTeam: TeamInterface | null
+  ) {
+    if (!user) {
+      return null;
+    }
+
+    if (user.team) {
+      return user.team;
+    }
+
+    if (currentUser?.id &#x3D;&#x3D;&#x3D; user.id) {
+      return currentTeam;
+    }
+
+    return null;
+  }
+
+  private mergeUserFromMembers(user: UserInterface, members: UserInterface[]) {
+    const member &#x3D; members.find((item) &#x3D;&gt; item.id &#x3D;&#x3D;&#x3D; user.id);
+
+    return member
+      ? {
+        ...user,
+        ...member,
+      }
+      : user;
+  }
+
+  private getUserSolves(user: UserInterface, solves: TeamSolveInterface[]) {
+    return solves.filter((solve) &#x3D;&gt; solve.user_id &#x3D;&#x3D;&#x3D; user.id || solve.username &#x3D;&#x3D;&#x3D; user.username);
+  }
+
+  private rebuildTableModels() {
+    this.members &#x3D; this.buildMembersModel(this.membersList() ?? []);
+    this.solves &#x3D; this.buildSolvesModel(this.solvesList() ?? []);
+  }
+
+  private buildSolvesModel(solves: TeamSolveInterface[]) {
+    return createSolvesModel(solves, this.transloco, this.datePipe);
+  }
+
+  private buildMembersModel(members: UserInterface[]) {
+    return createMembersModel(
+      members,
+      this.transloco,
+      this.memberCellTemplate,
+      (member) &#x3D;&gt; this.getUserBadges(member)
+    );
+  }
+
+  getUserBadges(user: UserInterface): MemberBadge[] {
+    return getUserBadges(user, this.transloco);
+  }
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'UserSeed.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
