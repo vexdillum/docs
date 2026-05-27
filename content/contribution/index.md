@@ -110,10 +110,19 @@ npm run build
 ## Проверки backend
 
 ```bash
-gofmt -w .
+gofmt -w main.go router.go router_gen.go biz cmd internal
 go vet ./...
 golangci-lint run ./... --timeout 5m
 go test ./...
+go run ./cmd/docs
+git diff --check
+```
+
+Форк `kCTF` проверяется отдельно из своего Go-модуля:
+
+```bash
+cd kctf/kctf-operator
+golangci-lint run ./... --timeout 5m
 ```
 
 ## Секреты
