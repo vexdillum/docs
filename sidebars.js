@@ -7,9 +7,9 @@ const sidebars = {
       collapsed: false,
       items: [
         'guide/index',
-        'guide/frontend',
         'guide/backend',
-        'guide/docs'
+        'guide/frontend',
+        'guide/tg-bot'
       ]
     },
     'contribution/index',
@@ -19,12 +19,13 @@ const sidebars = {
       collapsed: false,
       items: [
         'architecture/index',
+        'architecture/backend-reference',
         'architecture/frontend',
         'architecture/frontend/components',
         'architecture/frontend/services',
         'architecture/frontend/interfaces',
         'architecture/frontend/routes',
-        'architecture/backend-reference'
+        'architecture/tg-bot'
       ]
     },
     {
