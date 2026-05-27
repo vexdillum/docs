@@ -7,8 +7,8 @@ const darkCodeTheme = require('prism-react-renderer').themes.dracula;
 const config = {
   title: 'Lost Last Docs',
   tagline: 'Единая документация frontend и backend',
-  url: 'https://lost-last.local',
-  baseUrl: '/',
+  url: 'https://vexdillum.github.io',
+  baseUrl: '/docs/',
   onBrokenLinks: 'throw',
   favicon: 'img/favicon.ico',
   markdown: {
@@ -29,7 +29,7 @@ const config = {
       ({
         docs: {
           path: 'generated-docs',
-          routeBasePath: '/docs',
+          routeBasePath: '/',
           sidebarPath: require.resolve('./sidebars.js')
         },
         blog: false,
@@ -46,10 +46,10 @@ const config = {
       navbar: {
         title: 'Lost Last Docs',
         items: [
-          {to: '/docs/intro', label: 'Документация', position: 'left'},
-          {to: '/docs/frontend/', label: 'Frontend', position: 'left'},
-          {to: '/docs/backend/', label: 'Backend', position: 'left'},
-          {to: '/docs/api/swagger', label: 'Swagger', position: 'left'}
+          {to: '/intro', label: 'Документация', position: 'left'},
+          {to: '/frontend/', label: 'Frontend', position: 'left'},
+          {to: '/backend/', label: 'Backend', position: 'left'},
+          {to: '/api/swagger', label: 'Swagger', position: 'left'}
         ]
       },
       footer: {
@@ -58,9 +58,9 @@ const config = {
           {
             title: 'Разделы',
             items: [
-              {label: 'Frontend', to: '/docs/frontend/'},
-              {label: 'Backend', to: '/docs/backend/'},
-              {label: 'Swagger', to: '/docs/api/swagger'}
+              {label: 'Frontend', to: '/frontend/'},
+              {label: 'Backend', to: '/backend/'},
+              {label: 'Swagger', to: '/api/swagger'}
             ]
           }
         ],

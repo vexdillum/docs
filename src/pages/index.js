@@ -14,7 +14,7 @@ export default function Home() {
             Единый статический портал для README, contribution guides, автодокументации и Swagger.
           </p>
           <div>
-            <Link className="button button--primary button--lg" to="/docs/intro">
+            <Link className="button button--primary button--lg" to="/intro">
               Открыть документацию
             </Link>
           </div>
@@ -22,15 +22,15 @@ export default function Home() {
       </header>
       <main className="container">
         <section className="homepageGrid">
-          <Link className="homepageTile" to="/docs/frontend/">
+          <Link className="homepageTile" to="/frontend/">
             <h2>Frontend</h2>
             <p>README, contribution guide и Compodoc для Angular-приложения.</p>
           </Link>
-          <Link className="homepageTile" to="/docs/backend/">
+          <Link className="homepageTile" to="/backend/">
             <h2>Backend</h2>
             <p>README, правила участия и автоматически собранный индекс Go-пакетов.</p>
           </Link>
-          <Link className="homepageTile" to="/docs/api/swagger">
+          <Link className="homepageTile" to="/api/swagger">
             <h2>Swagger</h2>
             <p>OpenAPI JSON и интерактивный Swagger UI из backend-генератора.</p>
           </Link>

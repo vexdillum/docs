@@ -43,12 +43,16 @@ npm run build
 docs/
 ```
 
-Для GitHub Pages в режиме `Deploy from a branch` в репозитории `docs-site` выберите:
+Для GitHub Pages в режиме `Deploy from a branch` выберите корень репозитория:
 
 ```text
 Branch: main
-Folder: /docs
+Folder: / (root)
 ```
+
+Готовый сайт лежит в `docs/` и открывается по адресу `/docs/`.
+Если выбрать `Folder: /docs`, GitHub Pages сделает эту папку корнем сайта, и
+тогда `baseUrl` должен быть `/`, а не `/docs/`.
 
 Внутренние Docusaurus-исходники генерируются в `generated-docs/`, чтобы папка
 `docs/` была занята только готовым статическим сайтом для GitHub Pages.
