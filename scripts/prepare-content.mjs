@@ -9,7 +9,7 @@ const workspaceRoot = path.resolve(docsSiteRoot, '..');
 const frontendRoot = path.join(workspaceRoot, 'lost-last-frontend');
 const backendRoot = path.join(workspaceRoot, 'lost-last');
 const contentRoot = path.join(docsSiteRoot, 'content');
-const docsOut = path.join(docsSiteRoot, 'docs');
+const docsOut = path.join(docsSiteRoot, 'generated-docs');
 const staticGeneratedOut = path.join(docsSiteRoot, 'static', 'generated');
 const backendModulePath = 'gitlab.informatics.ru/2025-2026/ydex/s102d/lost-last';
 

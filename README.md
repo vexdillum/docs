@@ -40,5 +40,15 @@ npm run build
 Статический сайт будет собран в:
 
 ```text
-docs-site/build/
+docs/
 ```
+
+Для GitHub Pages в режиме `Deploy from a branch` в репозитории `docs-site` выберите:
+
+```text
+Branch: main
+Folder: /docs
+```
+
+Внутренние Docusaurus-исходники генерируются в `generated-docs/`, чтобы папка
+`docs/` была занята только готовым статическим сайтом для GitHub Pages.

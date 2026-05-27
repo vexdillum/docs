@@ -6,7 +6,7 @@
     "generate:sources": "node scripts/generate-sources.mjs",
     "prepare:content": "node scripts/prepare-content.mjs",
     "start": "npm run prepare:content && docusaurus start --host 0.0.0.0",
-    "build": "npm run prepare:content && docusaurus build",
+    "build": "npm run prepare:content && docusaurus build --out-dir docs",
     "serve": "docusaurus serve --host 0.0.0.0",
     "clear": "docusaurus clear"
   },

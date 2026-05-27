@@ -30,5 +30,5 @@ npm run build
 Результат сборки:
 
 ```text
-docs-site/build/
+docs/
 ```

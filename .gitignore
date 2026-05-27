@@ -1,5 +1,6 @@
 node_modules/
 .npm/
 .docusaurus/
-docs/
+build/
+generated-docs/
 static/generated/
