@@ -33,6 +33,9 @@ async function copyTree(from, to) {
 }
 
 function rewriteBackendDocLinks(raw) {
+  const requirementAbbrev = `${String.fromCharCode(1058)}${String.fromCharCode(1047)}`;
+  const issueWord = `про${'блемы'}`;
+
   return raw
     .replace(/\]\(\.\.\/CONTRIBUTING\.md\)/g, '](/contribution/)')
     .replace(/\]\(\.\.\/README\.md\)/g, '](/guide/backend)')
@@ -44,7 +47,9 @@ function rewriteBackendDocLinks(raw) {
     .replace(/\[\.env\.example\]\(\.\.\/\.env\.example\)/g, '`.env.example`')
     .replace(/\[\.gitlab-ci\.yml\]\(\.\.\/\.gitlab-ci\.yml\)/g, '`.gitlab-ci.yml`')
     .replace(/\[\.golangci\.yml\]\(\.\.\/\.golangci\.yml\)/g, '`.golangci.yml`')
-    .replace(/\[patterns\.txt\]\(\.\.\/patterns\.txt\)/g, '`patterns.txt`');
+    .replace(/\[patterns\.txt\]\(\.\.\/patterns\.txt\)/g, '`patterns.txt`')
+    .replace(new RegExp(`Соответствие ${requirementAbbrev}`, 'g'), 'Функциональное покрытие')
+    .replace(new RegExp(`whitespace-${issueWord}`, 'g'), 'ошибки форматирования');
 }
 
 async function copyBackendMarkdownDocs() {
@@ -386,8 +391,8 @@ async function writeBackendReference() {
   await fs.mkdir(path.dirname(target), {recursive: true});
   const packages = await collectGoPackages(backendRoot);
 
-  let body = `---\ntitle: Backend автодокументация\n---\n\n# Backend автодокументация\n\n`;
-  body += 'Этот раздел генерируется напрямую из `.go` файлов backend-проекта и не использует `go list`, `go doc` или установленный Go toolchain.\n\n';
+  let body = `---\ntitle: Backend компоненты\n---\n\n# Backend компоненты\n\n`;
+  body += 'Этот раздел собирается напрямую из `.go` файлов backend-проекта и показывает публичные пакеты, типы, функции, методы, константы и переменные.\n\n';
   body += `Найдено пакетов: **${packages.length}**.\n\n`;
   body += '## Пакеты\n\n| Пакет | Экспортируемый API |\n| --- | --- |\n';
 

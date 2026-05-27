@@ -11,7 +11,7 @@ export default function Home() {
         <div className="container">
           <h1 className="hero__title">Lost Last Docs</h1>
           <p className="hero__subtitle">
-            Руководство по запуску, сборке, участию в разработке, архитектуре и API.
+            Единое руководство по запуску, разработке, архитектуре и API проекта Lost Last.
           </p>
           <div>
             <Link className="button button--primary button--lg" to="/guide/">
@@ -24,7 +24,7 @@ export default function Home() {
         <section className="homepageGrid">
           <Link className="homepageTile" to="/guide/">
             <h2>Руководство</h2>
-            <p>Как поднять бэкенд, фронтенд и TG bot, а также проверить и собрать проект.</p>
+            <p>Рабочий порядок запуска backend, frontend и TG bot, проверки и сборки проекта.</p>
           </Link>
           <Link className="homepageTile" to="/contribution/">
             <h2>Contribution</h2>
@@ -32,7 +32,7 @@ export default function Home() {
           </Link>
           <Link className="homepageTile" to="/architecture/backend">
             <h2>Архитектура</h2>
-            <p>Три архитектурные страницы: Backend, Frontend и TG bot.</p>
+            <p>Устройство backend, frontend и TG bot, а также справочники по компонентам.</p>
           </Link>
           <Link className="homepageTile" to="/api/swagger">
             <h2>API</h2>

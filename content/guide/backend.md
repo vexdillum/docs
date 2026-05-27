@@ -4,9 +4,9 @@ title: Бэкенд
 
 # Работа с бэкендом
 
-Бэкенд находится в папке `lost-last/`. Это Go-платформа для Jeopardy CTF:
-пользовательский API, административный контур, flagchecker, очередь событий,
-кэширование и интеграция с динамическими заданиями.
+Backend находится в папке `lost-last/`. Он обслуживает CTF-платформу Lost Last:
+пользовательский API, административные сценарии, проверку флагов, пересчет
+рейтинга, кэширование, очередь событий и мониторинг.
 
 ## Требования
 
@@ -16,7 +16,7 @@ title: Бэкенд
 
 ## Быстрый запуск
 
-Создайте локальный `.env` из примера и поднимите сервисы.
+Создайте локальный `.env` из примера и запустите сервисы.
 
 macOS/Linux:
 
@@ -32,8 +32,8 @@ Copy-Item .env.example .env
 docker compose up -d --build
 ```
 
-По умолчанию PostgreSQL, Redis, RabbitMQ и flagchecker доступны внутри Docker-сети.
-Наружу публикуются пользовательские HTTP-точки и мониторинг на localhost.
+PostgreSQL, Redis, RabbitMQ и flagchecker работают внутри Docker-сети.
+С хоста доступны HTTP API и сервисы мониторинга.
 
 ## Сервисы compose
 
@@ -82,7 +82,7 @@ Invoke-WebRequest -UseBasicParsing http://127.0.0.1:8080/ping
 
 ## Swagger
 
-Сгенерированная документация API лежит в `docs/swagger.html`.
+Swagger для backend API лежит в `docs/swagger.html`.
 
 Открыть локально:
 
@@ -101,7 +101,7 @@ go run ./cmd/docs
 - `docs/openapi.json`;
 - `docs/swagger.html`.
 
-Эти файлы встраиваются в общий сайт документации в разделе [API](../api/swagger).
+Эти файлы публикуются в разделе [API](../api/swagger).
 
 ## Логи и диагностика
 
@@ -155,7 +155,7 @@ rabbitmq_queue_messages{queue="scoring.events"}
 
 ## Проверки качества
 
-Перед merge request желательно выполнить:
+Перед merge request выполните:
 
 ```bash
 gofmt -w main.go router.go router_gen.go biz cmd internal

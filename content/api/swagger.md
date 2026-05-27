@@ -4,7 +4,7 @@ title: Swagger
 
 # API
 
-Раздел содержит Swagger UI и OpenAPI JSON для backend API.
+Раздел содержит Swagger UI и OpenAPI JSON для backend API Lost Last.
 
 Backend генерирует эти файлы командой:
 
@@ -12,7 +12,7 @@ Backend генерирует эти файлы командой:
 go run ./cmd/docs
 ```
 
-Файлы встраиваются в общий портал как статические артефакты:
+Файлы публикуются в портале как статические артефакты:
 
 - `generated/swagger/openapi.json`
 - `generated/swagger/swagger.html`

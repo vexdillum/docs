@@ -5,8 +5,8 @@ title: Contribution
 # Contribution
 
 Раздел описывает правила участия в разработке Lost Last. Проект использует
-GitLab Flow: рабочие ветки создаются от `dev`, изменения попадают в `dev` через
-merge request, стабильная версия переносится в `main`.
+GitLab Flow: рабочие ветки создаются от `dev`, изменения попадают в `dev`
+через merge request, стабильная версия переносится в `main`.
 
 ## Ветки
 
@@ -88,7 +88,7 @@ admin: add user ban endpoint
 ## Merge Request
 
 Merge request сначала вливается в `dev`. После интеграционного тестирования
-`dev` вливается в `main` для релиза.
+ветка `dev` переносится в `main` для релиза.
 
 Перед review проверьте:
 
